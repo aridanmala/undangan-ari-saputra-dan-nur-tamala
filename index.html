@@ -205,9 +205,7 @@ function playMusic(){
 
   music.volume = 1;
 
-  music.play().catch(function(error){
-    console.log("Musik gagal diputar:", error);
-  });
+  music.play();
 
   document.getElementById("welcome").scrollIntoView({
     behavior: "smooth"

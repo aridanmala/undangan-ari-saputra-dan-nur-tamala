@@ -86,6 +86,7 @@ body{font-size:40px}
 <div>
 <div class="eyebrow">Pernikahan</div>
 <div class="names">Ari Saputra <span class="amp">&</span> Nur Tamala</div>
+<div class="guest">Kepada Yth.<br><strong id="guestName">Tamu Undangan</strong></div>
 <div class="date">12 • 12 • 2026</div>
 <a class="btn" href="#welcome" onclick="playMusic()">
     Klik Buka Undangan
@@ -214,6 +215,12 @@ function playMusic(){
   });
 }
 
+const params = new URLSearchParams(window.location.search);
+const guestName = params.get("to");
+
+if (guestName) {
+    document.getElementById("guestName").textContent = guestName;
+}
   function shareInvitation(){
   const shareData = {
     title: "Undangan Pernikahan Ari Saputra & Nur Tamala",

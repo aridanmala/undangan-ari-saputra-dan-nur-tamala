@@ -103,6 +103,28 @@ const target = new Date("2026-12-12T08:00:00").getTime();
 setInterval(()=>{let x=Math.max(0,target-Date.now());d.textContent=Math.floor(x/86400000);h.textContent=Math.floor(x%86400000/3600000);m.textContent=Math.floor(x%3600000/60000);s.textContent=Math.floor(x%60000/1000)},1000);
 function openGift(){gift.style.display="flex"} function closeGift(){gift.style.display="none"} gift.onclick=e=>{if(e.target===gift)closeGift()};
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.15});document.querySelectorAll(".fade").forEach(e=>obs.observe(e));
+
+function salinRekening(){
+  const input = document.getElementById("nomorRekening");
+  const status = document.getElementById("copyStatus");
+
+  input.focus();
+  input.select();
+
+  try {
+    const berhasil = document.execCommand("copy");
+
+    if (berhasil) {
+      status.textContent = "✓ Nomor rekening berhasil disalin";
+    } else {
+      status.textContent = "Nomor sudah dipilih — tekan Ctrl+C";
+    }
+  } catch (e) {
+    status.textContent = "Nomor sudah dipilih — tekan Ctrl+C";
+  }
+}
+
+document.getElementById("copyButton").addEventListener("click", salinRekening);
 </script>
 </body>
 </html>

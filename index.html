@@ -87,8 +87,8 @@ body{font-size:40px}
 <div class="eyebrow">Pernikahan</div>
 <div class="names">Ari Saputra <span class="amp">&</span> Nur Tamala</div>
 <div class="date">12 • 12 • 2026</div>
-<a class="btn" href="#welcome" onclick="playMusic(event)">
-  Klik Buka Undangan
+<a class="btn" href="#welcome" onclick="playMusic()">
+    Klik Buka Undangan
 </a>
 </div>
 </section>
@@ -200,17 +200,15 @@ function salinRekening(){
  }
 }
 
-function playMusic(event){
-  event.preventDefault();
-
+function playMusic(){
   const music = document.getElementById("bgMusic");
 
   music.volume = 1;
+  music.load();
+  music.play();
 
-  music.play().then(() => {
-    window.location.hash = "welcome";
-  }).catch(error => {
-    console.log("Musik gagal diputar:", error);
+  document.getElementById("welcome").scrollIntoView({
+    behavior: "smooth"
   });
 }
 

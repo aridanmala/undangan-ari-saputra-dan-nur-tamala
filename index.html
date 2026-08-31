@@ -182,23 +182,24 @@ function openGift(){gift.style.display="flex"} function closeGift(){gift.style.d
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.15});document.querySelectorAll(".fade").forEach(e=>obs.observe(e));
 
 function salinRekening(){
-  const input = document.getElementById("nomorRekening");
-  const status = document.getElementById("copyStatus");
+    const input = document.getElementById("nomorRekening");
+    const status = document.getElementById("copyStatus");
+    const button = document.getElementById("copyButton");
 
-  input.focus();
-  input.select();
+    navigator.clipboard.writeText(input.value).then(() => {
+        status.textContent = "✓ Nomor rekening berhasil disalin!";
+        button.innerHTML = "✓ Tersalin";
 
-  try {
-    const berhasil = document.execCommand("copy");
+        setTimeout(() => {
+            status.textContent = "";
+            button.innerHTML = "📋 Salin Nomor Rekening";
+        }, 2000);
 
-    if (berhasil) {
-      status.textContent = "✓ Nomor rekening berhasil disalin";
-    } else {
-      status.textContent = "Nomor sudah dipilih — tekan Ctrl+C";
-    }
-  } catch (e) {
-    status.textContent = "Nomor sudah dipilih — tekan Ctrl+C";
- }
+    }).catch(() => {
+        input.focus();
+        input.select();
+        status.textContent = "Nomor sudah dipilih — tekan Ctrl+C";
+    });
 }
 
 function playMusic(){

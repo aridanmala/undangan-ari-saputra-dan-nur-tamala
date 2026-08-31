@@ -204,8 +204,10 @@ function playMusic(){
   const music = document.getElementById("bgMusic");
 
   music.volume = 1;
-  music.load();
-  music.play();
+
+  music.play().catch(function(error){
+    console.log("Musik gagal diputar:", error);
+  });
 
   document.getElementById("welcome").scrollIntoView({
     behavior: "smooth"

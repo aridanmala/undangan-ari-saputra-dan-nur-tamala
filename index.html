@@ -145,6 +145,7 @@ body{font-size:40px}
 <div class="eyebrow">Konfirmasi Kehadiran</div><h2 class="title">Akankah Anda Hadir?</h2><div class="divider"></div>
 <p class="sub">Mohon konfirmasi kehadiran Anda melalui WhatsApp.</p>
 <a class="btn wa" target="_blank" href="https://wa.me/6282271284817?text=Halo%20Ari,%20saya%20akan%20hadir%20di%20acara%20pernikahan.">Konfirmasi via WhatsApp</a>
+<button class="btn" onclick="shareInvitation()">🔗 Bagikan Undangan</button>
 </div></section>
 
 <footer class="footer"><h2>Ari Saputra & Nur Tamala</h2><p>Terima kasih telah menjadi bagian dari cerita kami.</p></footer>
@@ -212,6 +213,25 @@ function playMusic(){
   });
 }
 
+  function shareInvitation(){
+  const shareData = {
+    title: "Undangan Pernikahan Ari Saputra & Nur Tamala",
+    text: "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.",
+    url: window.location.href
+  };
+
+  if (navigator.share) {
+    navigator.share(shareData).catch(() => {});
+  } else {
+    const message = encodeURIComponent(
+      "💍 Undangan Pernikahan Ari Saputra & Nur Tamala\n\n" +
+      "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.\n\n" +
+      window.location.href
+    );
+
+    window.open("https://wa.me/?text=" + message, "_blank");
+  }
+}
 document.getElementById("copyButton").addEventListener("click", salinRekening);
 </script>
 </body>

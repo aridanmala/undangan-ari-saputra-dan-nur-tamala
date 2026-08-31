@@ -78,13 +78,18 @@ body{font-size:40px}
 </style>
 </head>
 <body>
+  <audio id="bgMusic" loop>
+  <source src="sampai-jadi-debu.mp3" type="audio/mpeg">
+</audio>
 
 <section class="hero">
 <div>
 <div class="eyebrow">Pernikahan</div>
 <div class="names">Ari Saputra <span class="amp">&</span> Nur Tamala</div>
 <div class="date">12 • 12 • 2026</div>
-<a class="btn" href="#welcome">Klik Buka Undangan</a>
+<a class="btn" href="#welcome" onclick="document.getElementById('bgMusic').play()">
+  Klik Buka Undangan
+</a>
 </div>
 </section>
 

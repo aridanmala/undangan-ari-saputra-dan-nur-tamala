@@ -130,8 +130,12 @@ body{font-size:40px}
 <div class="event"><div>02</div><h3>Resepsi</h3><p>11.00 — 15.00 WIB<br>Kediaman......<br>Jl.............</p></div>
 </div>
 <a class="btn" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"">Lihat Lokasi</a>
+<a class="btn" target="_blank" href="https://www.google.com/maps/...">
+  LIHAT LOKASI
+</a>
+
 <button type="button" class="btn" onclick="saveToCalendar()">
-  📅 Simpan ke Kalender
+  📅 SIMPAN KE KALENDER
 </button>
 </div></section>
 
@@ -271,22 +275,33 @@ if (guestName) {
         );
     }
 }
-  function saveToCalendar() {
-  const title = "Pernikahan Ari Saputra & Nurtamala, S.Akun";
-  const details = "Akad Nikah dan Resepsi Pernikahan Ari Saputra & Nurtamala.";
-  const location = "Bengkalis";
+function saveToCalendar() {
+  const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ari Saputra & Nurtamala//Wedding Invitation//ID
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTART:20261212T080000
+DTEND:20261212T150000
+SUMMARY:Pernikahan Ari Saputra & Nurtamala, S.Akun
+DESCRIPTION:Akad Nikah dan Resepsi Pernikahan Ari Saputra & Nurtamala.
+LOCATION:Bengkalis
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
 
-  const start = "20261212T080000";
-  const end = "20261212T150000";
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
 
-  const calendarUrl =
-    "https://www.google.com/calendar/render?action=TEMPLATE" +
-    "&text=" + encodeURIComponent(title) +
-    "&dates=" + start + "/" + end +
-    "&details=" + encodeURIComponent(details) +
-    "&location=" + encodeURIComponent(location);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "Undangan-Pernikahan-Ari-Nurtamala.ics";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 
-  window.open(calendarUrl, "_blank");
+  URL.revokeObjectURL(url);
 }
 document.getElementById("copyButton").addEventListener("click", salinRekening);
 </script>

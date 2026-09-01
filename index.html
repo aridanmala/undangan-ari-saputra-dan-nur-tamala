@@ -234,11 +234,11 @@ if (guestName) {
     document.getElementById("guestName").textContent = guestName;
 }
   function shareInvitation(){
-  const shareData = {
-    title: "Undangan Pernikahan Ari Saputra & Nurtamala, S.Akun",
-    text: "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.",
-    url: window.location.href
-  };
+   const shareData = {
+        title: "Undangan Pernikahan Ari Saputra & Nurtamala, S.Akun",
+        text: "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.",
+        url: window.location.origin + window.location.pathname + "?to=" + encodeURIComponent(guestName || "Tamu Undangan")
+    };
 
   if (navigator.share) {
     navigator.share(shareData).catch(() => {});

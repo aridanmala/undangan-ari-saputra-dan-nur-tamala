@@ -271,6 +271,23 @@ if (guestName) {
         );
     }
 }
+  function saveToCalendar() {
+  const title = "Pernikahan Ari Saputra & Nurtamala, S.Akun";
+  const details = "Akad Nikah dan Resepsi Pernikahan Ari Saputra & Nurtamala.";
+  const location = "Bengkalis";
+
+  const start = "20261212T080000";
+  const end = "20261212T150000";
+
+  const calendarUrl =
+    "https://www.google.com/calendar/render?action=TEMPLATE" +
+    "&text=" + encodeURIComponent(title) +
+    "&dates=" + start + "/" + end +
+    "&details=" + encodeURIComponent(details) +
+    "&location=" + encodeURIComponent(location);
+
+  window.open(calendarUrl, "_blank");
+}
 document.getElementById("copyButton").addEventListener("click", salinRekening);
 </script>
 </body>

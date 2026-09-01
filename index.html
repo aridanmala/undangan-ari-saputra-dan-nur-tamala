@@ -234,23 +234,39 @@ if (guestName) {
     document.getElementById("guestName").textContent = guestName;
 }
   function shareInvitation(){
-   const shareData = {
-        title: "Undangan Pernikahan Ari Saputra & Nurtamala, S.Akun",
+
+    const guest = guestName || "Tamu Undangan";
+
+    const shareUrl =
+        window.location.origin +
+        window.location.pathname +
+        "?to=" +
+        encodeURIComponent(guest);
+
+    const shareData = {
+        title: "Undangan Pernikahan Ari Saputra & Nur Tamala",
         text: "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.",
-        url: window.location.origin + window.location.pathname + "?to=" + encodeURIComponent(guestName || "Tamu Undangan")
+        url: shareUrl
     };
 
-  if (navigator.share) {
-    navigator.share(shareData).catch(() => {});
-  } else {
-    const message = encodeURIComponent(
-      "💍 Undangan Pernikahan Ari Saputra & Nurtamala, S.Akun\n\n" +
-      "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.\n\n" +
-      window.location.href
-    );
+    if (navigator.share) {
 
-    window.open("https://wa.me/?text=" + message, "_blank");
-  }
+        navigator.share(shareData).catch(() => {});
+
+    } else {
+
+        const message = encodeURIComponent(
+            "💍 Undangan Pernikahan Ari Saputra & Nur Tamala\n\n" +
+            "Kepada Yth. " + guest + "\n\n" +
+            "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.\n\n" +
+            shareUrl
+        );
+
+        window.open(
+            "https://wa.me/?text=" + message,
+            "_blank"
+        );
+    }
 }
 document.getElementById("copyButton").addEventListener("click", salinRekening);
 </script>

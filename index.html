@@ -202,6 +202,44 @@ body{
     box-shadow:0 0 25px rgba(255,255,255,.35);
   }
 }
+  #welcome{
+  position:relative;
+}
+
+.scroll-hint{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  cursor:pointer;
+  opacity:.75;
+  animation:scrollHint 2s ease-in-out infinite;
+  width:100%;
+}
+
+.scroll-hint span{
+  display:block;
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:5px;
+}
+
+.arrow-down{
+  font-size:26px;
+  line-height:1;
+}
+
+@keyframes scrollHint{
+  0%,100%{
+    transform:translate(-50%,0);
+    opacity:.45;
+  }
+  50%{
+    transform:translate(-50%,8px);
+    opacity:1;
+  }
+}
 </style>
 </head>
 <body>

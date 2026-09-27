@@ -313,14 +313,25 @@ function saveToCalendar() {
 VERSION:2.0
 PRODID:-//Ari Saputra & Nurtamala//Wedding Invitation//ID
 CALSCALE:GREGORIAN
+
 BEGIN:VEVENT
-DTSTART:20261212T080000
-DTEND:20261212T150000
-SUMMARY:Pernikahan Ari Saputra & Nurtamala, S.Akun
-DESCRIPTION:Akad Nikah dan Resepsi Pernikahan Ari Saputra & Nurtamala.
-LOCATION:Bengkalis
+DTSTART:20261218T140000
+DTEND:20261218T160000
+SUMMARY:Akad Nikah Ari Saputra & Nurtamala
+DESCRIPTION:Akad Nikah Ari Saputra & Nurtamala.
+LOCATION:Jl. Kha. Rasyid, Desa Pedekik, Bengkalis
 STATUS:CONFIRMED
 END:VEVENT
+
+BEGIN:VEVENT
+DTSTART:20261219T110000
+DTEND:20261219T150000
+SUMMARY:Resepsi Pernikahan Ari Saputra & Nurtamala
+DESCRIPTION:Resepsi Pernikahan Ari Saputra & Nurtamala.
+LOCATION:Kediaman Mempelai Wanita, Jl. Kha. Rasyid, Desa Pedekik, Bengkalis
+STATUS:CONFIRMED
+END:VEVENT
+
 END:VCALENDAR`;
 
   const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });

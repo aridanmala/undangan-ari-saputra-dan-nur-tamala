@@ -1368,6 +1368,254 @@ body *{
   }
 }
 
+
+/* =========================================================
+   FINAL CLEAN LAYOUT — JAVANESE HERITAGE
+   Overrides legacy stacked styles so every section is aligned.
+   ========================================================= */
+html,body{overflow-x:hidden!important}
+body,body *{text-shadow:none!important;-webkit-text-stroke:0!important}
+body{background:#241812!important;color:#3c2b22!important}
+body:before{background:rgba(35,22,15,.58)!important}
+html:before{background:url("ari&nur.jpeg") center/cover no-repeat!important}
+
+/* remove the old moving frame effect that made the page visually noisy */
+body:after{display:none!important}
+
+/* shared section system */
+.section,
+.wedding-heritage,
+.heritage-countdown{
+  width:100%!important;
+  min-height:0!important;
+  padding:92px 20px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:linear-gradient(180deg,#fbf7ef 0%,#f4eadb 100%)!important;
+  color:#3c2b22!important;
+}
+.section:nth-of-type(odd){background:#f7efe3!important}
+.section .inner,
+.heritage-section-inner{
+  width:min(980px,100%)!important;
+  margin:0 auto!important;
+  text-align:center!important;
+}
+.section .eyebrow,
+.heritage-section-inner .section-kicker,
+.heritage-countdown .eyebrow{
+  color:#8a6847!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  letter-spacing:4px!important;
+  line-height:1.5!important;
+  text-transform:uppercase!important;
+}
+.section .title,
+.section .heritage-count-title,
+.heritage-section-title{
+  color:#3c2b22!important;
+  font-family:"Times New Roman",Times,serif!important;
+  font-weight:500!important;
+  letter-spacing:.5px!important;
+}
+.section .title{font-size:clamp(30px,5vw,48px)!important;margin:10px 0!important;line-height:1.15!important}
+.section .sub{
+  color:#66554a!important;
+  max-width:680px!important;
+  font-size:15px!important;
+  line-height:1.9!important;
+  margin:0 auto!important;
+}
+.divider{background:#b28a58!important;margin:22px auto 30px!important;width:52px!important}
+
+/* opening */
+.hero.hero-heritage{
+  min-height:100svh!important;
+  height:100svh!important;
+  background:#2b1c15!important;
+  overflow:hidden!important;
+}
+.heritage-photo{
+  position:absolute!important;
+  inset:0!important;
+  background:url("ari&nur.jpeg") center 28%/cover no-repeat!important;
+  transform:none!important;
+}
+.heritage-overlay{
+  position:absolute!important;
+  inset:0!important;
+  background:linear-gradient(180deg,rgba(29,18,12,.30),rgba(29,18,12,.72) 70%,rgba(29,18,12,.88))!important;
+}
+.heritage-frame{inset:22px!important;border:1px solid rgba(232,202,153,.65)!important;opacity:1!important}
+.heritage-opening{
+  width:min(720px,calc(100% - 40px))!important;
+  padding:34px 30px!important;
+  color:#f8efdf!important;
+  text-align:center!important;
+  margin:auto!important;
+  background:rgba(38,25,18,.28)!important;
+  border:1px solid rgba(232,202,153,.32)!important;
+  backdrop-filter:blur(2px)!important;
+}
+.heritage-mark{color:#e0bd82!important;font-size:22px!important;margin-bottom:12px!important}
+.heritage-kicker{color:#ead5ad!important;font-size:10px!important;letter-spacing:4px!important}
+.heritage-script{color:#f2d9ad!important;font-size:clamp(30px,5vw,48px)!important;margin:8px 0!important}
+.heritage-rule{background:#c29b65!important;opacity:.8!important}
+.heritage-names{
+  color:#fff8eb!important;
+  font-size:clamp(32px,6vw,66px)!important;
+  line-height:1.08!important;
+  letter-spacing:0!important;
+  margin:18px 0!important;
+  white-space:normal!important;
+}
+.heritage-names i{color:#d8b47c!important;font-size:.6em!important;margin:0 8px!important}
+.heritage-date{color:#efd9b3!important;letter-spacing:5px!important;font-size:12px!important}
+.heritage-copy{color:#f4eadb!important;max-width:520px!important;line-height:1.7!important;font-size:14px!important;margin:18px auto 0!important}
+.heritage-open{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-width:210px!important;
+  margin-top:26px!important;
+  padding:13px 22px!important;
+  border:1px solid #d6b37b!important;
+  border-radius:2px!important;
+  background:rgba(45,28,19,.55)!important;
+  color:#f8ead0!important;
+  text-decoration:none!important;
+  font-size:11px!important;
+  letter-spacing:2px!important;
+  text-transform:uppercase!important;
+}
+.heritage-lang{z-index:10!important;top:24px!important;right:30px!important}
+.heritage-lang .lang-btn{background:rgba(39,24,16,.5)!important;border-color:rgba(237,213,171,.45)!important;color:#f7ead3!important;text-shadow:none!important}
+.heritage-lang .lang-btn.active{background:#c7a16c!important;color:#2c1c14!important}
+.heritage-bottom{color:#ddbd88!important;letter-spacing:3px!important;font-size:9px!important;bottom:28px!important}
+
+/* welcome */
+#welcome{padding-top:86px!important;padding-bottom:70px!important}
+.scroll-hint{display:none!important}
+
+/* countdown */
+.heritage-countdown{background:#eee0cc!important;padding-top:72px!important;padding-bottom:72px!important}
+.heritage-mini-ornament{color:#b08a59!important;font-size:18px!important;margin-bottom:10px!important}
+.heritage-count-title{font-size:clamp(30px,5vw,46px)!important;margin:10px 0 0!important}
+.heritage-count{max-width:720px!important;gap:12px!important;margin:28px auto 0!important}
+.heritage-count div{
+  background:#fdf9f2!important;
+  border:1px solid #d7bf9c!important;
+  border-radius:3px!important;
+  box-shadow:0 8px 20px rgba(91,61,35,.08)!important;
+  padding:22px 8px!important;
+}
+.heritage-count .num{color:#4b3528!important;font-size:30px!important}
+.heritage-count .label{color:#8a6847!important;font-size:9px!important;letter-spacing:2px!important}
+
+/* couple */
+.couple{width:100%!important;max-width:900px!important;margin:34px auto 0!important;gap:22px!important}
+.card{
+  padding:28px!important;
+  background:#fbf7ef!important;
+  border:1px solid #d9c4a6!important;
+  border-radius:3px!important;
+  box-shadow:0 12px 30px rgba(79,52,31,.08)!important;
+  color:#3c2b22!important;
+}
+.card .portrait{width:150px!important;height:190px!important;object-fit:cover!important;border-radius:2px!important;border:4px solid #f1e3ce!important;box-shadow:0 5px 16px rgba(64,40,22,.12)!important}
+.card h3{color:#493429!important;font-size:28px!important;line-height:1.2!important;margin:18px 0 8px!important}
+.card .sub{color:#756358!important;font-size:13px!important;line-height:1.7!important}
+
+/* wedding events */
+.wedding-heritage{background:#f7efe3!important;padding-top:86px!important;padding-bottom:86px!important}
+.heritage-section-inner{position:relative!important}
+.section-ornament{color:#b18a58!important;font-size:20px!important}
+.heritage-section-title{font-size:clamp(36px,6vw,58px)!important;margin:8px 0!important;line-height:1.05!important}
+.gold-rule{height:1px!important;width:72px!important;background:#b18a58!important;margin:22px auto 42px!important}
+.gold-rule span{display:none!important}
+.event-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:22px!important;align-items:stretch!important;max-width:900px!important;margin:0 auto!important}
+.heritage-event-card{
+  min-height:330px!important;
+  padding:32px 26px!important;
+  background:#fbf7ef!important;
+  border:1px solid #d6bd98!important;
+  border-radius:3px!important;
+  box-shadow:0 14px 30px rgba(74,48,28,.08)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+.event-index{color:#b18a58!important;font-size:10px!important;letter-spacing:3px!important;margin-bottom:12px!important}
+.event-label{color:#493429!important;font-size:25px!important;font-weight:500!important;letter-spacing:1px!important;margin:0 0 8px!important}
+.event-date{color:#76573f!important;font-size:17px!important;margin:0 0 8px!important}
+.event-time{color:#a1784c!important;font-size:13px!important;letter-spacing:1px!important;margin-bottom:20px!important}
+.event-place{color:#4e3b30!important;font-size:13px!important;font-weight:700!important;margin-bottom:5px!important}
+.event-address{color:#806e60!important;font-size:12px!important;line-height:1.6!important;margin-bottom:18px!important}
+.event-location{color:#8a623b!important;border-bottom:1px solid #c6a475!important;text-decoration:none!important;padding-bottom:3px!important;font-size:10px!important;letter-spacing:2px!important;text-transform:uppercase!important}
+.event-center-mark{display:none!important}
+.heritage-calendar{
+  margin:32px auto 0!important;
+  padding:13px 22px!important;
+  border:1px solid #b18a58!important;
+  border-radius:2px!important;
+  background:#5a3c29!important;
+  color:#f8ecd7!important;
+  font-family:"Times New Roman",Times,serif!important;
+  font-size:10px!important;
+  letter-spacing:2px!important;
+}
+
+/* gift + rsvp */
+.section .gift{margin:26px auto 0!important}
+.section .btn{
+  background:#5a3c29!important;
+  color:#f9edda!important;
+  border:1px solid #b18a58!important;
+  border-radius:2px!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+  margin:10px 6px!important;
+  padding:13px 22px!important;
+  font-size:10px!important;
+  letter-spacing:2px!important;
+}
+.section .btn:hover{background:#765238!important}
+.footer{background:#2b1c15!important;color:#f2dfc0!important;text-align:center!important;padding:55px 20px!important}
+.footer h2{color:#f1d8ad!important;font-size:24px!important;margin:0 0 10px!important}
+.footer p{color:#cdb79b!important;font-size:12px!important;margin:0!important}
+
+/* modal */
+.modalbox{background:#fbf7ef!important;color:#3c2b22!important;border:1px solid #d6bd98!important;border-radius:3px!important;box-shadow:0 20px 60px rgba(0,0,0,.3)!important}
+.modalbox h2{color:#493429!important;font-size:34px!important}
+.modalbox p,.modalbox span,.modalbox div{color:#5d4b3e!important;text-shadow:none!important}
+.close{color:#6b503c!important}
+.gift-option{color:#5b4231!important;background:#f2e7d8!important;border-color:#cbb18d!important;text-shadow:none!important}
+.gift-option.active{background:#d8bd95!important;color:#39271d!important}
+
+/* mobile */
+@media(max-width:700px){
+  .section,.wedding-heritage,.heritage-countdown{padding:68px 16px!important}
+  .hero.hero-heritage{min-height:100svh!important;height:100svh!important}
+  .heritage-photo{background-position:center 24%!important}
+  .heritage-frame{inset:14px!important}
+  .heritage-lang{top:18px!important;right:18px!important}
+  .heritage-opening{width:calc(100% - 34px)!important;padding:26px 18px!important}
+  .heritage-names{font-size:clamp(28px,8vw,42px)!important;line-height:1.15!important}
+  .heritage-copy{font-size:13px!important;line-height:1.65!important}
+  .couple{grid-template-columns:1fr!important;max-width:440px!important}
+  .card{padding:24px 18px!important}
+  .event-grid{grid-template-columns:1fr!important;max-width:440px!important;gap:16px!important}
+  .heritage-event-card{min-height:285px!important;padding:28px 20px!important}
+  .heritage-count{grid-template-columns:repeat(2,1fr)!important;max-width:420px!important}
+  .heritage-count div{padding:18px 6px!important}
+  .heritage-count .num{font-size:26px!important}
+  .heritage-count .label{font-size:8px!important}
+  .footer h2{font-size:20px!important}
+}
+
 </style>
 
 <body class="locked">
@@ -1417,6 +1665,20 @@ body *{
 <div class="arrow-down">↓</div>
 </div>
 
+</section>
+
+<section class="heritage-countdown section" id="countdownSection">
+  <div class="inner scroll-reveal">
+    <div class="heritage-mini-ornament">❖</div>
+    <div class="eyebrow">MENUJU HARI BAHAGIA</div>
+    <h2 class="heritage-count-title">19 Desember 2026</h2>
+    <div class="count heritage-count">
+      <div><span class="num" id="d">0</span><span class="label" data-i18n="days">Hari</span></div>
+      <div><span class="num" id="h">0</span><span class="label" data-i18n="hours">Jam</span></div>
+      <div><span class="num" id="m">0</span><span class="label" data-i18n="minutes">Menit</span></div>
+      <div><span class="num" id="s">0</span><span class="label" data-i18n="seconds">Detik</span></div>
+    </div>
+  </div>
 </section>
 
 <section class="section"><div class="inner fade scroll-reveal">

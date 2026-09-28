@@ -740,6 +740,171 @@ body *{
 }
 
 
+
+/* === HARI PERNIKAHAN — SAVE THE DATE / ARCH + SCROLL REVEAL === */
+.wedding-day-section{
+  position:relative;
+  padding:92px 18px 105px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.10),transparent 30%),
+    linear-gradient(180deg,#0c655c 0%,#0a5b54 48%,#084d48 100%);
+}
+.wedding-day-section:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.16;
+  background-image:radial-gradient(rgba(255,255,255,.75) .6px,transparent .6px);
+  background-size:17px 17px;
+  pointer-events:none;
+}
+.wedding-day-wrap{
+  width:min(720px,100%);
+  margin:auto;
+  position:relative;
+  text-align:center;
+  z-index:1;
+}
+.wedding-ornament{
+  color:#e8c98f;
+  font-size:19px;
+  margin-bottom:6px;
+  text-shadow:0 0 12px rgba(232,201,143,.35);
+}
+.save-date-script{
+  color:#e9c98f;
+  font:italic 500 clamp(34px,7vw,58px)/1.05 "Times New Roman",Times,serif;
+  letter-spacing:1px;
+  text-shadow:0 2px 10px rgba(0,0,0,.20);
+}
+.wedding-day-title{
+  margin-top:12px;
+  color:#fff;
+  font-size:12px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+.wedding-arch{
+  margin:30px auto 0;
+  width:min(570px,100%);
+  padding:12px;
+  background:rgba(255,255,255,.96);
+  border-radius:285px 285px 22px 22px;
+  box-shadow:0 25px 60px rgba(0,0,0,.22);
+}
+.wedding-arch-inner{
+  padding:58px 30px 32px;
+  border:1px solid rgba(117,82,51,.16);
+  border-radius:270px 270px 15px 15px;
+  background:linear-gradient(180deg,#fffdfa 0%,#fdf9f2 100%);
+  color:#3c3028;
+}
+.wedding-event{
+  padding:0 12px;
+}
+.event-label{
+  color:#735236;
+  font:500 29px/1.2 "Times New Roman",Times,serif;
+  letter-spacing:.5px;
+}
+.event-date{
+  margin-top:14px;
+  color:#4d4239;
+  font-size:18px;
+}
+.event-time{
+  margin-top:5px;
+  color:#80684f;
+  font-size:15px;
+}
+.event-place{
+  margin-top:18px;
+  color:#43372f;
+  font-size:15px;
+  font-weight:700;
+}
+.event-address{
+  margin-top:4px;
+  color:#776b61;
+  font-size:13px;
+  line-height:1.55;
+}
+.event-location{
+  display:inline-block;
+  margin-top:18px;
+  padding:9px 20px;
+  border:1px solid #8d7358;
+  border-radius:30px;
+  color:#6d5238;
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:1px;
+  transition:.3s ease;
+}
+.event-location:hover{
+  background:#735236;
+  color:#fff;
+}
+.wedding-divider{
+  width:110px;
+  height:1px;
+  margin:34px auto;
+  background:linear-gradient(90deg,transparent,#b89b77,transparent);
+  position:relative;
+}
+.wedding-divider span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  padding:0 9px;
+  background:#fdf9f2;
+  color:#b18b5d;
+  font-size:12px;
+}
+.wedding-calendar{
+  display:inline-block;
+  margin-top:34px;
+  padding:13px 23px;
+  border:1px solid #8d7358;
+  border-radius:30px;
+  background:transparent;
+  color:#6d5238;
+  font:500 11px "Times New Roman",Times,serif;
+  letter-spacing:1.5px;
+  cursor:pointer;
+}
+.wedding-calendar:hover{background:#735236;color:#fff}
+.wedding-reveal .wedding-item{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1);
+}
+.wedding-reveal.is-visible .wedding-item{
+  opacity:1;
+  transform:translateY(0);
+}
+.wedding-reveal.is-visible .wedding-item:nth-child(1){transition-delay:.05s}
+.wedding-reveal.is-visible .wedding-item:nth-child(2){transition-delay:.16s}
+.wedding-reveal.is-visible .wedding-item:nth-child(3){transition-delay:.26s}
+.wedding-reveal.is-visible .wedding-item:nth-child(4){transition-delay:.38s}
+.wedding-reveal.is-visible .wedding-item:nth-child(5){transition-delay:.48s}
+.wedding-reveal.is-visible .wedding-item:nth-child(6){transition-delay:.60s}
+.wedding-reveal.is-visible .wedding-item:nth-child(7){transition-delay:.70s}
+.wedding-reveal.is-visible .wedding-item:nth-child(8){transition-delay:.80s}
+.wedding-reveal.is-visible .wedding-item:nth-child(9){transition-delay:.90s}
+@media(max-width:650px){
+  .wedding-day-section{padding:75px 14px 90px}
+  .wedding-arch{margin-top:26px;border-radius:180px 180px 18px 18px}
+  .wedding-arch-inner{padding:48px 18px 28px;border-radius:165px 165px 12px 12px}
+  .event-label{font-size:25px}
+  .event-date{font-size:17px}
+  .event-place{font-size:14px}
+  .event-address{font-size:12px}
+  .wedding-divider{margin:30px auto}
+}
+
 /* === HOMEPAGE MODERN / FOTO + WAVE === */
 .hero-modern{
   position:relative;
@@ -978,18 +1143,41 @@ body *{
 <div class="card"><img class="portrait" src="mala.png" alt=""><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak Alm. Hamidi & Ibu Rohimah</span></p></div>
 </div></div></section>
 
-<section class="section"><div class="inner fade">
-<div class="eyebrow" data-i18n="weddingDay">Hari Pernikahan</div>
-<div class="events">
-<div class="event"><div data-i18n="akadDate">18 Desember 2026</div><h3 data-i18n="akad">Akad Nikah</h3><p><span data-i18n="akadTime">14.00 WIB — Selesai</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
-<div class="event"><div data-i18n="receptionDate">19 Desember 2026</div><h3 data-i18n="reception">Resepsi</h3><p><span data-i18n="receptionTime">11.00 — Selesai</span><br><span data-i18n="brideResidence">Kediaman Mempelai Wanita</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
-</div>
-<a class="btn" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D""><span data-i18n="viewLocation">Lihat Lokasi</span></a>
+<section class="wedding-day-section">
+  <div class="wedding-day-wrap wedding-reveal">
+    <div class="wedding-ornament wedding-item">✦</div>
+    <div class="save-date-script wedding-item" data-i18n="saveTheDate">Save The Date</div>
+    <div class="wedding-day-title wedding-item" data-i18n="weddingDay">Hari Pernikahan</div>
 
-<button type="button" class="btn" onclick="saveToCalendar()">
-  📅 <span data-i18n="saveCalendar">SIMPAN KE KALENDER</span>
-</button>
-</div></section>
+    <div class="wedding-arch wedding-item">
+      <div class="wedding-arch-inner">
+        <div class="wedding-event wedding-item">
+          <div class="event-label" data-i18n="akad">Akad Nikah</div>
+          <div class="event-date" data-i18n="akadDate">18 Desember 2026</div>
+          <div class="event-time" data-i18n="akadTime">14.00 WIB — Selesai</div>
+          <div class="event-place" data-i18n="brideResidence">Kediaman Mempelai Wanita</div>
+          <div class="event-address">Jl. Kha. Rasyid, Desa Pedekik</div>
+          <a class="event-location" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"><span data-i18n="viewLocation">Lihat Lokasi</span></a>
+        </div>
+
+        <div class="wedding-divider wedding-item"><span>✦</span></div>
+
+        <div class="wedding-event wedding-item">
+          <div class="event-label" data-i18n="reception">Resepsi</div>
+          <div class="event-date" data-i18n="receptionDate">19 Desember 2026</div>
+          <div class="event-time" data-i18n="receptionTime">11.00 — Selesai</div>
+          <div class="event-place" data-i18n="brideResidence">Kediaman Mempelai Wanita</div>
+          <div class="event-address">Jl. Kha. Rasyid, Desa Pedekik</div>
+          <a class="event-location" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"><span data-i18n="viewLocation">Lihat Lokasi</span></a>
+        </div>
+
+        <button type="button" class="wedding-calendar wedding-item" onclick="saveToCalendar()">
+          📅 <span data-i18n="saveCalendar">SIMPAN KE KALENDER</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="giftTitle">Berikan Tanda Kasih</div>
@@ -1078,8 +1266,19 @@ if("IntersectionObserver" in window){
     if(e.isIntersecting) e.target.classList.add("show");
   }),{threshold:.15});
   document.querySelectorAll(".fade").forEach(e=>obs.observe(e));
+
+  const weddingObs = new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.remove("is-visible");
+      requestAnimationFrame(()=>requestAnimationFrame(()=>e.target.classList.add("is-visible")));
+    }else{
+      e.target.classList.remove("is-visible");
+    }
+  }),{threshold:.18});
+  document.querySelectorAll(".wedding-reveal").forEach(e=>weddingObs.observe(e));
 }else{
   document.querySelectorAll(".fade").forEach(e=>e.classList.add("show"));
+  document.querySelectorAll(".wedding-reveal").forEach(e=>e.classList.add("is-visible"));
 }
 
 function salinRekening(){
@@ -1213,6 +1412,7 @@ const translations = {
     coupleTitle:"Kedua Mempelai",
     ariParents:"Putra dari Bapak Alm. Safril & Ibu Artini",
     nurParents:"Putri dari Bapak Alm. Hamidi & Ibu Rohimah",
+    saveTheDate:"Save The Date",
     weddingDay:"Hari Pernikahan",
     akadDate:"18 Desember 2026",
     akad:"Akad Nikah",
@@ -1252,6 +1452,7 @@ const translations = {
     coupleTitle:"The Couple",
     ariParents:"Son of the late Safril & Artini",
     nurParents:"Daughter of the late Hamidi & Rohimah",
+    saveTheDate:"Save The Date",
     weddingDay:"Wedding Day",
     akadDate:"18 December 2026",
     akad:"Marriage Ceremony",
@@ -1291,6 +1492,7 @@ const translations = {
     coupleTitle:"Молодожёны",
     ariParents:"Сын покойного Сафрила и Артини",
     nurParents:"Дочь покойного Хамиди и Рохимы",
+    saveTheDate:"Сохраните дату",
     weddingDay:"День свадьбы",
     akadDate:"18 декабря 2026",
     akad:"Церемония бракосочетания",

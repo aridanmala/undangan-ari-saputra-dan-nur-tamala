@@ -95,7 +95,17 @@ section{min-height:auto;position:relative;overflow:hidden}
   .couple,.events{grid-template-columns:1fr}
   .gallery{grid-template-columns:repeat(2,1fr)}
   .gallery img{height:180px}
-  .hero{background-attachment:scroll}
+  .hero{
+    min-height:100svh;
+    background-attachment:scroll;
+  }
+
+  #welcome{
+    min-height:100svh;
+    border-top:1px solid rgba(255,255,255,.18);
+    background:rgba(0,0,0,.38);
+  }
+
   .modal{overflow-y:auto!important;align-items:flex-start!important;padding:10px!important}
   .modalbox{padding:42px 24px;position:relative!important;max-height:85vh!important;overflow-y:auto!important;margin:10px auto!important}
   .modalbox h2{font-size:34px}

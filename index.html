@@ -959,11 +959,6 @@ body *{
 </section>
 
 <section class="section"><div class="inner fade">
-<div class="eyebrow" data-i18n="saveDate">Catat Tanggalnya</div><h2 class="title" data-i18n="dateTitle">19 Desember 2026</h2><div class="divider"></div>
-<div class="count"><div><span class="num" id="d2">0</span><span class="label" data-i18n="days">Hari</span></div><div><span class="num" id="h2">0</span><span class="label" data-i18n="hours">Jam</span></div><div><span class="num" id="m2">0</span><span class="label" data-i18n="minutes">Menit</span></div><div><span class="num" id="s2">0</span><span class="label" data-i18n="seconds">Detik</span></div></div>
-</div></section>
-
-<section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="coupleTitle">Kedua Mempelai</div>
 <div class="couple">
 <div class="card"><img class="portrait" src="ari.png" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak Alm. Safril & Ibu Artini</span></p></div>
@@ -1044,10 +1039,10 @@ function setCountdownValue(ids, value){
 
 function updateCountdown(){
   const x = Math.max(0, target - Date.now());
-  setCountdownValue(["d","d2"], Math.floor(x / 86400000));
-  setCountdownValue(["h","h2"], Math.floor((x % 86400000) / 3600000));
-  setCountdownValue(["m","m2"], Math.floor((x % 3600000) / 60000));
-  setCountdownValue(["s","s2"], Math.floor((x % 60000) / 1000));
+  setCountdownValue(["d"], Math.floor(x / 86400000));
+  setCountdownValue(["h"], Math.floor((x % 86400000) / 3600000));
+  setCountdownValue(["m"], Math.floor((x % 3600000) / 60000));
+  setCountdownValue(["s"], Math.floor((x % 60000) / 1000));
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);

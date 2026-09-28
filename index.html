@@ -747,6 +747,178 @@ body *{
   .gift-option{padding:16px 7px;font-size:17px}
 }
 
+
+/* === HOMEPAGE MODERN / FOTO + WAVE === */
+.hero-modern{
+  min-height:100svh !important;
+  height:100svh;
+  display:block !important;
+  position:relative;
+  overflow:hidden;
+  background:#fff !important;
+  color:#175f57 !important;
+}
+.hero-modern .hero-photo{
+  position:absolute;
+  inset:0 0 38% 0;
+  background:url("ari&nur.jpeg") center 30%/cover no-repeat;
+  z-index:0;
+}
+.hero-modern .hero-shade{
+  position:absolute;
+  inset:0 0 38% 0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,.12) 55%,rgba(8,68,62,.82) 100%);
+  z-index:1;
+}
+.hero-modern .hero-lang{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:8;
+}
+.hero-modern .hero-top{
+  position:absolute;
+  top:62px;
+  left:20px;
+  right:20px;
+  z-index:4;
+  text-align:center;
+  color:#fff !important;
+}
+.hero-modern .hero-wedding{
+  font-size:15px !important;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:#fff !important;
+  text-shadow:0 2px 8px rgba(0,0,0,.7) !important;
+}
+.hero-modern .hero-names{
+  margin-top:8px;
+  font:400 clamp(46px,10vw,86px)/1 "Times New Roman",Times,serif !important;
+  letter-spacing:1px;
+  color:#fff !important;
+  text-shadow:0 3px 12px rgba(0,0,0,.8) !important;
+}
+.hero-modern .hero-names span{font-style:italic;font-size:.62em}
+.hero-modern .hero-guest{
+  margin-top:15px;
+  font-size:15px !important;
+  line-height:1.5;
+  color:#fff !important;
+  text-shadow:0 2px 7px rgba(0,0,0,.9) !important;
+}
+.hero-modern .hero-guest strong{font-size:17px !important;color:#fff !important}
+.hero-paper{
+  position:absolute;
+  left:-6%;
+  right:-6%;
+  bottom:-2px;
+  min-height:45%;
+  background:linear-gradient(to bottom,#fff 0%,#fff 78%,#fbfaf7 100%);
+  border-radius:50% 50% 0 0/12% 12% 0 0;
+  z-index:3;
+  padding:58px 10% 24px;
+  color:#1b6259 !important;
+}
+.paper-inner{
+  max-width:720px;
+  margin:0 auto;
+  text-align:center;
+}
+.paper-wedding{
+  font-size:13px !important;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:#1b6259 !important;
+  text-shadow:none !important;
+}
+.paper-names{
+  margin:8px 0 10px;
+  font:400 clamp(40px,8vw,70px)/1 "Times New Roman",Times,serif !important;
+  font-style:italic;
+  color:#1b6259 !important;
+  text-shadow:none !important;
+}
+.paper-names span{font-size:.65em}
+.paper-text{
+  margin:0 auto;
+  max-width:520px;
+  font-size:14px !important;
+  line-height:1.55;
+  color:#356f68 !important;
+  text-shadow:none !important;
+}
+.paper-count{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  max-width:520px;
+  margin:17px auto 13px;
+}
+.paper-count>div{
+  background:#246b62;
+  border-radius:12px;
+  padding:8px 4px 9px;
+  box-shadow:0 7px 16px rgba(18,75,69,.16);
+}
+.paper-count .num{
+  color:#fff !important;
+  text-shadow:none !important;
+  font-size:24px !important;
+}
+.paper-count .label{
+  margin-top:3px;
+  color:#fff !important;
+  text-shadow:none !important;
+  font-size:11px !important;
+  letter-spacing:0 !important;
+  font-weight:400 !important;
+}
+.paper-date{
+  color:#246b62 !important;
+  text-shadow:none !important;
+  font-size:12px !important;
+  letter-spacing:1px;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.paper-open{
+  display:inline-block;
+  margin-top:11px;
+  padding:9px 25px;
+  border-radius:30px;
+  background:#246b62;
+  color:#fff !important;
+  text-shadow:none !important;
+  text-decoration:none;
+  font-size:12px !important;
+  font-weight:700;
+}
+.hero-modern .lang-btn{
+  background:rgba(0,0,0,.28) !important;
+  border:1px solid rgba(255,255,255,.4) !important;
+  color:#fff !important;
+  text-shadow:none !important;
+}
+@media(max-width:650px){
+  .hero-modern .hero-photo{inset:0 0 37% 0;background-position:center 24%;}
+  .hero-modern .hero-shade{inset:0 0 37% 0;}
+  .hero-modern .hero-top{top:61px}
+  .hero-modern .hero-wedding{font-size:12px !important;letter-spacing:4px}
+  .hero-modern .hero-names{font-size:50px !important}
+  .hero-modern .hero-guest{font-size:13px !important;margin-top:11px}
+  .hero-paper{min-height:44%;padding:46px 10% 17px;border-radius:50% 50% 0 0/9% 9% 0 0;}
+  .paper-wedding{font-size:10px !important;letter-spacing:4px}
+  .paper-names{font-size:43px !important;margin:5px 0 7px}
+  .paper-text{font-size:11px !important;line-height:1.45}
+  .paper-count{gap:8px;margin:13px auto 10px}
+  .paper-count>div{padding:7px 2px 8px;border-radius:10px}
+  .paper-count .num{font-size:21px !important}
+  .paper-count .label{font-size:10px !important}
+  .paper-date{font-size:10px !important}
+  .paper-open{margin-top:8px;padding:8px 22px;font-size:11px !important}
+}
+
 </style>
 
 <body class="locked">
@@ -754,22 +926,37 @@ body *{
   <source src="./Melly Goeslaw ft Amee - Ketika Cinta Bertasbih Lirik.mp3" type="audio/mpeg">
 </audio>
 
-<section class="hero">
-<div>
-<div class="eyebrow" data-i18n="wedding">Pernikahan</div>
-<div class="names">Ari Saputra <span class="amp">&</span> Nurtamala, S.Akun</div>
-<div class="guest"><span data-i18n="dear">Kepada Yth.</span><br><strong id="guestName">Tamu Undangan</strong></div>
-<div class="date" data-i18n="heroDate">19 • 12 • 2026</div>
-<a class="btn btn-open" href="#welcome" onclick="playMusic(event)">
-    <span data-i18n="openInvitation">Klik Buka Undangan</span>
-</a>
+<section class="hero hero-modern">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="hero-shade" aria-hidden="true"></div>
 
-<div class="lang-switcher" aria-label="Language">
-  <button type="button" class="lang-btn active" data-lang="id" onclick="setLanguage('id')">🇮🇩 ID</button>
-  <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 EN</button>
-  <button type="button" class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">🇷🇺 RU</button>
-</div>
-</div>
+  <div class="lang-switcher hero-lang" aria-label="Language">
+    <button type="button" class="lang-btn active" data-lang="id" onclick="setLanguage('id')">🇮🇩 ID</button>
+    <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 EN</button>
+    <button type="button" class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">🇷🇺 RU</button>
+  </div>
+
+  <div class="hero-top">
+    <div class="hero-wedding" data-i18n="wedding">Pernikahan</div>
+    <div class="hero-names">Ari <span>&amp;</span> Nur</div>
+    <div class="hero-guest"><span data-i18n="dear">Kepada Yth.</span><br><strong id="guestName">Tamu Undangan</strong></div>
+  </div>
+
+  <div class="hero-paper">
+    <div class="paper-inner">
+      <div class="paper-wedding" data-i18n="wedding">Pernikahan</div>
+      <div class="paper-names">Ari <span>&amp;</span> Nur</div>
+      <p class="paper-text" data-i18n="welcomeShort">Dengan penuh kebahagiaan, kami mengundang Anda untuk menjadi bagian dari hari istimewa kami.</p>
+      <div class="paper-count">
+        <div><span class="num" id="d">0</span><span class="label" data-i18n="days">Hari</span></div>
+        <div><span class="num" id="h">0</span><span class="label" data-i18n="hours">Jam</span></div>
+        <div><span class="num" id="m">0</span><span class="label" data-i18n="minutes">Menit</span></div>
+        <div><span class="num" id="s">0</span><span class="label" data-i18n="seconds">Detik</span></div>
+      </div>
+      <div class="paper-date" data-i18n="dateTitle">19 Desember 2026</div>
+      <a class="paper-open" href="#welcome" onclick="playMusic(event)"><span data-i18n="openInvitation">Save The Date</span></a>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="welcome">
@@ -788,7 +975,7 @@ body *{
 
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="saveDate">Catat Tanggalnya</div><h2 class="title" data-i18n="dateTitle">19 Desember 2026</h2><div class="divider"></div>
-<div class="count"><div><span class="num" id="d">0</span><span class="label" data-i18n="days">Hari</span></div><div><span class="num" id="h">0</span><span class="label" data-i18n="hours">Jam</span></div><div><span class="num" id="m">0</span><span class="label" data-i18n="minutes">Menit</span></div><div><span class="num" id="s">0</span><span class="label" data-i18n="seconds">Detik</span></div></div>
+<div class="count"><div><span class="num" id="d2">0</span><span class="label" data-i18n="days">Hari</span></div><div><span class="num" id="h2">0</span><span class="label" data-i18n="hours">Jam</span></div><div><span class="num" id="m2">0</span><span class="label" data-i18n="minutes">Menit</span></div><div><span class="num" id="s2">0</span><span class="label" data-i18n="seconds">Detik</span></div></div>
 </div></section>
 
 <section class="section"><div class="inner fade">
@@ -863,17 +1050,19 @@ body *{
 <script>
 const target = new Date("2026-12-19T11:00:00+07:00").getTime();
 
-const dayEl = document.getElementById("d");
-const hourEl = document.getElementById("h");
-const minuteEl = document.getElementById("m");
-const secondEl = document.getElementById("s");
+function setCountdownValue(ids, value){
+  ids.forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.textContent = value;
+  });
+}
 
 function updateCountdown(){
   const x = Math.max(0, target - Date.now());
-  if(dayEl) dayEl.textContent = Math.floor(x / 86400000);
-  if(hourEl) hourEl.textContent = Math.floor((x % 86400000) / 3600000);
-  if(minuteEl) minuteEl.textContent = Math.floor((x % 3600000) / 60000);
-  if(secondEl) secondEl.textContent = Math.floor((x % 60000) / 1000);
+  setCountdownValue(["d","d2"], Math.floor(x / 86400000));
+  setCountdownValue(["h","h2"], Math.floor((x % 86400000) / 3600000));
+  setCountdownValue(["m","m2"], Math.floor((x % 3600000) / 60000));
+  setCountdownValue(["s","s2"], Math.floor((x % 60000) / 1000));
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
@@ -1029,6 +1218,7 @@ const translations = {
     openInvitation:"Klik Buka Undangan",
     welcome:"Selamat Datang",
     welcomeText:"Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.",
+    welcomeShort:"Dengan penuh kebahagiaan, kami mengundang Anda untuk menjadi bagian dari hari istimewa kami.",
     saveDate:"Catat Tanggalnya",
     dateTitle:"19 Desember 2026",
     days:"Hari", hours:"Jam", minutes:"Menit", seconds:"Detik",
@@ -1065,9 +1255,10 @@ const translations = {
     dear:"Dear",
     guest:"Guest",
     heroDate:"19 • 12 • 2026",
-    openInvitation:"Open Invitation",
+    openInvitation:"Save The Date",
     welcome:"Welcome",
     welcomeText:"With the grace and blessings of Allah SWT, we invite you to join us and share your prayers and blessings on our special day.",
+    welcomeShort:"With great happiness, we invite you to be part of our special day.",
     saveDate:"Save the Date",
     dateTitle:"19 December 2026",
     days:"Days", hours:"Hours", minutes:"Minutes", seconds:"Seconds",
@@ -1104,9 +1295,10 @@ const translations = {
     dear:"Уважаемый(ая)",
     guest:"Гость",
     heroDate:"19 • 12 • 2026",
-    openInvitation:"Открыть приглашение",
+    openInvitation:"Сохранить дату",
     welcome:"Добро пожаловать",
     welcomeText:"С милостью и благословением Аллаха мы приглашаем вас разделить с нами этот счастливый день и подарить свои молитвы и добрые пожелания.",
+    welcomeShort:"С большой радостью мы приглашаем вас стать частью нашего особенного дня.",
     saveDate:"Запишите дату",
     dateTitle:"19 декабря 2026",
     days:"Дней", hours:"Часов", minutes:"Минут", seconds:"Секунд",

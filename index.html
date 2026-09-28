@@ -19,18 +19,28 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  background:#111 url("ari&nur.jpeg") center top/100% auto no-repeat fixed;
+  background:#111;
   color:#f7f0e8;
   font-family:"Times New Roman",Times,serif;
   font-weight:500;
   font-size:16px;
 }
+html:before{
+  content:"";
+  position:fixed;
+  inset:-4%;
+  background:url("ari&nur.jpeg") center center/cover no-repeat;
+  transform:scale(1.08);
+  z-index:-2;
+  pointer-events:none;
+}
+
 body:before{
   content:"";
   position:fixed;
   inset:0;
-  background:linear-gradient(135deg,rgba(5,5,5,.52),rgba(18,16,16,.46),rgba(5,5,5,.56));
-  z-index:0;
+  background:rgba(0,0,0,.50);
+  z-index:-1;
   pointer-events:none;
 }
 body.locked{
@@ -343,7 +353,7 @@ section{
   50%{transform:translate(-50%,8px);opacity:1}
 }
 @media(max-width:650px){
-  .hero{min-height:100svh;background-attachment:scroll}
+  .hero{min-height:100svh;background:transparent}
   .eyebrow{font-size:12px}
   .hero .eyebrow,
   .hero .guest,
@@ -652,6 +662,7 @@ body:after{
   }
 }
 
+body>*{position:relative;z-index:1}
 </style>
 
 <body class="locked">

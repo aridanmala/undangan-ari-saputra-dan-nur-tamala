@@ -1249,6 +1249,50 @@ body *{
   .music-label{right:59px;font-size:11px}
 }
 
+
+/* === FINAL FIX: AKAD & RESEPSI WAJIB TERLIHAT === */
+/* Jangan biarkan animasi membuat isi Hari Pernikahan hilang. */
+.wedding-day-section .wedding-reveal,
+.wedding-day-section .wedding-item,
+.wedding-day-section .wedding-event,
+.wedding-day-section .event-label,
+.wedding-day-section .event-date,
+.wedding-day-section .event-time,
+.wedding-day-section .event-place,
+.wedding-day-section .event-address,
+.wedding-day-section .event-location,
+.wedding-day-section .wedding-divider,
+.wedding-day-section .wedding-calendar{
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+/* Tetap ada animasi masuk, tapi tidak pernah menghilangkan konten. */
+.wedding-day-section .wedding-item{
+  transform:translateY(22px);
+  transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1);
+}
+.wedding-day-section .wedding-reveal.is-visible .wedding-item{
+  transform:translateY(0);
+}
+
+/* Warna jelas di panel putih */
+.wedding-day-section .event-label{color:#735236 !important;}
+.wedding-day-section .event-date{color:#4d4239 !important;}
+.wedding-day-section .event-time{color:#80684f !important;}
+.wedding-day-section .event-place{color:#43372f !important;}
+.wedding-day-section .event-address{color:#776b61 !important;}
+.wedding-day-section .event-location{color:#6d5238 !important;}
+.wedding-day-section .wedding-divider span{color:#b18b5d !important;}
+.wedding-day-section .wedding-calendar{color:#6d5238 !important;}
+
+@media(prefers-reduced-motion:reduce){
+  .wedding-day-section .wedding-item{
+    transform:none !important;
+    transition:none !important;
+  }
+}
+
 </style>
 
 <body class="locked">
@@ -1819,6 +1863,31 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
   },{threshold:.14,rootMargin:"0px 0px -8% 0px"});
   io.observe(el);
+})();
+
+
+/* === FINAL FIX OBSERVER HARI PERNIKAHAN === */
+(function(){
+  const section = document.getElementById("weddingDay");
+  const reveal = section ? section.querySelector(".wedding-reveal") : null;
+  if(!section || !reveal) return;
+
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        reveal.classList.add("is-visible");
+        section.classList.add("revealed");
+      }else{
+        reveal.classList.remove("is-visible");
+        section.classList.remove("revealed");
+      }
+    });
+  },{
+    threshold:.08,
+    rootMargin:"0px 0px -5% 0px"
+  });
+
+  io.observe(section);
 })();
 
 </script>

@@ -679,9 +679,43 @@ body *{
 
 <script>
 const target = new Date("2026-12-19T11:00:00+07:00").getTime();
-setInterval(()=>{let x=Math.max(0,target-Date.now());d.textContent=Math.floor(x/86400000);h.textContent=Math.floor(x%86400000/3600000);m.textContent=Math.floor(x%3600000/60000);s.textContent=Math.floor(x%60000/1000)},1000);
-function openGift(){gift.style.display="flex"} function closeGift(){gift.style.display="none"} gift.onclick=e=>{if(e.target===gift)closeGift()};
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.15});document.querySelectorAll(".fade").forEach(e=>obs.observe(e));
+
+const dayEl = document.getElementById("d");
+const hourEl = document.getElementById("h");
+const minuteEl = document.getElementById("m");
+const secondEl = document.getElementById("s");
+
+function updateCountdown(){
+  const x = Math.max(0, target - Date.now());
+  if(dayEl) dayEl.textContent = Math.floor(x / 86400000);
+  if(hourEl) hourEl.textContent = Math.floor((x % 86400000) / 3600000);
+  if(minuteEl) minuteEl.textContent = Math.floor((x % 3600000) / 60000);
+  if(secondEl) secondEl.textContent = Math.floor((x % 60000) / 1000);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+const giftModal = document.getElementById("gift");
+function openGift(){
+  if(giftModal) giftModal.style.display = "flex";
+}
+function closeGift(){
+  if(giftModal) giftModal.style.display = "none";
+}
+if(giftModal){
+  giftModal.addEventListener("click", (e)=>{
+    if(e.target === giftModal) closeGift();
+  });
+}
+
+if("IntersectionObserver" in window){
+  const obs = new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("show");
+  }),{threshold:.15});
+  document.querySelectorAll(".fade").forEach(e=>obs.observe(e));
+}else{
+  document.querySelectorAll(".fade").forEach(e=>e.classList.add("show"));
+}
 
 function salinRekening(){
     const input = document.getElementById("nomorRekening");

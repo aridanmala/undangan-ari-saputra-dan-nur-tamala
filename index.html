@@ -1146,12 +1146,120 @@ body *{
   }
 }
 
+
+
+/* === TOMBOL MUSIK FIXED — SELALU MENGIKUTI SCROLL === */
+.music-control{
+  position:fixed !important;
+  right:18px;
+  bottom:20px;
+  z-index:10050 !important;
+  width:54px;
+  height:54px;
+  border:1px solid rgba(255,244,210,.72);
+  border-radius:50%;
+  background:rgba(20,20,20,.62);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  color:#fff4df !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 0 0 rgba(255,244,210,0),0 5px 18px rgba(0,0,0,.35);
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+  animation:musicAttention 2.8s ease-in-out 1;
+}
+.music-control:hover{
+  transform:scale(1.08);
+  background:rgba(30,30,30,.78);
+  box-shadow:0 0 20px rgba(255,244,210,.25),0 5px 18px rgba(0,0,0,.35);
+}
+.music-disc{
+  width:30px;
+  height:30px;
+  border:2px solid rgba(255,244,210,.9);
+  border-radius:50%;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.music-disc:before{
+  content:"♫";
+  font-size:17px;
+  line-height:1;
+  color:#fff4df;
+}
+.music-disc:after{
+  content:"";
+  position:absolute;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#f3dfb5;
+}
+.music-control.playing .music-disc{
+  animation:musicSpin 3.2s linear infinite;
+}
+.music-control.playing{
+  box-shadow:0 0 18px rgba(255,244,210,.28),0 5px 18px rgba(0,0,0,.35);
+}
+.music-label{
+  position:absolute;
+  right:64px;
+  white-space:nowrap;
+  padding:6px 10px;
+  border:1px solid rgba(255,244,210,.35);
+  border-radius:14px;
+  background:rgba(15,15,15,.72);
+  color:#fff4df !important;
+  font:12px "Times New Roman",Times,serif;
+  letter-spacing:1px;
+  opacity:0;
+  transform:translateX(8px);
+  pointer-events:none;
+  transition:.3s ease;
+}
+.music-control:hover .music-label,
+.music-control.show-label .music-label{
+  opacity:1;
+  transform:translateX(0);
+}
+@keyframes musicSpin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@keyframes musicAttention{
+  0%,100%{transform:scale(1)}
+  12%{transform:scale(1.12)}
+  24%{transform:scale(1)}
+  36%{transform:scale(1.08)}
+  48%{transform:scale(1)}
+}
+@media(max-width:650px){
+  .music-control{
+    right:14px;
+    bottom:16px;
+    width:50px;
+    height:50px;
+  }
+  .music-disc{width:28px;height:28px}
+  .music-disc:before{font-size:16px}
+  .music-label{right:59px;font-size:11px}
+}
+
 </style>
 
 <body class="locked">
   <audio id="bgMusic" preload="auto" loop>
   <source src="./Melly Goeslaw ft Amee - Ketika Cinta Bertasbih Lirik.mp3" type="audio/mpeg">
 </audio>
+
+  <button type="button" id="musicControl" class="music-control" aria-label="Putar musik" aria-pressed="false" onclick="toggleMusic(event)">
+    <span class="music-disc"></span>
+    <span class="music-label" id="musicLabel">Musik</span>
+  </button>
 
 <section class="hero hero-modern">
   <div class="hero-photo" aria-hidden="true"></div>
@@ -1360,21 +1468,53 @@ function salinRekening(){
     });
 }
 
+function syncMusicButton(){
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicControl");
+  const label = document.getElementById("musicLabel");
+  if(!music || !btn) return;
+
+  const playing = !music.paused;
+  btn.classList.toggle("playing", playing);
+  btn.setAttribute("aria-pressed", playing ? "true" : "false");
+  btn.setAttribute("aria-label", playing ? "Jeda musik" : "Putar musik");
+  if(label) label.textContent = playing ? "Musik ON" : "Musik OFF";
+}
+
+function toggleMusic(event){
+  if(event) event.stopPropagation();
+  const music = document.getElementById("bgMusic");
+  if(!music) return;
+
+  if(music.paused){
+    music.volume = 1;
+    music.play().then(syncMusicButton).catch(()=>{});
+  }else{
+    music.pause();
+    syncMusicButton();
+  }
+}
+
 function playMusic(event){
   if(event) event.preventDefault();
 
   document.body.classList.remove("locked");
 
   const music = document.getElementById("bgMusic");
-  music.volume = 1;
-  music.play().catch(()=>{});
+  if(music){
+    music.volume = 1;
+    music.play().then(syncMusicButton).catch(()=>{});
+  }
 
   setTimeout(()=>{
-    document.getElementById("welcome").scrollIntoView({
-      behavior:"smooth"
-    });
+    const welcome = document.getElementById("welcome");
+    if(welcome){
+      welcome.scrollIntoView({behavior:"smooth"});
+    }
   },100);
 }
+
+
 
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get("to");
@@ -1647,6 +1787,19 @@ setLanguage('id');
   targets.forEach(el=>observer.observe(el));
 })();
 
+document.addEventListener("DOMContentLoaded", ()=>{
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("musicControl");
+  if(music){
+    music.addEventListener("play", syncMusicButton);
+    music.addEventListener("pause", syncMusicButton);
+  }
+  if(btn){
+    setTimeout(()=>btn.classList.add("show-label"),1200);
+    setTimeout(()=>btn.classList.remove("show-label"),4200);
+  }
+  syncMusicButton();
+});
 </script>
 </body>
 </html>

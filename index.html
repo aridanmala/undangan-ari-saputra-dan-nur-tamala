@@ -201,12 +201,14 @@ section{
   color:#fff;
 }
 .gift{
-  max-width:650px;
-  margin:35px auto;
-  padding:35px;
-  background:rgba(8,8,8,.30);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:12px;
+  width:auto;
+  max-width:none;
+  margin:12px auto;
+  padding:0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
 }
 .modal{
   display:none;
@@ -420,6 +422,113 @@ section{
   .copy-status{font-size:18px}
   .gift-note{font-size:17px}
 }
+
+@media(max-width:650px){
+  .gift{
+    width:92% !important;
+    max-width:430px !important;
+    margin:24px auto !important;
+    padding:24px 18px !important;
+  }
+}
+
+
+/* === TANDA KASIH TANPA OVERLAY === */
+.gift .eyebrow{
+  margin-bottom:8px !important;
+}
+
+.gift .btn{
+  margin-top:6px !important;
+}
+
+@media(max-width:650px){
+  .gift{
+    width:auto !important;
+    max-width:none !important;
+    margin:10px auto !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  .gift .eyebrow{
+    margin-bottom:6px !important;
+  }
+
+  .gift .btn{
+    margin-top:4px !important;
+  }
+}
+
+
+/* === CAHAYA LEMBUT UNTUK SEMUA HURUF === */
+body,
+body *{
+  text-shadow:
+    0 0 4px rgba(255,255,255,.32),
+    0 0 10px rgba(255,255,255,.16);
+}
+
+/* Tombol dibuat sedikit lebih bercahaya */
+.btn{
+  text-shadow:
+    0 0 5px rgba(255,255,255,.55),
+    0 0 12px rgba(255,255,255,.22);
+}
+
+
+/* === GLOW BERJALAN UNTUK SEMUA TEKS === */
+body,
+body *{
+  animation-name:textGlowSweep;
+  animation-duration:4.5s;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:infinite;
+}
+
+@keyframes textGlowSweep{
+  0%,100%{
+    text-shadow:
+      -8px 0 3px rgba(255,255,255,.10),
+      0 0 5px rgba(255,255,255,.22),
+      8px 0 3px rgba(255,255,255,.05);
+  }
+
+  50%{
+    text-shadow:
+      8px 0 3px rgba(255,255,255,.10),
+      0 0 13px rgba(255,255,255,.48),
+      -8px 0 3px rgba(255,255,255,.05);
+  }
+}
+
+/* Tombol tetap punya glow sendiri, tapi ikut terasa bergerak */
+.btn{
+  animation-name:buttonGlowSweep;
+  animation-duration:3.5s;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:infinite;
+}
+
+@keyframes buttonGlowSweep{
+  0%,100%{
+    text-shadow:
+      -6px 0 3px rgba(255,255,255,.12),
+      0 0 7px rgba(255,255,255,.38),
+      6px 0 3px rgba(255,255,255,.04);
+    box-shadow:0 0 0 rgba(255,255,255,0);
+  }
+  50%{
+    text-shadow:
+      6px 0 3px rgba(255,255,255,.12),
+      0 0 16px rgba(255,255,255,.62),
+      -6px 0 3px rgba(255,255,255,.04);
+    box-shadow:0 0 22px rgba(255,255,255,.18);
+  }
+}
+
 </style>
 
 <body class="locked">

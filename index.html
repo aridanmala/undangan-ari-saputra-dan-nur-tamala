@@ -1773,6 +1773,274 @@ body { font-family:"Times New Roman", Times, serif!important; background:#2a1b14
   .card,.heritage-event-card{padding:25px 18px!important}
 }
 
+
+/* =========================================================
+   MOBILE FINAL FIX — 390px / 360px SAFE
+   ========================================================= */
+html, body{
+  width:100%!important;
+  max-width:100%!important;
+  overflow-x:hidden!important;
+}
+body{
+  font-size:16px!important;
+  line-height:1.5!important;
+}
+body *{
+  max-width:100%;
+}
+
+/* HERO */
+.hero.hero-heritage{
+  width:100%!important;
+  min-height:100svh!important;
+  height:100svh!important;
+  padding:0!important;
+}
+.heritage-photo{
+  inset:0!important;
+  background-size:cover!important;
+  background-position:center 18%!important;
+}
+.heritage-overlay{
+  inset:0!important;
+  background:linear-gradient(
+    180deg,
+    rgba(28,18,12,.12) 0%,
+    rgba(28,18,12,.20) 42%,
+    rgba(28,18,12,.66) 100%
+  )!important;
+}
+.heritage-frame{
+  inset:10px!important;
+}
+.heritage-lang{
+  top:15px!important;
+  right:15px!important;
+  left:auto!important;
+  width:auto!important;
+  max-width:calc(100% - 30px)!important;
+  padding:4px!important;
+}
+.heritage-lang .lang-btn{
+  min-width:43px!important;
+  padding:7px 8px!important;
+  font-size:11px!important;
+  white-space:nowrap!important;
+}
+.heritage-opening{
+  width:calc(100% - 28px)!important;
+  max-width:430px!important;
+  padding:25px 16px!important;
+  margin:0 auto!important;
+}
+.heritage-kicker{
+  font-size:8px!important;
+  letter-spacing:2.5px!important;
+  white-space:nowrap!important;
+}
+.heritage-script{
+  font-size:16px!important;
+  letter-spacing:2px!important;
+}
+.heritage-names{
+  font-size:clamp(25px,7.7vw,35px)!important;
+  line-height:1.15!important;
+  letter-spacing:0!important;
+  white-space:normal!important;
+}
+.heritage-date{
+  font-size:11px!important;
+  letter-spacing:2.5px!important;
+}
+.heritage-copy{
+  width:100%!important;
+  font-size:12px!important;
+  line-height:1.6!important;
+  margin:14px auto 20px!important;
+}
+.heritage-open{
+  min-height:44px!important;
+  min-width:175px!important;
+  padding:10px 18px!important;
+  font-size:11px!important;
+}
+.heritage-bottom{
+  bottom:20px!important;
+  font-size:8px!important;
+  letter-spacing:2px!important;
+}
+
+/* SECTIONS */
+.section,
+.heritage-countdown,
+.wedding-heritage{
+  width:100%!important;
+  padding:58px 16px!important;
+  min-height:0!important;
+}
+.section .inner,
+.heritage-section-inner{
+  width:100%!important;
+  max-width:430px!important;
+  margin:0 auto!important;
+}
+.eyebrow,
+.section-kicker{
+  font-size:9px!important;
+  letter-spacing:2.5px!important;
+}
+.title,
+.heritage-section-title{
+  font-size:30px!important;
+  line-height:1.2!important;
+}
+.sub{
+  width:100%!important;
+  max-width:390px!important;
+  font-size:13px!important;
+  line-height:1.75!important;
+}
+
+/* COUNTDOWN */
+.heritage-countdown{
+  padding:55px 16px!important;
+}
+.heritage-count-title{
+  font-size:27px!important;
+  margin:8px 0 22px!important;
+}
+.heritage-count{
+  width:100%!important;
+  max-width:390px!important;
+  grid-template-columns:repeat(2,1fr)!important;
+  gap:8px!important;
+}
+.heritage-count>div{
+  min-width:0!important;
+  padding:15px 5px!important;
+}
+.heritage-count .num{
+  font-size:27px!important;
+  line-height:1.1!important;
+}
+.heritage-count .label{
+  font-size:8px!important;
+  letter-spacing:1.2px!important;
+}
+
+/* COUPLE */
+.couple{
+  width:100%!important;
+  max-width:430px!important;
+  grid-template-columns:1fr!important;
+  gap:14px!important;
+  margin:22px auto 0!important;
+}
+.card{
+  width:100%!important;
+  padding:22px 16px!important;
+}
+.card h3{
+  font-size:27px!important;
+  line-height:1.2!important;
+}
+.portrait{
+  width:135px!important;
+  height:175px!important;
+}
+
+/* EVENTS */
+.event-grid{
+  width:100%!important;
+  max-width:430px!important;
+  grid-template-columns:1fr!important;
+  gap:14px!important;
+  margin:22px auto 0!important;
+}
+.heritage-event-card{
+  width:100%!important;
+  min-height:0!important;
+  padding:25px 16px!important;
+}
+.heritage-event-card .event-date{
+  font-size:23px!important;
+}
+.heritage-event-card .event-time{
+  font-size:14px!important;
+}
+.heritage-event-card .event-place,
+.heritage-event-card .event-address{
+  font-size:13px!important;
+  line-height:1.65!important;
+}
+.heritage-event-card .event-location{
+  min-height:40px!important;
+  padding:8px 16px!important;
+  font-size:11px!important;
+}
+
+/* BUTTONS */
+.btn,
+.copy-btn,
+.wedding-calendar{
+  max-width:100%!important;
+  white-space:normal!important;
+  font-size:11px!important;
+  line-height:1.3!important;
+}
+
+/* GIFT / MODAL */
+.rekening-box{
+  width:100%!important;
+  max-width:430px!important;
+  margin:20px auto!important;
+  padding:18px!important;
+}
+.account-number{
+  font-size:30px!important;
+  letter-spacing:1px!important;
+  overflow-wrap:anywhere!important;
+}
+.account-name{
+  font-size:16px!important;
+}
+.modalbox{
+  width:calc(100% - 24px)!important;
+  max-width:430px!important;
+  max-height:88svh!important;
+  overflow-y:auto!important;
+  margin:10px auto!important;
+}
+.modalbox h2{
+  font-size:30px!important;
+}
+.modalbox>p{
+  font-size:15px!important;
+  line-height:1.6!important;
+}
+
+/* FOOTER */
+.footer{
+  width:100%!important;
+  padding:50px 16px!important;
+}
+.footer h2{
+  font-size:24px!important;
+  line-height:1.25!important;
+}
+.footer p{
+  font-size:13px!important;
+  line-height:1.6!important;
+}
+
+/* kill legacy mobile giant typography */
+@media(max-width:700px){
+  body{font-size:16px!important}
+  .eyebrow,.date,.label,.bank-name{font-size:inherit!important}
+  .names{font-size:inherit!important}
+}
+
 </style>
 
 <body class="locked">

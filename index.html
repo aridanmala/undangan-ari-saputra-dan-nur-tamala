@@ -584,6 +584,74 @@ body *{
   }
 }
 
+
+/* === CAHAYA BERJALAN DI SEPUTAR LAYAR === */
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:9990;
+  pointer-events:none;
+  border:1px solid transparent;
+  background:
+    linear-gradient(90deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(255,244,210,.12) 47%,
+      rgba(255,250,235,.95) 50%,
+      rgba(255,244,210,.12) 53%,
+      transparent 58%,
+      transparent 100%
+    ) top/180px 2px no-repeat,
+    linear-gradient(180deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(255,244,210,.12) 47%,
+      rgba(255,250,235,.95) 50%,
+      rgba(255,244,210,.12) 53%,
+      transparent 58%,
+      transparent 100%
+    ) right/2px 180px no-repeat,
+    linear-gradient(270deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(255,244,210,.12) 47%,
+      rgba(255,250,235,.95) 50%,
+      rgba(255,244,210,.12) 53%,
+      transparent 58%,
+      transparent 100%
+    ) bottom/180px 2px no-repeat,
+    linear-gradient(0deg,
+      transparent 0%,
+      transparent 42%,
+      rgba(255,244,210,.12) 47%,
+      rgba(255,250,235,.95) 50%,
+      rgba(255,244,210,.12) 53%,
+      transparent 58%,
+      transparent 100%
+    ) left/2px 180px no-repeat;
+  filter:drop-shadow(0 0 5px rgba(255,250,235,.65));
+  animation:frameLight 7s linear infinite;
+}
+
+@keyframes frameLight{
+  0%{
+    background-position:-180px 0, 100% -180px, calc(100% + 180px) 100%, 0 calc(100% + 180px);
+  }
+  25%{
+    background-position:100% 0, 100% -180px, 100% 100%, 0 calc(100% + 180px);
+  }
+  50%{
+    background-position:100% 0, 100% 100%, 100% 100%, 0 100%;
+  }
+  75%{
+    background-position:100% 0, 100% 100%, -180px 100%, 0 100%;
+  }
+  100%{
+    background-position:-180px 0, 100% -180px, calc(100% + 180px) 100%, 0 calc(100% + 180px);
+  }
+}
+
 </style>
 
 <body class="locked">

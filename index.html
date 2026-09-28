@@ -959,6 +959,8 @@ body *{
  .paper-open{margin-top:9px;padding:9px 23px;font-size:12px !important;}
 }
 
+
+.hero-guest{margin:18px auto 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;z-index:2}.hero-guest .guest-label{font-size:14px!important;letter-spacing:4px;text-transform:uppercase;font-weight:400;opacity:.92}.hero-guest strong{font-size:25px!important;font-weight:500;letter-spacing:.8px;line-height:1.2}.hero-guest strong:before{content:"";display:block;width:34px;height:1px;margin:0 auto 8px;background:rgba(247,229,191,.7)}
 </style>
 
 <body class="locked">
@@ -977,7 +979,7 @@ body *{
   </div>
 
   <div class="hero-top">
-    <div class="hero-guest"><span data-i18n="dear">Kepada Yth.</span><br><strong id="guestName">Tamu Undangan</strong></div>
+    <div class="hero-guest"><span class="guest-label" data-i18n="dear">Untuk</span><strong id="guestName">Tamu Undangan</strong></div>
   </div>
 
   <div class="hero-paper">
@@ -1250,7 +1252,7 @@ document.getElementById("copyButton").addEventListener("click", salinRekening);
 const translations = {
   id: {
     wedding:"Pernikahan",
-    dear:"Kepada Yth.",
+    dear:"Untuk",
     guest:"Tamu Undangan",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Klik Buka Undangan",

@@ -77,7 +77,6 @@ section{
 }
 .amp{font-size:.45em;font-style:italic}
 .date{letter-spacing:4px;font-size:12px}
-.guest{line-height:1.5}
 .btn{
   display:inline-block;
   border:1px solid #d9c8b4;
@@ -355,13 +354,6 @@ section{
 @media(max-width:650px){
   .hero{min-height:100svh;background:transparent}
   .eyebrow{font-size:12px}
-  .hero .eyebrow,
-  .hero .guest,
-  .hero .date{
-    font-size:30px !important;
-    line-height:1.5;
-  }
-  .hero .guest strong{font-size:30px !important}
   .names{font-size:56px;line-height:.9;margin:18px 0}
   .btn,.copy-btn{
     font-size:16px!important;
@@ -910,6 +902,27 @@ body *{
   .paper-date{font-size:10px !important;letter-spacing:1.4px;}
   .paper-open{margin-top:7px;padding:8px 21px;font-size:11px !important;}
 }
+/* === FINAL HOMEPAGE CLEANUP === */
+.hero-modern{
+  min-height:100svh !important;
+  height:100svh !important;
+  background:#fff !important;
+}
+.hero-modern .hero-photo{
+  inset:0 0 40% 0;
+  background-image:url("ari&nur.jpeg") !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  background-position:center 28% !important;
+}
+.hero-modern .hero-shade{inset:0 0 40% 0 !important;}
+@media(max-width:650px){
+  .hero-modern .hero-photo{
+    inset:0 0 39% 0 !important;
+    background-position:center -5% !important;
+  }
+  .hero-modern .hero-shade{inset:0 0 39% 0 !important;}
+}
 </style>
 
 <body class="locked">
@@ -1195,7 +1208,6 @@ const translations = {
     welcome:"Selamat Datang",
     welcomeText:"Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.",
     welcomeShort:"Dengan penuh kebahagiaan, kami mengundang Anda untuk menjadi bagian dari hari istimewa kami.",
-    saveDate:"Catat Tanggalnya",
     dateTitle:"19 Desember 2026",
     days:"Hari", hours:"Jam", minutes:"Menit", seconds:"Detik",
     coupleTitle:"Kedua Mempelai",
@@ -1235,7 +1247,6 @@ const translations = {
     welcome:"Welcome",
     welcomeText:"With the grace and blessings of Allah SWT, we invite you to join us and share your prayers and blessings on our special day.",
     welcomeShort:"With great happiness, we invite you to be part of our special day.",
-    saveDate:"Save the Date",
     dateTitle:"19 December 2026",
     days:"Days", hours:"Hours", minutes:"Minutes", seconds:"Seconds",
     coupleTitle:"The Couple",
@@ -1275,7 +1286,6 @@ const translations = {
     welcome:"Добро пожаловать",
     welcomeText:"С милостью и благословением Аллаха мы приглашаем вас разделить с нами этот счастливый день и подарить свои молитвы и добрые пожелания.",
     welcomeShort:"С большой радостью мы приглашаем вас стать частью нашего особенного дня.",
-    saveDate:"Запишите дату",
     dateTitle:"19 декабря 2026",
     days:"Дней", hours:"Часов", minutes:"Минут", seconds:"Секунд",
     coupleTitle:"Молодожёны",

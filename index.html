@@ -17,6 +17,7 @@
 
 <title>Ari Saputra & Nurtamala - Wedding Invitation</title>
 <style>
+/* === OVERLAY GLOBAL: SATU UNTUK SELURUH HALAMAN === */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -24,8 +25,7 @@ body{margin:0;background:#111 url("ari&nur.jpeg") center top/100% auto no-repeat
 body:before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:0;pointer-events:none}
 body.locked{overflow:hidden;height:100vh;touch-action:none}
 section{min-height:auto;position:relative;overflow:hidden}
-.hero{display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(#1118,#111c),url("ari&nur.jpeg") center top/100% auto no-repeat}
-.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,#fff0 0,#0007 100%)}
+.hero{display:flex;align-items:center;justify-content:center;text-align:center;background:transparent}
 .hero>*{position:relative;z-index:1}
 .eyebrow{letter-spacing:5px;font-size:11px;text-transform:uppercase}
 .names{font:500 clamp(58px,11vw,130px)/.8 "Cormorant Garamond",serif;margin:25px 0}
@@ -97,13 +97,12 @@ section{min-height:auto;position:relative;overflow:hidden}
   .gallery img{height:180px}
   .hero{
     min-height:100svh;
-    background-attachment:scroll;
   }
 
   #welcome{
     min-height:100svh;
     border-top:1px solid rgba(255,255,255,.18);
-    background:rgba(0,0,0,.38);
+    background:transparent;
   }
 
   .modal{overflow-y:auto!important;align-items:flex-start!important;padding:10px!important}
@@ -115,55 +114,6 @@ section{min-height:auto;position:relative;overflow:hidden}
   .copy-status{font-size:18px}
   .gift-note{font-size:17px}
 }
-
-/* === FONT HP LEBIH JELAS === */
-@media(max-width:650px){
-  .eyebrow{
-    font-size:15px !important;
-    letter-spacing:4px;
-  }
-
-  .title{
-    font-size:42px !important;
-    line-height:1.05;
-  }
-
-  .sub{
-    font-size:16px !important;
-    line-height:1.8;
-  }
-
-  .date{
-    font-size:14px !important;
-  }
-
-  .btn{
-    font-size:15px !important;
-  }
-
-  .label{
-    font-size:12px !important;
-  }
-
-  .num{
-    font-size:36px !important;
-  }
-
-  .event p{
-    font-size:15px !important;
-    line-height:1.8;
-  }
-
-  .card h3,
-  .event h3{
-    font-size:32px !important;
-  }
-
-  .footer p{
-    font-size:15px !important;
-  }
-}
-
 </style>
 </head>
 <body class="locked">

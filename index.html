@@ -256,16 +256,34 @@ body:before{
 }
 
 
-/* === OVERLAY CINEMATIC MEWAH === */
-body:before{
+/* === KARTU MEMPELAI CINEMATIC MEWAH === */
+.card{
   background:
     linear-gradient(
       135deg,
-      rgba(8,8,8,.62) 0%,
-      rgba(20,18,18,.54) 48%,
-      rgba(8,8,8,.64) 100%
+      rgba(8,8,8,.68) 0%,
+      rgba(20,18,18,.58) 50%,
+      rgba(8,8,8,.70) 100%
     ) !important;
-  z-index:0 !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 12px 35px rgba(0,0,0,.28) !important;
+}
+
+.card h3,
+.card .sub{
+  color:#fff !important;
+}
+
+.event{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8,8,8,.68) 0%,
+      rgba(20,18,18,.58) 50%,
+      rgba(8,8,8,.70) 100%
+    ) !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 12px 35px rgba(0,0,0,.25) !important;
 }
 
 </style>
@@ -329,7 +347,7 @@ body:before{
 
 <section class="section"><div class="inner fade">
 <div class="eyebrow">Berikan Tanda Kasih</div>
-<div class="gift"><p class="sub"></p><button class="btn" onclick="openGift()">Open Kirim Hadiah</button></div>
+<div class="gift"><p class="sub">Doa dan restu Anda adalah hadiah terindah. Bagi yang ingin memberikan tanda kasih, dapat melalui Nomor Rekening.</p><button class="btn" onclick="openGift()">Open Kirim Hadiah</button></div>
 </div></section>
 
 <section class="section"><div class="inner fade">

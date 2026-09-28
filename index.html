@@ -592,7 +592,8 @@ body *{
 </a>
 
 <div class="lang-switcher" aria-label="Language">
-  <button type="button" class="lang-btn active" data-lang="en" onclick="setLanguage('en')">🇬🇧 EN</button>
+  <button type="button" class="lang-btn active" data-lang="id" onclick="setLanguage('id')">🇮🇩 ID</button>
+  <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 EN</button>
   <button type="button" class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">🇷🇺 RU</button>
 </div>
 </div>
@@ -693,7 +694,7 @@ function salinRekening(){
 
         setTimeout(() => {
             status.textContent = "";
-            button.innerHTML = "📋 <span data-i18n="copyAccount">Salin Nomor Rekening</span>";
+            button.innerHTML = "📋 Salin Nomor Rekening";
         }, 2000);
 
     }).catch(() => {
@@ -943,6 +944,8 @@ function setLanguage(lang){
   document.documentElement.lang = lang === "ru" ? "ru" : (lang === "en" ? "en" : "id");
 }
 
+
+setLanguage('id');
 </script>
 </body>
 </html>

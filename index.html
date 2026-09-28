@@ -800,14 +800,12 @@ body *{
   text-shadow:0 3px 12px rgba(0,0,0,.8) !important;
 }
 .hero-modern .hero-names span{font-style:italic;font-size:.62em}
-.hero-modern .hero-guest{
   margin-top:15px;
   font-size:15px !important;
   line-height:1.5;
   color:#fff !important;
   text-shadow:0 2px 7px rgba(0,0,0,.9) !important;
 }
-.hero-modern .hero-guest strong{font-size:17px !important;color:#fff !important}
 .hero-paper{
   position:absolute;
   left:-6%;
@@ -906,7 +904,6 @@ body *{
   .hero-modern .hero-top{top:61px}
   .hero-modern .hero-wedding{font-size:12px !important;letter-spacing:4px}
   .hero-modern .hero-names{font-size:50px !important}
-  .hero-modern .hero-guest{font-size:13px !important;margin-top:11px}
   .hero-paper{min-height:44%;padding:46px 10% 17px;border-radius:50% 50% 0 0/9% 9% 0 0;}
   .paper-wedding{font-size:10px !important;letter-spacing:4px}
   .paper-names{font-size:43px !important;margin:5px 0 7px}
@@ -927,8 +924,6 @@ body *{
 .hero-modern .hero-lang{top:24px;right:16px;gap:6px;}
 .hero-modern .lang-btn{min-width:64px;padding:7px 10px;border-radius:22px;background:rgba(0,0,0,.25) !important;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);}
 .hero-modern .hero-top{top:92px;left:18px;right:18px;}
-.hero-modern .hero-guest{font-size:14px !important;line-height:1.45;color:#fff !important;text-shadow:0 2px 9px rgba(0,0,0,.9) !important;}
-.hero-modern .hero-guest strong{font-size:18px !important;letter-spacing:.3px;}
 .hero-paper{left:-8%;right:-8%;bottom:-1px;min-height:47%;padding:58px 10% 26px;border-radius:50% 50% 0 0/10% 10% 0 0;}
 .paper-wedding{font-size:13px !important;letter-spacing:5px;}
 .paper-names{margin:7px 0 9px;font-size:clamp(43px,9vw,72px) !important;font-style:italic;}
@@ -945,8 +940,6 @@ body *{
  .hero-modern .hero-lang{top:28px;right:12px;}
  .hero-modern .lang-btn{min-width:61px;padding:7px 8px;font-size:13px !important;}
  .hero-modern .hero-top{top:103px;}
- .hero-modern .hero-guest{font-size:13px !important;}
- .hero-modern .hero-guest strong{font-size:17px !important;}
  .hero-paper{min-height:47%;padding:47px 10% 19px;border-radius:50% 50% 0 0/8% 8% 0 0;}
  .paper-wedding{font-size:11px !important;letter-spacing:4px;}
  .paper-names{font-size:45px !important;margin:5px 0 8px;}
@@ -960,7 +953,7 @@ body *{
 }
 
 
-.hero-guest{margin:18px auto 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;z-index:2}.hero-guest .guest-label{font-size:14px!important;letter-spacing:4px;text-transform:uppercase;font-weight:400;opacity:.92}.hero-guest strong{font-size:25px!important;font-weight:500;letter-spacing:.8px;line-height:1.2}.hero-guest strong:before{content:"";display:block;width:34px;height:1px;margin:0 auto 8px;background:rgba(247,229,191,.7)}
+
 </style>
 
 <body class="locked">
@@ -979,8 +972,7 @@ body *{
   </div>
 
   <div class="hero-top">
-    <div class="hero-guest"><span class="guest-label" data-i18n="dear">Untuk</span><strong id="guestName">Tamu Undangan</strong></div>
-  </div>
+</div>
 
   <div class="hero-paper">
     <div class="paper-inner">
@@ -1168,10 +1160,6 @@ function playMusic(event){
 
 const params = new URLSearchParams(window.location.search);
 const guestName = params.get("to");
-
-if (guestName) {
-    document.getElementById("guestName").textContent = guestName;
-}
   function shareInvitation(){
 
     const guest = guestName || "Tamu Undangan";
@@ -1379,12 +1367,6 @@ function setLanguage(lang){
     const key = el.dataset.i18n;
     if (dict[key] !== undefined) el.textContent = dict[key];
   });
-
-  const guest = new URLSearchParams(window.location.search).get("to");
-  if (!guest) {
-    const guestEl = document.getElementById("guestName");
-    if (guestEl) guestEl.textContent = dict.guest || "Guest";
-  }
 
   document.querySelectorAll(".lang-btn").forEach(btn=>{
     btn.classList.toggle("active", btn.dataset.lang === lang);

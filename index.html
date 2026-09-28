@@ -319,8 +319,8 @@ section{
 .footer p{
   color:#fff;
 }
-.fade{opacity:0;transform:translateY(35px);transition:1s}
-.fade.show{opacity:1;transform:none}
+.fade{opacity:0;transform:translateY(38px)}
+.fade.show{opacity:1;transform:translateY(0)}
 .scroll-hint{
   position:absolute;
   bottom:25px;
@@ -741,23 +741,16 @@ body *{
 
 
 
-/* === HARI PERNIKAHAN — SAVE THE DATE / ARCH + SCROLL REVEAL === */
+/* === HARI PERNIKAHAN — KONSEP SAVE THE DATE + SCROLL REVEAL === */
+/* Background sengaja transparan supaya tetap memakai background lama website */
 .wedding-day-section{
   position:relative;
   padding:92px 18px 105px;
   overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 18%,rgba(255,255,255,.10),transparent 30%),
-    linear-gradient(180deg,#0c655c 0%,#0a5b54 48%,#084d48 100%);
+  background:transparent !important;
 }
 .wedding-day-section:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.16;
-  background-image:radial-gradient(rgba(255,255,255,.75) .6px,transparent .6px);
-  background-size:17px 17px;
-  pointer-events:none;
+  display:none;
 }
 .wedding-day-wrap{
   width:min(720px,100%);
@@ -789,15 +782,15 @@ body *{
   margin:30px auto 0;
   width:min(570px,100%);
   padding:12px;
-  background:rgba(255,255,255,.96);
-  border-radius:285px 285px 22px 22px;
-  box-shadow:0 25px 60px rgba(0,0,0,.22);
+  background:rgba(255,255,255,.94);
+  border-radius:285px 285px 28px 28px;
+  box-shadow:0 18px 45px rgba(0,0,0,.18);
 }
 .wedding-arch-inner{
   padding:58px 30px 32px;
   border:1px solid rgba(117,82,51,.16);
   border-radius:270px 270px 15px 15px;
-  background:linear-gradient(180deg,#fffdfa 0%,#fdf9f2 100%);
+  background:rgba(255,253,250,.97);
   color:#3c3028;
 }
 .wedding-event{
@@ -1088,6 +1081,71 @@ body *{
   }
   .hero-modern .hero-shade{inset:0 0 39% 0 !important;}
 }
+
+/* === UNIVERSAL SCROLL REVEAL — SEMUA SECTION SAMA === */
+.scroll-reveal{
+  opacity:0;
+  transform:translateY(38px);
+  transition:
+    opacity .85s ease,
+    transform .85s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity,transform;
+}
+.scroll-reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Semua elemen isi section mengikuti animasi yang sama, berurutan */
+.scroll-reveal .reveal-item{
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.22,.61,.36,1);
+}
+.scroll-reveal.show .reveal-item{
+  opacity:1;
+  transform:translateY(0);
+}
+.scroll-reveal.show .reveal-item:nth-child(1){transition-delay:.05s}
+.scroll-reveal.show .reveal-item:nth-child(2){transition-delay:.15s}
+.scroll-reveal.show .reveal-item:nth-child(3){transition-delay:.25s}
+.scroll-reveal.show .reveal-item:nth-child(4){transition-delay:.35s}
+.scroll-reveal.show .reveal-item:nth-child(5){transition-delay:.45s}
+.scroll-reveal.show .reveal-item:nth-child(6){transition-delay:.55s}
+.scroll-reveal.show .reveal-item:nth-child(7){transition-delay:.65s}
+.scroll-reveal.show .reveal-item:nth-child(8){transition-delay:.75s}
+
+/* Hari Pernikahan tetap menggunakan gaya yang sama, bukan animasi khusus */
+.wedding-day-section .wedding-reveal{
+  opacity:0;
+  transform:translateY(38px);
+  transition:
+    opacity .85s ease,
+    transform .85s cubic-bezier(.22,.61,.36,1);
+}
+.wedding-day-section.revealed .wedding-reveal{
+  opacity:1;
+  transform:translateY(0);
+}
+.wedding-day-section.revealed .wedding-reveal:nth-child(1){transition-delay:.05s}
+.wedding-day-section.revealed .wedding-reveal:nth-child(2){transition-delay:.15s}
+.wedding-day-section.revealed .wedding-reveal:nth-child(3){transition-delay:.25s}
+.wedding-day-section.revealed .wedding-reveal:nth-child(4){transition-delay:.35s}
+.wedding-day-section.revealed .wedding-reveal:nth-child(5){transition-delay:.45s}
+.wedding-day-section.revealed .wedding-reveal:nth-child(6){transition-delay:.55s}
+
+@media(prefers-reduced-motion:reduce){
+  .scroll-reveal,
+  .scroll-reveal .reveal-item,
+  .wedding-day-section .wedding-reveal{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+}
+
 </style>
 
 <body class="locked">
@@ -1123,7 +1181,7 @@ body *{
 </section>
 
 <section class="section" id="welcome">
-<div class="inner fade">
+<div class="inner fade scroll-reveal">
 <div class="eyebrow" data-i18n="welcome">Selamat Datang</div>
 <div class="divider"></div>
 <p class="sub"><span data-i18n="welcomeText">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</span></p>
@@ -1136,7 +1194,7 @@ body *{
 
 </section>
 
-<section class="section"><div class="inner fade">
+<section class="section"><div class="inner fade scroll-reveal">
 <div class="eyebrow" data-i18n="coupleTitle">Kedua Mempelai</div>
 <div class="couple">
 <div class="card"><img class="portrait" src="ari.png" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak Alm. Safril & Ibu Artini</span></p></div>
@@ -1179,12 +1237,12 @@ body *{
   </div>
 </section>
 
-<section class="section"><div class="inner fade">
+<section class="section"><div class="inner fade scroll-reveal">
 <div class="eyebrow" data-i18n="giftTitle">Berikan Tanda Kasih</div>
 <div class="gift"><button class="btn" onclick="openGift()"><span data-i18n="openGift">Open Kirim Hadiah</span></button></div>
 </div></section>
 
-<section class="section"><div class="inner fade">
+<section class="section"><div class="inner fade scroll-reveal">
 <div class="eyebrow" data-i18n="rsvpTitle">Konfirmasi Kehadiran</div><h2 class="title" data-i18n="willAttend">Akankah Anda Hadir?</h2><div class="divider"></div>
 <p class="sub"><span data-i18n="rsvpText">Mohon konfirmasi kehadiran Anda melalui WhatsApp.</span></p>
 <a class="btn wa" target="_blank" href="https://wa.me/6282271284817?text=Halo%20Ari,%20saya%20akan%20hadir%20di%20acara%20pernikahan."><span data-i18n="confirmWhatsApp">Konfirmasi via WhatsApp</span></a>
@@ -1565,6 +1623,30 @@ async function copyCrypto(){
 
 
 setLanguage('id');
+
+/* === UNIVERSAL SCROLL ANIMATION === */
+(function(){
+  const targets = document.querySelectorAll('.scroll-reveal');
+  if(!targets.length) return;
+
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        entry.target.classList.add('revealed');
+      }else{
+        entry.target.classList.remove('show');
+        entry.target.classList.remove('revealed');
+      }
+    });
+  },{
+    threshold:0.16,
+    rootMargin:"0px 0px -8% 0px"
+  });
+
+  targets.forEach(el=>observer.observe(el));
+})();
+
 </script>
 </body>
 </html>

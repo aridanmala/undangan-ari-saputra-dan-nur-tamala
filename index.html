@@ -540,6 +540,68 @@ body *{
 }
 
 
+
+/* === MUSIC ON / OFF CONTROL === */
+.music-control{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:10001;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-width:108px;
+  justify-content:center;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:999px;
+  background:rgba(0,0,0,.48);
+  color:#fff4df;
+  font:500 13px "Times New Roman",Times,serif;
+  letter-spacing:1px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  box-shadow:0 6px 20px rgba(0,0,0,.28);
+  text-shadow:none;
+}
+.music-control:hover{
+  background:rgba(0,0,0,.62);
+}
+.music-disc{
+  width:14px;
+  height:14px;
+  border:2px solid currentColor;
+  border-radius:50%;
+  position:relative;
+  flex:0 0 14px;
+}
+.music-disc:after{
+  content:"";
+  position:absolute;
+  width:4px;
+  height:4px;
+  left:3px;
+  top:3px;
+  border-radius:50%;
+  background:currentColor;
+}
+.music-control.playing .music-disc{
+  animation:musicSpin 2.4s linear infinite;
+}
+@keyframes musicSpin{
+  to{transform:rotate(360deg)}
+}
+@media(max-width:650px){
+  .music-control{
+    right:12px;
+    bottom:12px;
+    min-width:98px;
+    padding:9px 12px;
+    font-size:12px;
+  }
+}
+
 /* === TOMBOL BAHASA EN / RU === */
 .lang-switcher{
   display:flex;
@@ -753,6 +815,16 @@ body *{
   <audio id="bgMusic" preload="auto" loop>
   <source src="./Melly Goeslaw ft Amee - Ketika Cinta Bertasbih Lirik.mp3" type="audio/mpeg">
 </audio>
+<button type="button"
+        id="musicControl"
+        class="music-control"
+        aria-label="Musik OFF"
+        aria-pressed="false"
+        onclick="toggleMusic(event)">
+  <span class="music-disc"></span>
+  <span id="musicLabel">Musik OFF</span>
+</button>
+
 
 <section class="hero">
 <div>
@@ -921,20 +993,61 @@ function salinRekening(){
     });
 }
 
+function syncMusicButton(){
+  const music = document.getElementById("bgMusic");
+  const button = document.getElementById("musicControl");
+  const label = document.getElementById("musicLabel");
+  if(!music || !button) return;
+
+  const playing = !music.paused;
+  button.classList.toggle("playing", playing);
+  button.setAttribute("aria-pressed", playing ? "true" : "false");
+  button.setAttribute("aria-label", playing ? "Musik ON" : "Musik OFF");
+  if(label) label.textContent = playing ? "Musik ON" : "Musik OFF";
+}
+
 function playMusic(event){
   if(event) event.preventDefault();
 
   document.body.classList.remove("locked");
 
   const music = document.getElementById("bgMusic");
-  music.volume = 1;
-  music.play().catch(()=>{});
+  if(music){
+    music.volume = 1;
+    music.play().then(syncMusicButton).catch(syncMusicButton);
+  }
 
   setTimeout(()=>{
-    document.getElementById("welcome").scrollIntoView({
-      behavior:"smooth"
-    });
+    const welcome = document.getElementById("welcome");
+    if(welcome){
+      welcome.scrollIntoView({behavior:"smooth"});
+    }
   },100);
+}
+
+function toggleMusic(event){
+  if(event) event.stopPropagation();
+
+  const music = document.getElementById("bgMusic");
+  if(!music) return;
+
+  if(music.paused){
+    document.body.classList.remove("locked");
+    music.volume = 1;
+    music.play().then(syncMusicButton).catch(syncMusicButton);
+  }else{
+    music.pause();
+    syncMusicButton();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", syncMusicButton);
+
+const musicElement = document.getElementById("bgMusic");
+if(musicElement){
+  musicElement.addEventListener("play", syncMusicButton);
+  musicElement.addEventListener("pause", syncMusicButton);
+  musicElement.addEventListener("ended", syncMusicButton);
 }
 
 const params = new URLSearchParams(window.location.search);

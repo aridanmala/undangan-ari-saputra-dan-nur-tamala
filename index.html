@@ -244,6 +244,30 @@ body *{
   font-family:"Times New Roman", Times, serif !important;
 }
 
+
+/* === SEMUA KONTEN DI ATAS OVERLAY === */
+body > *{
+  position:relative;
+  z-index:1;
+}
+
+body:before{
+  z-index:0 !important;
+}
+
+
+/* === OVERLAY CINEMATIC MEWAH === */
+body:before{
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8,8,8,.62) 0%,
+      rgba(20,18,18,.54) 48%,
+      rgba(8,8,8,.64) 100%
+    ) !important;
+  z-index:0 !important;
+}
+
 </style>
 </head>
 <body class="locked">
@@ -305,7 +329,7 @@ body *{
 
 <section class="section"><div class="inner fade">
 <div class="eyebrow">Berikan Tanda Kasih</div>
-<div class="gift"><button class="btn" onclick="openGift()">Open Kirim Hadiah</button></div>
+<div class="gift"><p class="sub">Doa dan restu Anda adalah hadiah terindah. Bagi yang ingin memberikan tanda kasih, dapat melalui Nomor Rekening.</p><button class="btn" onclick="openGift()">Open Kirim Hadiah</button></div>
 </div></section>
 
 <section class="section"><div class="inner fade">

@@ -695,6 +695,58 @@ body *{
   background:#e5c58f !important;
 }
 
+
+/* === PILIHAN HADIAH BANK / CRYPTO === */
+.gift-options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin:22px 0;
+}
+.gift-option{
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.06);
+  color:#fff4df;
+  border-radius:12px;
+  padding:18px 10px;
+  cursor:pointer;
+  font:700 18px "Times New Roman",Times,serif;
+  text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 8px rgba(0,0,0,.6);
+}
+.gift-option.active{
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.7);
+  box-shadow:0 0 18px rgba(255,255,255,.12);
+}
+.gift-panel{display:none}
+.gift-panel.active{display:block}
+.crypto-qr{
+  width:min(250px,100%);
+  display:block;
+  margin:18px auto;
+  border-radius:6px;
+  background:#fff;
+}
+.crypto-network{
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-top:10px;
+}
+.crypto-address{
+  word-break:break-all;
+  font-size:15px;
+  line-height:1.5;
+  padding:14px;
+  margin-top:12px;
+  background:rgba(0,0,0,.12);
+  border-radius:8px;
+}
+@media(max-width:650px){
+  .gift-options{gap:10px}
+  .gift-option{padding:16px 7px;font-size:17px}
+}
+
 </style>
 
 <body class="locked">
@@ -773,28 +825,38 @@ body *{
 
 <footer class="footer"><h2>Ari Saputra & Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p></footer>
 
+
 <div class="modal" id="gift">
   <div class="modalbox">
     <span class="close" onclick="closeGift()">×</span>
     <h2 data-i18n="modalGift">Kirim Hadiah</h2>
 
-    <p><span data-i18n="modalText">Silakan gunakan aplikasi perbankan atau e-wallet pilihan Anda.</span></p>
-
-    <div class="rekening-box">
-      <div class="bank-name" data-i18n="bank">Bank BCA</div>
-      <input class="account-number rekening-input" id="nomorRekening" value="8325198334" readonly onclick="this.select()">
-      <div class="account-name"><span data-i18n="accountName">a.n. Ari Saputra</span></div>
+    <div class="gift-options">
+      <button type="button" class="gift-option active" onclick="showGiftPanel('bank')">🏦 Bank BCA</button>
+      <button type="button" class="gift-option" onclick="showGiftPanel('crypto')">₿ Crypto</button>
     </div>
 
-    <button type="button" class="btn copy-btn" id="copyButton">
-      📋 <span data-i18n="copyAccount">Salin Nomor Rekening</span>
-    </button>
+    <div id="giftBank" class="gift-panel active">
+      <p><span data-i18n="modalText">Silakan gunakan aplikasi perbankan atau e-wallet pilihan Anda.</span></p>
+      <div class="rekening-box">
+        <div class="bank-name" data-i18n="bank">Bank BCA</div>
+        <input class="account-number rekening-input" id="nomorRekening" value="8325198334" readonly onclick="this.select()">
+        <div class="account-name"><span data-i18n="accountName">a.n. Ari Saputra</span></div>
+      </div>
+      <button type="button" class="btn copy-btn" id="copyButton">
+        📋 <span data-i18n="copyAccount">Salin Nomor Rekening</span>
+      </button>
+      <div id="copyStatus" class="copy-status"></div>
+      <p class="gift-note"><span data-i18n="giftThanks">Terima kasih atas tanda kasih dan doa restunya. ❤️</span></p>
+    </div>
 
-    <div id="copyStatus" class="copy-status"></div>
-
-    <p class="gift-note">
-      <span data-i18n="giftThanks">Terima kasih atas tanda kasih dan doa restunya. ❤️</span>
-    </p>
+    <div id="giftCrypto" class="gift-panel">
+      <div class="crypto-network">USDT — TRC20</div>
+      <img class="crypto-qr" src="crypto-trc20-qr.png" alt="QR Wallet USDT TRC20">
+      <div class="crypto-address" id="cryptoAddress">TCBwAaQWJjg7xRaUUrWQPjJowxbqVURyJC</div>
+      <button type="button" class="btn copy-btn" onclick="copyCrypto()" data-i18n="copyCrypto">📋 Salin Wallet</button>
+      <div class="copy-status" id="cryptoCopyStatus"></div>
+    </div>
   </div>
 </div>
 
@@ -995,7 +1057,7 @@ const translations = {
     modalText:"Silakan gunakan aplikasi perbankan atau e-wallet pilihan Anda.",
     bank:"Bank BCA",
     accountName:"a.n. Ari Saputra",
-    copyAccount:"Salin Nomor Rekening",
+    copyAccount:"Salin Nomor Rekening", copyCrypto:"Salin Wallet",
     giftThanks:"Terima kasih atas tanda kasih dan doa restunya. ❤️"
   },
   en: {
@@ -1034,7 +1096,7 @@ const translations = {
     modalText:"Please use your preferred banking application or e-wallet.",
     bank:"BCA Bank",
     accountName:"a.n. Ari Saputra",
-    copyAccount:"Copy Account Number",
+    copyAccount:"Copy Account Number", copyCrypto:"Copy Wallet",
     giftThanks:"Thank you for your gift and prayers. ❤️"
   },
   ru: {
@@ -1073,7 +1135,7 @@ const translations = {
     modalText:"Пожалуйста, используйте удобное для вас банковское приложение или электронный кошелёк.",
     bank:"Банк BCA",
     accountName:"а/с Ари Сапутра",
-    copyAccount:"Скопировать номер счёта",
+    copyAccount:"Скопировать номер счёта", copyCrypto:"Скопировать кошелёк",
     giftThanks:"Спасибо за ваш подарок и молитвы. ❤️"
   }
 };
@@ -1097,6 +1159,34 @@ function setLanguage(lang){
   });
 
   document.documentElement.lang = lang === "ru" ? "ru" : (lang === "en" ? "en" : "id");
+}
+
+
+
+function showGiftPanel(panel){
+  document.querySelectorAll(".gift-panel").forEach(el=>el.classList.remove("active"));
+  document.querySelectorAll(".gift-option").forEach(el=>el.classList.remove("active"));
+  const isCrypto = panel === "crypto";
+  const target = document.getElementById(isCrypto ? "giftCrypto" : "giftBank");
+  if(target) target.classList.add("active");
+  const buttons = document.querySelectorAll(".gift-option");
+  if(buttons.length) buttons[isCrypto ? 1 : 0].classList.add("active");
+}
+
+async function copyCrypto(){
+  const address = "TCBwAaQWJjg7xRaUUrWQPjJowxbqVURyJC";
+  try{
+    await navigator.clipboard.writeText(address);
+  }catch(e){
+    const ta=document.createElement("textarea");
+    ta.value=address;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  }
+  const status=document.getElementById("cryptoCopyStatus");
+  if(status) status.textContent="Wallet berhasil disalin ✓";
 }
 
 

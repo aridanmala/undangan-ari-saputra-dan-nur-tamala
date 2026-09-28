@@ -1616,6 +1616,163 @@ body:after{display:none!important}
   .footer h2{font-size:20px!important}
 }
 
+
+/* ===== FINAL POLISH / CLEAN 100% ===== */
+html, body { margin:0!important; padding:0!important; overflow-x:hidden!important; }
+*, *::before, *::after { box-sizing:border-box!important; text-shadow:none!important; -webkit-text-stroke:0!important; }
+body { font-family:"Times New Roman", Times, serif!important; background:#2a1b14!important; color:#3a2a21!important; }
+
+/* Hero: keep faces visible and typography centered */
+.hero.hero-heritage{
+  min-height:100svh!important; height:100svh!important; padding:0!important;
+  display:flex!important; align-items:center!important; justify-content:center!important;
+}
+.heritage-photo{
+  background-image:url("ari&nur.jpeg")!important;
+  background-size:cover!important;
+  background-position:center 22%!important;
+}
+.heritage-overlay{
+  background:linear-gradient(180deg,rgba(30,19,13,.18) 0%,rgba(30,19,13,.30) 42%,rgba(30,19,13,.72) 100%)!important;
+}
+.heritage-frame{inset:18px!important;border-color:rgba(225,194,139,.72)!important;pointer-events:none!important}
+.heritage-opening{
+  width:min(760px,calc(100% - 36px))!important;
+  margin:auto!important;
+  padding:38px 34px!important;
+  text-align:center!important;
+  background:rgba(35,23,17,.48)!important;
+  border:1px solid rgba(232,204,157,.48)!important;
+  border-radius:2px!important;
+  backdrop-filter:blur(2px)!important;
+}
+.heritage-mark{margin-bottom:12px!important;color:#ead19f!important}
+.heritage-kicker{font-size:11px!important;letter-spacing:5px!important;color:#ead9bd!important}
+.heritage-script{font-size:20px!important;letter-spacing:4px!important;color:#f0d9ad!important}
+.heritage-rule{margin:15px auto 18px!important;width:82px!important}
+.heritage-names{
+  margin:0!important; color:#fff8ea!important; font-size:clamp(34px,5vw,58px)!important;
+  line-height:1.1!important; font-weight:500!important; letter-spacing:.3px!important;
+}
+.heritage-names i{color:#e0bb7c!important;font-style:normal!important}
+.heritage-date{margin-top:18px!important;color:#f0d9b2!important;letter-spacing:4px!important;font-size:14px!important}
+.heritage-copy{max-width:590px!important;margin:18px auto 24px!important;color:#f4eadb!important;line-height:1.75!important;font-size:15px!important}
+.heritage-open{
+  display:inline-flex!important; align-items:center!important; justify-content:center!important;
+  min-width:190px!important; min-height:48px!important; padding:12px 25px!important;
+  color:#fff8eb!important; border:1px solid #d7b77f!important; background:rgba(111,75,45,.45)!important;
+  border-radius:2px!important; text-decoration:none!important; letter-spacing:1.4px!important;
+  box-shadow:none!important;
+}
+.heritage-lang{
+  top:22px!important; right:22px!important; z-index:20!important;
+  display:flex!important; gap:5px!important; padding:5px!important;
+  background:rgba(31,20,14,.58)!important; border:1px solid rgba(236,211,170,.4)!important;
+  border-radius:20px!important; backdrop-filter:blur(5px)!important;
+}
+.heritage-lang .lang-btn{
+  border:0!important; background:transparent!important; color:#f7ead4!important;
+  padding:7px 10px!important; border-radius:15px!important; font:12px "Times New Roman",serif!important;
+}
+.heritage-lang .lang-btn.active{background:#d4b078!important;color:#2b1b13!important}
+
+/* Every content section uses the same grid width and spacing */
+.section,.heritage-countdown,.wedding-heritage{
+  width:100%!important; padding:82px 20px!important; min-height:0!important;
+}
+.section .inner,.heritage-section-inner,.wedding-section-inner{
+  width:min(980px,100%)!important; margin:0 auto!important;
+}
+.section .sub{max-width:720px!important}
+.eyebrow,.section-kicker{letter-spacing:4px!important;color:#8a6949!important}
+.title,.heritage-section-title,.heritage-count-title{
+  color:#3d2c22!important; font-weight:500!important;
+}
+.divider{height:1px!important;background:#b99665!important}
+
+/* Countdown */
+.heritage-countdown{background:#efe2d0!important}
+.heritage-countdown .inner{text-align:center!important}
+.heritage-count-title{font-size:clamp(28px,4vw,42px)!important;margin:10px 0 28px!important}
+.heritage-count{
+  width:min(720px,100%)!important; margin:0 auto!important;
+  display:grid!important; grid-template-columns:repeat(4,1fr)!important; gap:12px!important;
+}
+.heritage-count>div{
+  background:#fbf6ed!important; border:1px solid #d5bd9b!important;
+  border-radius:2px!important; padding:20px 10px!important; box-shadow:none!important;
+}
+.heritage-count .num{color:#4b3426!important;font-size:32px!important}
+.heritage-count .label{color:#8a6a4a!important;letter-spacing:2px!important}
+
+/* Couple/event cards */
+.couple,.event-grid{width:min(900px,100%)!important;margin:28px auto 0!important}
+.couple{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+.card,.heritage-event-card{
+  background:#fbf6ed!important; border:1px solid #d7c1a0!important;
+  border-radius:3px!important; box-shadow:none!important; color:#3d2c22!important;
+}
+.card h3,.heritage-event-card h3,.heritage-event-card .event-label{color:#6e4c31!important}
+.card p,.heritage-event-card p,.event-address{color:#6d5a4c!important}
+
+/* Wedding events: clean two-column editorial layout */
+.event-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+.heritage-event-card{min-height:300px!important;padding:32px 25px!important;text-align:center!important}
+.heritage-event-card .event-date{color:#3f2d23!important;font-size:25px!important}
+.heritage-event-card .event-time{color:#8a6847!important}
+.heritage-event-card .event-place{color:#4b392e!important}
+.heritage-event-card .event-location{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  min-height:42px!important;padding:9px 18px!important;border:1px solid #b79668!important;
+  background:transparent!important;color:#6e4c31!important;text-decoration:none!important;
+}
+.wedding-calendar{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  margin-top:26px!important; min-height:46px!important;padding:10px 22px!important;
+  border:1px solid #9d774b!important;background:#795738!important;color:#fff8ec!important;
+}
+
+/* Gift / RSVP / footer */
+.rekening-box{max-width:650px!important;margin:24px auto!important;background:#efe1cf!important;border:1px solid #d5bd9b!important}
+.copy-btn,.wa{border-radius:2px!important;box-shadow:none!important}
+.footer{padding:65px 20px!important;text-align:center!important}
+.footer h2{font-size:clamp(25px,5vw,42px)!important;color:#fff6e8!important}
+.footer p{color:#eadcc8!important}
+
+/* Remove legacy reveal hiding from important content */
+.wedding-day-section .wedding-reveal,
+.wedding-day-section .wedding-item,
+.wedding-day-section .wedding-event,
+.wedding-day-section .event-label,
+.wedding-day-section .event-date,
+.wedding-day-section .event-time,
+.wedding-day-section .event-place,
+.wedding-day-section .event-address,
+.wedding-day-section .event-location,
+.wedding-day-section .wedding-divider,
+.wedding-day-section .wedding-calendar{
+  visibility:visible!important;
+}
+
+/* Mobile */
+@media(max-width:700px){
+  .heritage-photo{background-position:center 18%!important}
+  .heritage-frame{inset:12px!important}
+  .heritage-lang{top:16px!important;right:16px!important}
+  .heritage-opening{width:calc(100% - 30px)!important;padding:28px 18px!important}
+  .heritage-kicker{font-size:9px!important;letter-spacing:3px!important}
+  .heritage-script{font-size:17px!important}
+  .heritage-names{font-size:clamp(27px,8.2vw,39px)!important;white-space:normal!important}
+  .heritage-copy{font-size:13px!important;line-height:1.65!important}
+  .heritage-date{font-size:12px!important;letter-spacing:3px!important}
+  .section,.heritage-countdown,.wedding-heritage{padding:64px 16px!important}
+  .heritage-count{grid-template-columns:repeat(2,1fr)!important;gap:10px!important}
+  .heritage-count>div{padding:17px 6px!important}
+  .heritage-count .num{font-size:27px!important}
+  .couple,.event-grid{grid-template-columns:1fr!important;gap:16px!important}
+  .card,.heritage-event-card{padding:25px 18px!important}
+}
+
 </style>
 
 <body class="locked">
@@ -1660,7 +1817,7 @@ body:after{display:none!important}
 <p class="sub"><span data-i18n="welcomeText">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</span></p>
 </div>
 
-<div class="scroll-hint" onclick="document.getElementById('welcome').nextElementSibling.scrollIntoView({behavior:'smooth'})">
+<div class="scroll-hint" aria-hidden="true">
 <span>SCROLL</span>
 <div class="arrow-down">↓</div>
 </div>

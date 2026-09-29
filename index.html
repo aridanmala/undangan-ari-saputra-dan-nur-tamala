@@ -544,9 +544,6 @@ body *{
 /* === MUSIC ON / OFF CONTROL === */
 .music-control{
   position:fixed;
-  touch-action:none;
-  user-select:none;
-  -webkit-user-select:none;
   right:18px;
   top:18px;
   z-index:10001;
@@ -562,10 +559,7 @@ body *{
   color:#fff4df;
   font:500 13px "Times New Roman",Times,serif;
   letter-spacing:1px;
-  cursor:grab;
-  touch-action:none;
-  user-select:none;
-  -webkit-user-select:none;
+  cursor:pointer;
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
   box-shadow:0 6px 20px rgba(0,0,0,.28);
@@ -928,55 +922,6 @@ body *{
 }
 
 
-/* === WELCOME SLIDE 2 === */
-#welcome.welcome-slide{
-  min-height:100svh;
-  padding:0;
-  position:relative;
-  display:block;
-  background:url("selamatdatang.png") center top/cover no-repeat;
-  overflow:hidden;
-}
-#welcome.welcome-slide:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.03);
-  pointer-events:none;
-}
-#welcome.welcome-slide .welcome-content{
-  position:absolute;
-  z-index:2;
-  left:50%;
-  top:67%;
-  transform:translate(-50%,-50%);
-  width:min(760px,88%);
-  text-align:center;
-}
-#welcome.welcome-slide .welcome-title{
-  margin:0 0 20px;
-  font:500 clamp(42px,5.2vw,72px)/1 "Times New Roman",Times,serif;
-  color:#fff4df;
-  text-shadow:0 3px 16px rgba(0,0,0,.65);
-}
-#welcome.welcome-slide .welcome-divider{
-  width:115px;
-  height:1px;
-  margin:0 auto 22px;
-  background:linear-gradient(90deg,transparent,#e7c67e,transparent);
-  box-shadow:0 0 10px rgba(231,198,126,.35);
-}
-#welcome.welcome-slide .welcome-text{
-  max-width:690px;
-  margin:0 auto;
-  font:500 clamp(15px,1.65vw,21px)/1.7 "Times New Roman",Times,serif;
-  color:#fff8ed;
-  text-shadow:0 2px 10px rgba(0,0,0,.72);
-}
-#welcome.welcome-slide .scroll-hint{
-  z-index:3;
-}
-
 /* === HERO MOBILE: KEMBALIKAN TAMPILAN REFERENSI === */
 @media (max-width:650px){
   .hero{
@@ -1093,26 +1038,74 @@ body *{
   }
 }
 
+
+/* === SLIDE 2: SELAMAT DATANG === */
+#welcome.welcome-slide{
+  min-height:100svh;
+  padding:0;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(35,8,8,.10) 55%,rgba(35,8,8,.18) 100%),
+    url("selamatdatang.png") center center/cover no-repeat;
+  border-top:0;
+}
+#welcome.welcome-slide .welcome-content{
+  position:relative;
+  z-index:2;
+  width:min(760px,88%);
+  margin:0 auto;
+  padding:0 0 12vh;
+  text-align:center;
+  text-shadow:0 2px 10px rgba(0,0,0,.55);
+}
+#welcome.welcome-slide .welcome-title{
+  margin:0 0 18px;
+  color:#fff4df;
+  font:500 clamp(38px,5.5vw,72px)/1.05 "Times New Roman",Times,serif;
+  letter-spacing:.5px;
+}
+#welcome.welcome-slide .welcome-divider{
+  width:110px;
+  height:1px;
+  margin:0 auto 22px;
+  background:#e7c67e;
+  box-shadow:0 0 8px rgba(231,198,126,.35);
+}
+#welcome.welcome-slide .welcome-text{
+  max-width:680px;
+  margin:0 auto;
+  color:#fff8ef;
+  font:500 clamp(16px,1.8vw,22px)/1.7 "Times New Roman",Times,serif;
+}
+#welcome.welcome-slide .scroll-hint{
+  z-index:3;
+  bottom:22px;
+}
 @media(max-width:650px){
   #welcome.welcome-slide{
-    min-height:100svh !important;
-    background-position:center top !important;
+    min-height:100svh;
+    background-position:center center;
   }
   #welcome.welcome-slide .welcome-content{
-    top:67% !important;
-    width:86% !important;
+    width:86%;
+    padding-bottom:13vh;
   }
   #welcome.welcome-slide .welcome-title{
-    font-size:36px !important;
-    margin-bottom:14px !important;
-    line-height:1 !important;
+    margin-bottom:13px;
+    font-size:40px !important;
+    line-height:1.05;
+    letter-spacing:0;
   }
   #welcome.welcome-slide .welcome-divider{
-    width:85px !important;
-    margin-bottom:16px !important;
+    width:82px;
+    margin-bottom:16px;
   }
   #welcome.welcome-slide .welcome-text{
-    font-size:14px !important;
+    font-size:16px !important;
     line-height:1.55 !important;
   }
 }
@@ -1132,30 +1125,6 @@ body *{
   <span class="music-disc"></span>
   <span id="musicLabel">Music OFF</span>
 </button>
-
-<script>
-(function(){
-  const el=document.getElementById("musicControl");
-  if(!el) return;
-  let dragging=false,moved=false,sx=0,sy=0,sl=0,st=0;
-  el.addEventListener("pointerdown",e=>{
-    const r=el.getBoundingClientRect();
-    dragging=true;moved=false;sx=e.clientX;sy=e.clientY;sl=r.left;st=r.top;
-    el.style.left=r.left+"px";el.style.top=r.top+"px";el.style.right="auto";el.style.bottom="auto";
-    el.style.cursor="grabbing";el.setPointerCapture(e.pointerId);
-  });
-  el.addEventListener("pointermove",e=>{
-    if(!dragging)return;
-    const dx=e.clientX-sx,dy=e.clientY-sy;
-    if(Math.abs(dx)>4||Math.abs(dy)>4)moved=true;
-    el.style.left=Math.max(0,Math.min(innerWidth-el.offsetWidth,sl+dx))+"px";
-    el.style.top=Math.max(0,Math.min(innerHeight-el.offsetHeight,st+dy))+"px";
-    if(moved)e.preventDefault();
-  });
-  el.addEventListener("pointerup",e=>{dragging=false;el.style.cursor="grab";if(moved){el.dataset.dragged="1";setTimeout(()=>delete el.dataset.dragged,150);}});
-  el.addEventListener("click",e=>{if(el.dataset.dragged){e.preventDefault();e.stopImmediatePropagation();}},true);
-})();
-</script>
 
 
 <section class="hero">
@@ -1178,7 +1147,7 @@ body *{
 
 <section class="section welcome-slide" id="welcome">
 <div class="welcome-content fade">
-  <div class="welcome-title" data-i18n="welcome">Selamat Datang</div>
+  <h2 class="welcome-title" data-i18n="welcome">Selamat Datang</h2>
   <div class="welcome-divider"></div>
   <p class="welcome-text" data-i18n="welcomeText">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</p>
 </div>
@@ -1636,9 +1605,6 @@ async function copyCrypto(){
 
 
 setLanguage('id');
-<script>
-(function(){const btn=document.getElementById("musicControl");if(!btn)return;let drag=false,moved=false,sx=0,sy=0,sl=0,st=0;btn.addEventListener("pointerdown",e=>{drag=true;moved=false;btn.setPointerCapture(e.pointerId);const r=btn.getBoundingClientRect();sx=e.clientX;sy=e.clientY;sl=r.left;st=r.top});btn.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)>4||Math.abs(dy)>4)moved=true;if(moved){btn.style.left=Math.max(4,Math.min(innerWidth-btn.offsetWidth-4,sl+dx))+"px";btn.style.top=Math.max(4,Math.min(innerHeight-btn.offsetHeight-4,st+dy))+"px";btn.style.right="auto"}});btn.addEventListener("pointerup",e=>{drag=false;try{btn.releasePointerCapture(e.pointerId)}catch(_){};});btn.addEventListener("click",e=>{if(moved){e.preventDefault();e.stopImmediatePropagation();moved=false}},true)})();
-</script>
 </script>
 </body>
 </html>

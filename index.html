@@ -1327,8 +1327,8 @@ section:nth-of-type(4) .card .sub{
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="coupleTitle">Kedua Mempelai</div>
 <div class="couple">
-<div class="card"><img class="portrait" src="ari.png" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak Alm. Safril & Ibu Artini</span></p></div>
-<div class="card"><img class="portrait" src="mala.png" alt=""><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak Alm. Hamidi & Ibu Rohimah</span></p></div>
+<div class="card"><img class="portrait" src="ari.png" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
+<div class="card"><img class="portrait" src="mala.png" alt=""><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
 </div></div></section>
 
 <section class="section"><div class="inner fade">
@@ -1571,8 +1571,8 @@ const translations = {
     dateTitle:"19 Desember 2026",
     days:"Hari", hours:"Jam", minutes:"Menit", seconds:"Detik",
     coupleTitle:"Kedua Mempelai",
-    ariParents:"Putra dari Bapak Alm. Safril & Ibu Artini",
-    nurParents:"Putri dari Bapak Alm. Hamidi & Ibu Rohimah",
+    ariParents:"Putra dari Bapak<br>Alm. Safril & Ibu Artini",
+    nurParents:"Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah",
     weddingDay:"Hari Pernikahan",
     akadDate:"18 Desember 2026",
     akad:"Akad Nikah",
@@ -1689,7 +1689,7 @@ function setLanguage(lang){
 
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key = el.getAttribute("data-i18n");
-    if (dict[key] !== undefined) el.textContent = dict[key];
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
   });
 
   document.documentElement.lang = lang;

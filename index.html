@@ -544,6 +544,9 @@ body *{
 /* === MUSIC ON / OFF CONTROL === */
 .music-control{
   position:fixed;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
   right:18px;
   top:18px;
   z-index:10001;
@@ -559,7 +562,10 @@ body *{
   color:#fff4df;
   font:500 13px "Times New Roman",Times,serif;
   letter-spacing:1px;
-  cursor:pointer;
+  cursor:grab;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
   box-shadow:0 6px 20px rgba(0,0,0,.28);
@@ -922,6 +928,55 @@ body *{
 }
 
 
+/* === WELCOME SLIDE 2 === */
+#welcome.welcome-slide{
+  min-height:100svh;
+  padding:0;
+  position:relative;
+  display:block;
+  background:url("selamatdatang.png") center top/cover no-repeat;
+  overflow:hidden;
+}
+#welcome.welcome-slide:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.03);
+  pointer-events:none;
+}
+#welcome.welcome-slide .welcome-content{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:67%;
+  transform:translate(-50%,-50%);
+  width:min(760px,88%);
+  text-align:center;
+}
+#welcome.welcome-slide .welcome-title{
+  margin:0 0 20px;
+  font:500 clamp(42px,5.2vw,72px)/1 "Times New Roman",Times,serif;
+  color:#fff4df;
+  text-shadow:0 3px 16px rgba(0,0,0,.65);
+}
+#welcome.welcome-slide .welcome-divider{
+  width:115px;
+  height:1px;
+  margin:0 auto 22px;
+  background:linear-gradient(90deg,transparent,#e7c67e,transparent);
+  box-shadow:0 0 10px rgba(231,198,126,.35);
+}
+#welcome.welcome-slide .welcome-text{
+  max-width:690px;
+  margin:0 auto;
+  font:500 clamp(15px,1.65vw,21px)/1.7 "Times New Roman",Times,serif;
+  color:#fff8ed;
+  text-shadow:0 2px 10px rgba(0,0,0,.72);
+}
+#welcome.welcome-slide .scroll-hint{
+  z-index:3;
+}
+
 /* === HERO MOBILE: KEMBALIKAN TAMPILAN REFERENSI === */
 @media (max-width:650px){
   .hero{
@@ -1038,11 +1093,30 @@ body *{
   }
 }
 
+@media(max-width:650px){
+  #welcome.welcome-slide{
+    min-height:100svh !important;
+    background-position:center top !important;
+  }
+  #welcome.welcome-slide .welcome-content{
+    top:67% !important;
+    width:86% !important;
+  }
+  #welcome.welcome-slide .welcome-title{
+    font-size:36px !important;
+    margin-bottom:14px !important;
+    line-height:1 !important;
+  }
+  #welcome.welcome-slide .welcome-divider{
+    width:85px !important;
+    margin-bottom:16px !important;
+  }
+  #welcome.welcome-slide .welcome-text{
+    font-size:14px !important;
+    line-height:1.55 !important;
+  }
+}
 
-
-/* === MUSIC BUTTON DRAG === */
-.music-control{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;}
-.music-control.dragging{cursor:grabbing;transition:none!important;}
 </style>
 
 <body class="locked">
@@ -1058,6 +1132,30 @@ body *{
   <span class="music-disc"></span>
   <span id="musicLabel">Music OFF</span>
 </button>
+
+<script>
+(function(){
+  const el=document.getElementById("musicControl");
+  if(!el) return;
+  let dragging=false,moved=false,sx=0,sy=0,sl=0,st=0;
+  el.addEventListener("pointerdown",e=>{
+    const r=el.getBoundingClientRect();
+    dragging=true;moved=false;sx=e.clientX;sy=e.clientY;sl=r.left;st=r.top;
+    el.style.left=r.left+"px";el.style.top=r.top+"px";el.style.right="auto";el.style.bottom="auto";
+    el.style.cursor="grabbing";el.setPointerCapture(e.pointerId);
+  });
+  el.addEventListener("pointermove",e=>{
+    if(!dragging)return;
+    const dx=e.clientX-sx,dy=e.clientY-sy;
+    if(Math.abs(dx)>4||Math.abs(dy)>4)moved=true;
+    el.style.left=Math.max(0,Math.min(innerWidth-el.offsetWidth,sl+dx))+"px";
+    el.style.top=Math.max(0,Math.min(innerHeight-el.offsetHeight,st+dy))+"px";
+    if(moved)e.preventDefault();
+  });
+  el.addEventListener("pointerup",e=>{dragging=false;el.style.cursor="grab";if(moved){el.dataset.dragged="1";setTimeout(()=>delete el.dataset.dragged,150);}});
+  el.addEventListener("click",e=>{if(el.dataset.dragged){e.preventDefault();e.stopImmediatePropagation();}},true);
+})();
+</script>
 
 
 <section class="hero">
@@ -1078,11 +1176,11 @@ body *{
 </div>
 </section>
 
-<section class="section" id="welcome">
-<div class="inner fade">
-<div class="eyebrow" data-i18n="welcome">Selamat Datang</div>
-<div class="divider"></div>
-<p class="sub"><span data-i18n="welcomeText">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</span></p>
+<section class="section welcome-slide" id="welcome">
+<div class="welcome-content fade">
+  <div class="welcome-title" data-i18n="welcome">Selamat Datang</div>
+  <div class="welcome-divider"></div>
+  <p class="welcome-text" data-i18n="welcomeText">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</p>
 </div>
 
 <div class="scroll-hint" onclick="document.getElementById('welcome').nextElementSibling.scrollIntoView({behavior:'smooth'})">
@@ -1537,63 +1635,10 @@ async function copyCrypto(){
 }
 
 
-
-
-/* === MUSIC BUTTON DRAG === */
-(function(){
-  const button=document.getElementById("musicControl");
-  if(!button)return;
-  let dragging=false, moved=false, suppressClick=false;
-  let startX=0,startY=0,startLeft=0,startTop=0;
-
-  function start(e){
-    const p=e.touches ? e.touches[0] : e;
-    const r=button.getBoundingClientRect();
-    startX=p.clientX; startY=p.clientY;
-    startLeft=r.left; startTop=r.top;
-    dragging=true; moved=false;
-    button.classList.add("dragging");
-  }
-
-  function move(e){
-    if(!dragging)return;
-    const p=e.touches ? e.touches[0] : e;
-    const dx=p.clientX-startX, dy=p.clientY-startY;
-    if(Math.abs(dx)>5 || Math.abs(dy)>5)moved=true;
-    if(!moved)return;
-
-    const left=Math.max(0,Math.min(window.innerWidth-button.offsetWidth,startLeft+dx));
-    const top=Math.max(0,Math.min(window.innerHeight-button.offsetHeight,startTop+dy));
-    button.style.setProperty("left",left+"px","important");
-    button.style.setProperty("top",top+"px","important");
-    button.style.setProperty("right","auto","important");
-    if(e.cancelable)e.preventDefault();
-  }
-
-  function end(){
-    if(!dragging)return;
-    if(moved)suppressClick=true;
-    dragging=false;
-    button.classList.remove("dragging");
-  }
-
-  button.addEventListener("mousedown",start);
-  document.addEventListener("mousemove",move);
-  document.addEventListener("mouseup",end);
-  button.addEventListener("touchstart",start,{passive:false});
-  document.addEventListener("touchmove",move,{passive:false});
-  document.addEventListener("touchend",end);
-
-  button.addEventListener("click",function(e){
-    if(suppressClick){
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      suppressClick=false;
-    }
-  },true);
-})();
-
 setLanguage('id');
+<script>
+(function(){const btn=document.getElementById("musicControl");if(!btn)return;let drag=false,moved=false,sx=0,sy=0,sl=0,st=0;btn.addEventListener("pointerdown",e=>{drag=true;moved=false;btn.setPointerCapture(e.pointerId);const r=btn.getBoundingClientRect();sx=e.clientX;sy=e.clientY;sl=r.left;st=r.top});btn.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)>4||Math.abs(dy)>4)moved=true;if(moved){btn.style.left=Math.max(4,Math.min(innerWidth-btn.offsetWidth-4,sl+dx))+"px";btn.style.top=Math.max(4,Math.min(innerHeight-btn.offsetHeight-4,st+dy))+"px";btn.style.right="auto"}});btn.addEventListener("pointerup",e=>{drag=false;try{btn.releasePointerCapture(e.pointerId)}catch(_){};});btn.addEventListener("click",e=>{if(moved){e.preventDefault();e.stopImmediatePropagation();moved=false}},true)})();
+</script>
 </script>
 </body>
 </html>

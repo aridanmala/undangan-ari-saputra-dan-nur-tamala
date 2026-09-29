@@ -15,7 +15,6 @@
 <title>Ari Saputra & Nurtamala - Wedding Invitation</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -26,16 +25,6 @@ body{
   font-weight:500;
   font-size:16px;
 }
-html:before{
-  content:"";
-  position:fixed;
-  inset:-4%;
-  background:url("ari&nur.jpeg") center center/cover no-repeat;
-  transform:scale(1.08);
-  z-index:-2;
-  pointer-events:none;
-}
-
 body:before{
   content:"";
   position:fixed;
@@ -649,14 +638,6 @@ body *{
 
 
 /* === HP: FOTO HERO DI-ZOOM AGAR PENUH === */
-@media(max-width:650px){
-  .hero{
-    min-height:100svh !important;
-    background:url("ari&nur.jpeg") center center/cover no-repeat !important;
-    background-attachment:scroll !important;
-  }
-}
-
 
 /* === CAHAYA BERJALAN DI SEPUTAR LAYAR === */
 body:after{
@@ -838,129 +819,6 @@ body *{
     top:62px;
   }
 }
-
-/* === HERO DEPAN: KONSEP JAWA ELEGAN === */
-.hero{
-  position:relative;
-  min-height:100svh !important;
-  background:url("ornamen-jawa2.png") center center/cover no-repeat !important;
-  overflow:hidden;
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,rgba(45,27,15,.16),rgba(20,12,7,.30));
-  z-index:0;
-  pointer-events:none;
-}
-.hero > div{
-  position:relative;
-  z-index:2;
-  width:min(92vw,620px);
-  margin:0 auto;
-  padding:28px 16px 36px;
-  text-align:center;
-}
-.hero .eyebrow{
-  font-family:"Cormorant Garamond","Times New Roman",serif;
-  font-size:clamp(18px,4vw,25px) !important;
-  font-weight:500;
-  letter-spacing:7px;
-  color:#f7e5bf !important;
-  text-shadow:0 2px 5px rgba(40,20,5,.8) !important;
-  text-transform:uppercase;
-}
-.hero .names{
-  margin:16px 0 10px !important;
-  font-family:"Great Vibes","Brush Script MT",cursive !important;
-  font-weight:400 !important;
-  line-height:1 !important;
-  color:#f9e6b9 !important;
-  text-shadow:0 2px 6px rgba(45,20,5,.85),0 0 12px rgba(255,235,185,.18) !important;
-}
-.hero .name-line{
-  white-space:nowrap;
-}
-.hero .ari-name{
-  font-size:clamp(42px,9vw,70px) !important;
-}
-.hero .nur-name{
-  font-size:clamp(36px,7.8vw,62px) !important;
-}
-.hero .amp{
-  display:block;
-  margin:2px 0 0;
-  font-family:"Cormorant Garamond","Times New Roman",serif !important;
-  font-size:34px !important;
-  font-style:italic;
-  line-height:.85;
-  color:#f4d89d !important;
-}
-.hero .guest{
-  margin-top:12px;
-  font-family:"Cormorant Garamond","Times New Roman",serif;
-  font-size:20px !important;
-  line-height:1.25 !important;
-  color:#fff0d0 !important;
-  text-shadow:0 2px 5px rgba(45,20,5,.85) !important;
-}
-.hero .guest strong{
-  font-size:21px !important;
-  font-weight:500;
-}
-.hero .date{
-  margin-top:14px;
-  font-family:"Cormorant Garamond","Times New Roman",serif;
-  font-size:21px !important;
-  letter-spacing:5px;
-  color:#f8e2b3 !important;
-  text-shadow:0 2px 5px rgba(45,20,5,.85) !important;
-}
-.hero .btn-open{
-  margin-top:20px !important;
-  padding:12px 25px !important;
-  border:1px solid #e6c681 !important;
-  border-radius:999px !important;
-  background:linear-gradient(180deg,#7b251d,#54150f) !important;
-  color:#fff1cf !important;
-  font-family:"Cormorant Garamond","Times New Roman",serif !important;
-  font-size:16px !important;
-  letter-spacing:1.5px !important;
-  text-shadow:0 2px 4px rgba(0,0,0,.8) !important;
-  box-shadow:0 7px 18px rgba(55,20,5,.38),inset 0 1px rgba(255,245,210,.25) !important;
-}
-.hero .lang-switcher{
-  margin-top:12px !important;
-  gap:8px !important;
-}
-.hero .lang-btn{
-  min-width:58px !important;
-  padding:6px 10px !important;
-  border:1px solid rgba(239,211,157,.65) !important;
-  border-radius:999px !important;
-  background:rgba(68,37,17,.45) !important;
-  color:#fff0d0 !important;
-  font-family:"Cormorant Garamond","Times New Roman",serif !important;
-  font-size:14px !important;
-  text-shadow:0 2px 4px rgba(0,0,0,.8) !important;
-}
-.hero .lang-btn.active{background:rgba(170,119,42,.72) !important;border-color:#f2d28c !important}
-@media(max-width:650px){
-  .hero{background-position:center center !important;}
-  .hero > div{padding:22px 12px 28px;}
-  .hero .eyebrow{font-size:16px !important;letter-spacing:5px;}
-  .hero .ari-name{font-size:39px !important;}
-  .hero .nur-name{font-size:34px !important;}
-  .hero .amp{font-size:27px !important;margin-top:3px;}
-  .hero .guest{font-size:17px !important;margin-top:11px;}
-  .hero .guest strong{font-size:18px !important;}
-  .hero .date{font-size:18px !important;letter-spacing:4px;margin-top:12px;}
-  .hero .btn-open{font-size:14px !important;padding:10px 20px !important;margin-top:17px !important;}
-  .hero .lang-switcher{margin-top:10px !important;}
-  .hero .lang-btn{min-width:56px !important;font-size:13px !important;padding:6px 9px !important;}
-}
-
 </style>
 
 <body class="locked">
@@ -981,7 +839,7 @@ body *{
 <section class="hero">
 <div>
 <div class="eyebrow" data-i18n="wedding">Pernikahan</div>
-<div class="names"><div class="name-line ari-name">Ari Saputra</div><div class="amp">&amp;</div><div class="name-line nur-name">Nurtamala, S.Akun</div></div>
+<div class="names">Ari Saputra <span class="amp">&</span> Nurtamala, S.Akun</div>
 <div class="guest"><span data-i18n="dear">Kepada Yth.</span><br><strong id="guestName">Tamu Undangan</strong></div>
 <div class="date" data-i18n="heroDate">19 • 12 • 2026</div>
 <a class="btn btn-open" href="#welcome" onclick="playMusic(event)">

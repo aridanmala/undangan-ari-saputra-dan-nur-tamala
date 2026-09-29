@@ -223,6 +223,10 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 /* =========================
    MOBILE
    ========================= */
+/* =========================================================
+   MOBILE LOCK — JANGAN UBAH BAGIAN DI BAWAH UNTUK MODE HP
+   PC OPTIMIZATION MULAI DILAKUKAN DI LUAR @media(max-width:650px)
+   ========================================================= */
 @media(max-width:650px){
   .hero{min-height:100svh;background:url("ornamen-jawa2.webp") center/cover no-repeat;background-attachment:scroll}
   .hero>div{width:100%;padding:0 14px;margin:0 auto;text-align:center;transform:translateY(28px)}
@@ -303,12 +307,15 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   .footer h2:after{font-size:11px;letter-spacing:3px;margin:12px 0 11px}
   .footer p{font-size:13px}
 }
+/* =========================================================
+   END MOBILE LOCK
+   ========================================================= */
 
 </style>
 
 <body class="locked">
-  <audio id="bgMusic" preload="auto" loop>
-  <source src="./Melly Goeslaw ft Amee - Ketika Cinta Bertasbih Lirik.mp3" type="audio/mpeg">
+  <audio id="bgMusic" preload="none" loop>
+  <source src="./Melly Goeslaw ft Amee - Ketika Cinta Bertasbih Lirik.m4a" type="audio/mpeg">
 </audio>
 
 <div class="scroll-hint" id="scrollHint" onclick="handleScrollHint()">

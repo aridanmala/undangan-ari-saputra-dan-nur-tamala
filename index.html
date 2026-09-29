@@ -1230,6 +1230,20 @@ section:nth-of-type(4) .card .sub{
 
 
 /* === AKAD & RESEPSI: 20PX + OVERLAY KONTRAS SEIMBANG === */
+/* === NAMA NURTAMALA: 1 BARIS, UKURAN MENYESUAIKAN === */
+.card h3{
+  white-space:nowrap !important;
+}
+
+@media(max-width:650px){
+  section:nth-of-type(4) .card h3{
+    font-size:clamp(24px,7vw,30px) !important;
+    line-height:1.15 !important;
+    white-space:nowrap !important;
+    letter-spacing:-.2px !important;
+  }
+}
+
 @media(max-width:650px){
   section:nth-of-type(5) .event{
     position:relative !important;

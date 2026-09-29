@@ -1209,6 +1209,24 @@ section:nth-of-type(4) .card .sub{
   }
 }
 
+
+
+/* === TOMBOL MUSIK: KIRI ATAS === */
+.music-control{
+  left:10px !important;
+  right:auto !important;
+  top:8px !important;
+  z-index:10001 !important;
+}
+
+@media(max-width:650px){
+  .music-control{
+    left:10px !important;
+    right:auto !important;
+    top:8px !important;
+  }
+}
+
 </style>
 
 <body class="locked">
@@ -1222,7 +1240,7 @@ section:nth-of-type(4) .card .sub{
         aria-pressed="false"
         onclick="toggleMusic(event)">
   <span class="music-disc"></span>
-  <span id="musicLabel">Musik OFF</span>
+  <span id="musicLabel" data-i18n="musicOff">Musik OFF</span>
 </button>
 
 
@@ -1492,6 +1510,8 @@ document.getElementById("copyButton").addEventListener("click", salinRekening);
 /* === TRANSLATE EN / RU === */
 const translations = {
   id: {
+      musicOn: "Musik ON",
+      musicOff: "Musik OFF",
     wedding:"Pernikahan",
     dear:"Kepada Yth.",
     guest:"Tamu Undangan",
@@ -1532,6 +1552,8 @@ const translations = {
     giftThanks:"Terima kasih atas tanda kasih dan doa restunya. ❤️"
   },
   en: {
+      musicOn: "Music ON",
+      musicOff: "Music OFF",
     wedding:"The Wedding of",
     dear:"Dear",
     guest:"Guest",
@@ -1572,6 +1594,8 @@ const translations = {
     giftThanks:"Thank you for your gift and prayers. ❤️"
   },
   ru: {
+      musicOn: "Музыка ВКЛ",
+      musicOff: "Музыка ВЫКЛ",
     wedding:"Свадьба",
     dear:"Уважаемый(ая)",
     guest:"Гость",

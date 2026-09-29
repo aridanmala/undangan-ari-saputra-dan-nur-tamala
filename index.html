@@ -49,7 +49,6 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
   display:flex;align-items:center;justify-content:center;
   min-height:100svh;text-align:center;background:transparent;
 }
-.hero>*{position:relative;z-index:1}
 .eyebrow{letter-spacing:5px;font-size:11px;text-transform:uppercase}
 .names{
   font:500 clamp(58px,11vw,130px)/.8 "Times New Roman",Times,serif;
@@ -105,8 +104,8 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
 .count div{
   padding:18px 8px 16px;background:rgba(20,14,10,.28);
   border:1px solid rgba(229,197,143,.28);border-radius:10px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 6px 18px rgba(0,0,0,.18);
-  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+  
 }
 .count .num{display:block;line-height:1;font:600 34px "Cormorant Garamond","Times New Roman",serif;color:#f7e5bf !important}
 .count .label{display:block;margin-top:7px;font:600 11px "Cormorant Garamond","Times New Roman",serif;letter-spacing:2px;text-transform:uppercase;color:#fff0d0 !important}
@@ -182,7 +181,7 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
   position:fixed;left:10px;top:8px;z-index:10001;display:flex;align-items:center;gap:9px;
   min-width:104px;justify-content:center;padding:10px 14px;border:1px solid rgba(255,255,255,.45);
   border-radius:999px;background:rgba(0,0,0,.48);color:#fff4df;font:500 13px "Times New Roman",Times,serif;
-  letter-spacing:1px;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  letter-spacing:1px;cursor:pointer;
   box-shadow:0 6px 20px rgba(0,0,0,.28);text-shadow:none;
 }
 .music-control:hover{background:rgba(0,0,0,.62)}
@@ -745,7 +744,6 @@ function setLanguage(lang){
     syncMusicButton();
   }
 }
-
 
 
 function showGiftPanel(panel){

@@ -407,9 +407,199 @@ section:nth-of-type(7) .title{margin-bottom:8px}
       background-position:center top;
     }
   }
+
+/* =========================================================
+   PC-3 — DESKTOP WEBNIKAH-STYLE FRAME
+   MOBILE DIKUNCI — hanya aktif >650px
+   ========================================================= */
+@media(min-width:651px){
+  html:before{
+    left:50%;
+    right:auto;
+    width:min(570px,100vw);
+    inset-block:0;
+    transform:translateX(-50%) scale(1.08);
+  }
+
+  body{
+    background:#000;
+  }
+
+  body:before{
+    left:50%;
+    right:auto;
+    width:min(570px,100vw);
+    transform:translateX(-50%);
+    background:rgba(0,0,0,.50);
+  }
+
+  body > section,
+  body > footer{
+    width:min(570px,100vw);
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero{
+    min-height:100svh;
+    padding:40px 24px 95px;
+    background:url("ornamen-jawa2.webp") center/cover no-repeat;
+  }
+
+  .hero>div{
+    width:100%;
+    max-width:520px;
+  }
+
+  #welcome{
+    min-height:100svh;
+    padding:70px 24px 100px;
+    background-position:center top;
+  }
+
+  .section{
+    min-height:100svh;
+    padding:80px 24px 105px;
+  }
+
+  .inner{
+    width:100%;
+    max-width:520px;
+  }
+
+  .count{
+    max-width:520px;
+  }
+
+  .couple{
+    gap:12px;
+  }
+
+  .card{
+    padding:24px 12px 22px;
+  }
+
+  .portrait{
+    width:125px;
+    height:165px;
+  }
+
+  .card h3{
+    font-size:25px;
+  }
+
+  .events{
+    gap:10px;
+  }
+
+  .event{
+    padding:24px 14px;
+  }
+
+  .event h3{
+    font-size:25px;
+  }
+
+  .footer{
+    width:min(570px,100vw);
+    padding:48px 20px 105px;
+  }
+
+  /* Bottom navigation seperti mode PC WebNikah */
+  .desktop-nav{
+    position:fixed;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:min(570px,100vw);
+    height:58px;
+    z-index:10002;
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    background:rgba(0,0,0,.94);
+    border-top:1px solid rgba(229,197,143,.55);
+    box-shadow:0 -8px 25px rgba(0,0,0,.35);
+  }
+
+  .desktop-nav button{
+    appearance:none;
+    border:0;
+    border-right:1px solid rgba(229,197,143,.28);
+    background:transparent;
+    color:#d9b45f;
+    padding:5px 2px 4px;
+    font:500 9px/1.05 "Cormorant Garamond","Times New Roman",serif;
+    letter-spacing:.5px;
+    cursor:pointer;
+    text-shadow:0 1px 2px rgba(0,0,0,.9);
+  }
+
+  .desktop-nav button:last-child{border-right:0}
+  .desktop-nav button:hover{background:rgba(229,197,143,.10)}
+
+  .desktop-nav .nav-icon{
+    display:block;
+    font-size:16px;
+    line-height:18px;
+    margin-bottom:2px;
+  }
+
+  .scroll-hint{
+    display:none;
+  }
+
+  /* Speaker dibuat seperti tombol kecil di kanan bawah referensi */
+  .music-control{
+    left:auto;
+    right:20px;
+    top:auto;
+    bottom:76px;
+    min-width:0;
+    width:42px;
+    height:42px;
+    padding:0;
+    border-radius:50%;
+    gap:0;
+    background:rgba(255,255,255,.96);
+    color:#2b241d;
+    border-color:rgba(255,255,255,.9);
+    box-shadow:0 4px 15px rgba(0,0,0,.28);
+  }
+
+  .music-control #musicLabel{
+    display:none;
+  }
+
+  .music-disc{
+    width:16px;
+    height:16px;
+    flex-basis:16px;
+  }
+
+  .music-disc:after{
+    width:5px;
+    height:5px;
+    left:3.5px;
+    top:3.5px;
+  }
+
+  .desktop-nav + *{}
+}
+/* ===================== END PC-3 ===================== */
+
 </style>
 
 <body class="locked">
+
+<nav class="desktop-nav" aria-label="Navigasi Undangan PC">
+  <button type="button" onclick="desktopNavTo('home')"><span class="nav-icon">⌂</span>Home</button>
+  <button type="button" onclick="desktopNavTo('couple')"><span class="nav-icon">♔</span>Mempelai</button>
+  <button type="button" onclick="desktopNavTo('welcome')"><span class="nav-icon">✉</span>Undangan</button>
+  <button type="button" onclick="desktopNavTo('map')"><span class="nav-icon">⌖</span>Map</button>
+  <button type="button" onclick="desktopNavTo('giftSection')"><span class="nav-icon">♧</span>Kado</button>
+  <button type="button" onclick="desktopNavTo('rsvp')"><span class="nav-icon">♡</span>Ucapan</button>
+  <button type="button" onclick="desktopNavTo('protocol')"><span class="nav-icon">❧</span>Protokol</button>
+</nav>
   <audio id="bgMusic" preload="auto" loop>
   <source src="./Melly Goeslaw ft Amee - Ketika Cinta Bertasbih Lirik.mp3" type="audio/mpeg">
 </audio>
@@ -429,7 +619,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 </button>
 
 
-<section class="hero">
+<section class="hero" id="home">
 <div>
 <div class="eyebrow" data-i18n="wedding">Pernikahan</div>
 <div class="names"><span class="name-line">Ari Saputra</span><span class="name-amp">&</span><span class="name-line">Nurtamala, S.Akun</span></div>
@@ -456,19 +646,19 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 
 </section>
 
-<section class="section"><div class="inner fade">
+<section class="section" id="date"><div class="inner fade">
 <div class="eyebrow" data-i18n="saveDate">Catat Tanggalnya</div><h2 class="title" data-i18n="dateTitle">19 Desember 2026</h2><div class="divider"></div>
 <div class="count"><div><span class="num" id="d">0</span><span class="label" data-i18n="days">Hari</span></div><div><span class="num" id="h">0</span><span class="label" data-i18n="hours">Jam</span></div><div><span class="num" id="m">0</span><span class="label" data-i18n="minutes">Menit</span></div><div><span class="num" id="s">0</span><span class="label" data-i18n="seconds">Detik</span></div></div>
 </div></section>
 
-<section class="section"><div class="inner fade">
+<section class="section" id="couple"><div class="inner fade">
 <div class="eyebrow" data-i18n="coupleTitle">Kedua Mempelai</div>
 <div class="couple">
 <div class="card"><img decoding="async" class="portrait" src="ari2.webp" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
 <div class="card"><img decoding="async" class="portrait" src="mala2.webp" alt=""><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
 </div></div></section>
 
-<section class="section"><div class="inner fade">
+<section class="section" id="map"><div class="inner fade">
 <div class="eyebrow" data-i18n="weddingDay">Hari Pernikahan</div>
 <div class="events">
 <div class="event"><div data-i18n="akadDate">18 Desember 2026</div><h3 data-i18n="akad">Akad Nikah</h3><p><span data-i18n="akadTime">14.00 WIB — Selesai</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
@@ -477,19 +667,19 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <a class="btn" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D""><span data-i18n="viewLocation">Lihat Lokasi</span></a>
 </div></section>
 
-<section class="section"><div class="inner fade">
+<section class="section" id="giftSection"><div class="inner fade">
 <div class="eyebrow" data-i18n="giftTitle">Berikan Tanda Kasih</div>
 <div class="gift"><button class="btn" onclick="openGift()"><span data-i18n="openGift">Kirim Hadiah</span></button></div>
 </div></section>
 
-<section class="section"><div class="inner fade">
+<section class="section" id="rsvp"><div class="inner fade">
 <div class="eyebrow" data-i18n="rsvpTitle">Konfirmasi Kehadiran</div><h2 class="title" data-i18n="willAttend">Akankah Anda Hadir?</h2><div class="divider"></div>
 <p class="sub"><span data-i18n="rsvpText">Silakan konfirmasi melalui WhatsApp.</span></p>
 <a class="btn wa" href="#" onclick="confirmAttendance(event)"><span data-i18n="confirmWhatsApp">Konfirmasi via WhatsApp</span></a>
 <button class="btn" onclick="shareInvitation()">🔗 <span data-i18n="shareInvitation">Bagikan Undangan</span></button>
 </div></section>
 
-<footer class="footer"><h2>Ari Saputra<br>&<br>Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p></footer>
+<footer class="footer" id="protocol"><h2>Ari Saputra<br>&<br>Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p></footer>
 
 
 <div class="modal" id="gift">
@@ -527,6 +717,17 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 </div>
 
 <script>
+
+function desktopNavTo(id){
+  document.body.classList.remove("locked");
+  const audio = document.getElementById("bgMusic");
+  if(audio && audio.paused){
+    audio.play().then(syncMusicButton).catch(syncMusicButton);
+  }
+  const targetEl = document.getElementById(id);
+  if(targetEl) targetEl.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
 const target = new Date("2026-12-19T11:00:00+07:00").getTime();
 
 const dayEl = document.getElementById("d");

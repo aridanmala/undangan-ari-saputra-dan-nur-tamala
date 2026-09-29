@@ -1227,6 +1227,49 @@ section:nth-of-type(4) .card .sub{
   }
 }
 
+
+
+/* === AKAD & RESEPSI: 20PX + OVERLAY KONTRAS SEIMBANG === */
+@media(max-width:650px){
+  section:nth-of-type(5) .event{
+    position:relative !important;
+    overflow:hidden !important;
+  }
+
+  /* Overlay gelap lembut agar teks 20px tetap jelas tanpa terlalu berat */
+  section:nth-of-type(5) .event::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    background:rgba(0,0,0,.28) !important;
+    border-radius:inherit !important;
+    pointer-events:none !important;
+    z-index:0 !important;
+  }
+
+  section:nth-of-type(5) .event > *{
+    position:relative !important;
+    z-index:1 !important;
+  }
+
+  section:nth-of-type(5) .event > div{
+    font-size:20px !important;
+    line-height:1.6 !important;
+  }
+
+  section:nth-of-type(5) .event h3{
+    font-size:24px !important;
+    line-height:1.25 !important;
+    margin:10px !important;
+  }
+
+  section:nth-of-type(5) .event p{
+    font-size:20px !important;
+    line-height:1.65 !important;
+    margin:10px 0 0 !important;
+  }
+}
+
 </style>
 
 <body class="locked">

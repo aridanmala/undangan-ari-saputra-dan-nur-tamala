@@ -1408,16 +1408,19 @@ function salinRekening(){
 }
 
 function syncMusicButton(){
-  const music = document.getElementById("bgMusic");
+  const audio = document.getElementById("bgMusic");
   const button = document.getElementById("musicControl");
   const label = document.getElementById("musicLabel");
-  if(!music || !button) return;
+  if (!audio || !button || !label) return;
 
-  const playing = !music.paused;
-  button.classList.toggle("playing", playing);
-  button.setAttribute("aria-pressed", playing ? "true" : "false");
-  button.setAttribute("aria-label", playing ? "Musik ON" : "Musik OFF");
-  if(label) label.textContent = playing ? "Musik ON" : "Musik OFF";
+  const isPlaying = !audio.paused;
+  const dict = (typeof translations !== "undefined" && translations[currentLanguage])
+    ? translations[currentLanguage]
+    : translations.id;
+
+  label.textContent = dict[isPlaying ? "musicOn" : "musicOff"] || (isPlaying ? "Musik ON" : "Musik OFF");
+  button.setAttribute("aria-pressed", String(isPlaying));
+  button.setAttribute("aria-label", label.textContent);
 }
 
 function playMusic(event){
@@ -1638,25 +1641,24 @@ const translations = {
 };
 
 function setLanguage(lang){
+  currentLanguage = lang;
   const dict = translations[lang] || translations.id;
 
   document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key = el.dataset.i18n;
+    const key = el.getAttribute("data-i18n");
     if (dict[key] !== undefined) el.textContent = dict[key];
   });
 
-  const guest = new URLSearchParams(window.location.search).get("to");
-  if (!guest) {
-    const guestEl = document.getElementById("guestName");
-    if (guestEl) guestEl.textContent = dict.guest || "Guest";
-  }
+  document.documentElement.lang = lang;
 
   document.querySelectorAll(".lang-btn").forEach(btn=>{
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 
-  document.documentElement.lang = lang === "ru" ? "ru" : (lang === "en" ? "en" : "id");
-  updateScrollHint();
+  // Refresh music label without breaking translation/scroll behavior.
+  if (typeof syncMusicButton === "function") {
+    syncMusicButton();
+  }
 }
 
 

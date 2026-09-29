@@ -1366,6 +1366,151 @@ section:nth-of-type(7) .title{
   }
 }
 
+/* === FINAL POLISH: COUNTDOWN / AKAD-RESEPSI / GIFT / FOOTER === */
+.count{
+  gap:10px !important;
+  max-width:620px !important;
+  margin:30px auto 10px !important;
+}
+.count div{
+  padding:18px 8px 16px !important;
+  background:rgba(20,14,10,.28) !important;
+  border:1px solid rgba(229,197,143,.28) !important;
+  border-radius:10px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 6px 18px rgba(0,0,0,.18) !important;
+  backdrop-filter:blur(4px) !important;
+  -webkit-backdrop-filter:blur(4px) !important;
+}
+.count .num{
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  font-size:34px !important;
+  font-weight:600 !important;
+  color:#f7e5bf !important;
+}
+.count .label{
+  margin-top:7px !important;
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  font-size:11px !important;
+  font-weight:600 !important;
+  letter-spacing:2px !important;
+  color:#fff0d0 !important;
+}
+
+section:nth-of-type(5) .events{
+  gap:14px !important;
+  margin-top:30px !important;
+}
+section:nth-of-type(5) .event{
+  padding:28px 22px !important;
+  background:linear-gradient(145deg,rgba(10,7,5,.72),rgba(28,20,14,.60),rgba(8,6,5,.72)) !important;
+  border:1px solid rgba(229,197,143,.25) !important;
+  border-radius:14px !important;
+}
+section:nth-of-type(5) .event > div{
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  font-size:13px !important;
+  letter-spacing:2px !important;
+}
+section:nth-of-type(5) .event h3{
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  font-size:29px !important;
+  font-weight:600 !important;
+  margin:10px 0 12px !important;
+}
+section:nth-of-type(5) .event p{
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  font-size:15px !important;
+  line-height:1.65 !important;
+  margin:0 !important;
+}
+section:nth-of-type(5) .event p span:first-child{
+  display:inline-block;
+  padding-bottom:9px;
+  margin-bottom:8px;
+  border-bottom:1px solid rgba(229,197,143,.22);
+}
+section:nth-of-type(5) > .inner > .btn{
+  margin-top:24px !important;
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  font-size:13px !important;
+  letter-spacing:1.5px !important;
+}
+
+.gift .btn{
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  letter-spacing:1.5px !important;
+}
+
+.footer{
+  padding:58px 20px 70px !important;
+  position:relative;
+}
+.footer:before{
+  content:"❈";
+  display:block;
+  margin:0 auto 16px;
+  color:#e5c58f;
+  font-size:17px;
+  letter-spacing:4px;
+  text-shadow:0 1px 3px rgba(0,0,0,.9);
+}
+.footer h2{
+  font-family:"Great Vibes","Brush Script MT",cursive !important;
+  font-size:46px !important;
+  font-weight:400 !important;
+  line-height:1.1 !important;
+  margin:0 !important;
+}
+.footer h2:after{
+  content:"19 • 12 • 2026";
+  display:block;
+  margin:14px 0 13px;
+  font-family:"Cormorant Garamond","Times New Roman",serif;
+  font-size:13px;
+  letter-spacing:4px;
+  font-weight:500;
+}
+.footer p{
+  margin:0 auto !important;
+  max-width:420px;
+  font-family:"Cormorant Garamond","Times New Roman",serif !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+
+@media(max-width:650px){
+  .count{
+    gap:8px !important;
+    margin:26px auto 8px !important;
+  }
+  .count div{
+    padding:15px 5px 13px !important;
+    border-radius:9px !important;
+  }
+  .count .num{font-size:29px !important}
+  .count .label{font-size:10px !important;letter-spacing:1.5px !important}
+
+  section:nth-of-type(5) .events{
+    gap:12px !important;
+    margin-top:25px !important;
+  }
+  section:nth-of-type(5) .event{
+    padding:24px 17px !important;
+    border-radius:13px !important;
+  }
+  section:nth-of-type(5) .event > div{font-size:12px !important;letter-spacing:1.5px !important}
+  section:nth-of-type(5) .event h3{font-size:26px !important;margin:8px 0 10px !important}
+  section:nth-of-type(5) .event p{font-size:15px !important;line-height:1.65 !important}
+  section:nth-of-type(5) .event p span:first-child{padding-bottom:7px;margin-bottom:7px}
+  section:nth-of-type(5) > .inner > .btn{font-size:12px !important;margin-top:20px !important}
+
+  .footer{padding:48px 18px 58px !important}
+  .footer:before{font-size:15px;margin-bottom:13px}
+  .footer h2{font-size:38px !important}
+  .footer h2:after{font-size:11px;letter-spacing:3px;margin:12px 0 11px}
+  .footer p{font-size:13px !important}
+}
+
 </style>
 
 <body class="locked">
@@ -1438,7 +1583,7 @@ section:nth-of-type(7) .title{
 
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="giftTitle">Berikan Tanda Kasih</div>
-<div class="gift"><button class="btn" onclick="openGift()"><span data-i18n="openGift">Open Kirim Hadiah</span></button></div>
+<div class="gift"><button class="btn" onclick="openGift()"><span data-i18n="openGift">Kirim Hadiah</span></button></div>
 </div></section>
 
 <section class="section"><div class="inner fade">
@@ -1679,7 +1824,7 @@ const translations = {
     brideResidence:"Kediaman Mempelai Wanita",
     viewLocation:"Lihat Lokasi",
     giftTitle:"Berikan Tanda Kasih",
-    openGift:"Open Kirim Hadiah",
+    openGift:"Kirim Hadiah",
     rsvpTitle:"Konfirmasi Kehadiran",
     willAttend:"Akankah Anda Hadir?",
     rsvpText:"Silakan konfirmasi melalui WhatsApp.",

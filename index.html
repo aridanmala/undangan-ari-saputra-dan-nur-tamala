@@ -235,6 +235,21 @@ section:nth-of-type(7) .title{margin-bottom:8px}
    Tidak memakai frame WebNikah / desktop navbar.
    ========================================================= */
 @media(min-width:651px){
+  /* DESKTOP PORTRAIT FRAME — mengikuti komposisi HP, mobile tetap locked */
+  html{background:#111}
+  body{
+    width:min(430px,100vw);
+    min-width:0;
+    margin:0 auto;
+    background:transparent;
+    overflow-x:hidden;
+    box-shadow:0 0 45px rgba(0,0,0,.45);
+  }
+  body>*{max-width:100%}
+  .music-control{
+    left:calc(50% - 215px + 10px);
+  }
+
   .hero{min-height:100svh;background:url("ornamen-jawa2.webp") center/cover no-repeat;background-attachment:scroll}
   .hero>div{width:100%;padding:0 14px;margin:0 auto;text-align:center;transform:translateY(28px)}
   .hero .eyebrow{margin:0;font-family:"Cormorant Garamond","Times New Roman",serif;font-size:14px;line-height:1;letter-spacing:4px;position:relative;top:0}

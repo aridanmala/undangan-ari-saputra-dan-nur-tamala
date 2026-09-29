@@ -1172,6 +1172,28 @@ body *{
   }
 }
 
+
+/* === INDIKATOR GESER / KLIK SELALU TERLIHAT DI BAWAH === */
+.scroll-hint{
+  position:fixed !important;
+  left:50% !important;
+  bottom:18px !important;
+  transform:translateX(-50%) !important;
+  z-index:10000 !important;
+  width:auto !important;
+  min-width:150px !important;
+  pointer-events:auto !important;
+}
+.scroll-hint span{
+  white-space:nowrap !important;
+}
+@media(max-width:650px){
+  .scroll-hint{
+    bottom:14px !important;
+    min-width:145px !important;
+  }
+}
+
 </style>
 
 <body class="locked">
@@ -1215,7 +1237,7 @@ body *{
 </div>
 
 <div class="scroll-hint" onclick="document.getElementById('welcome').nextElementSibling.scrollIntoView({behavior:'smooth'})">
-<span>SCROLL</span>
+<span data-i18n="scrollClick">SCROLL / CLICK</span>
 <div class="arrow-down">↓</div>
 </div>
 
@@ -1505,6 +1527,7 @@ const translations = {
     openInvitation:"Klik Buka Undangan",
     welcome:"Selamat Datang",
     welcomeText:"Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.",
+    scrollClick:"GESER / KLIK",
     saveDate:"Catat Tanggalnya",
     dateTitle:"19 Desember 2026",
     days:"Hari", hours:"Jam", minutes:"Menit", seconds:"Detik",
@@ -1544,6 +1567,7 @@ const translations = {
     openInvitation:"Open Invitation",
     welcome:"Welcome",
     welcomeText:"With the grace and blessings of Allah SWT, we invite you to join us and share your prayers and blessings on our special day.",
+    scrollClick:"SCROLL / CLICK",
     saveDate:"Save the Date",
     dateTitle:"19 December 2026",
     days:"Days", hours:"Hours", minutes:"Minutes", seconds:"Seconds",
@@ -1583,6 +1607,7 @@ const translations = {
     openInvitation:"Открыть приглашение",
     welcome:"Добро пожаловать",
     welcomeText:"С милостью и благословением Аллаха мы приглашаем вас разделить с нами этот счастливый день и подарить свои молитвы и добрые пожелания.",
+    scrollClick:"ПРОКРУТИТЬ / НАЖАТЬ",
     saveDate:"Запишите дату",
     dateTitle:"19 декабря 2026",
     days:"Дней", hours:"Часов", minutes:"Минут", seconds:"Секунд",

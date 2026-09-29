@@ -140,7 +140,7 @@ section{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:14px;
-  max-width:680px;
+  max-width:100%;
   margin:38px auto;
 }
 .count div{
@@ -384,7 +384,7 @@ section{
   .count{
     grid-template-columns:repeat(2,1fr);
     gap:14px;
-    max-width:680px;
+    max-width:100%;
     margin:38px auto;
   }
   .count .num{
@@ -1056,16 +1056,16 @@ body *{
 #welcome.welcome-slide .welcome-content{
   position:relative;
   z-index:2;
-  width:min(760px,88%);
+  width:min(760px,74%);
   margin:0 auto;
-  padding:0 0 12vh;
+  padding:0 0 11vh;
   text-align:center;
   text-shadow:0 2px 10px rgba(0,0,0,.55);
 }
 #welcome.welcome-slide .welcome-title{
   margin:0 0 18px;
   color:#fff4df;
-  font:500 clamp(38px,5.5vw,72px)/1.05 "Times New Roman",Times,serif;
+  font:500 clamp(30px,5.5vw,58px)/1.05 "Times New Roman",Times,serif;
   letter-spacing:.5px;
 }
 #welcome.welcome-slide .welcome-divider{
@@ -1076,10 +1076,10 @@ body *{
   box-shadow:0 0 8px rgba(231,198,126,.35);
 }
 #welcome.welcome-slide .welcome-text{
-  max-width:680px;
+  max-width:100%;
   margin:0 auto;
   color:#fff8ef;
-  font:500 clamp(16px,1.8vw,22px)/1.7 "Times New Roman",Times,serif;
+  font:500 clamp(13px,1.5vw,19px)/1.55 "Times New Roman",Times,serif;
 }
 #welcome.welcome-slide .scroll-hint{
   z-index:3;
@@ -1091,22 +1091,22 @@ body *{
     background-position:center center;
   }
   #welcome.welcome-slide .welcome-content{
-    width:86%;
-    padding-bottom:13vh;
+    width:76%;
+    padding-bottom:11vh;
   }
   #welcome.welcome-slide .welcome-title{
     margin-bottom:13px;
-    font-size:40px !important;
+    font-size:30px !important;
     line-height:1.05;
     letter-spacing:0;
   }
   #welcome.welcome-slide .welcome-divider{
-    width:82px;
-    margin-bottom:16px;
+    width:62px;
+    margin-bottom:12px;
   }
   #welcome.welcome-slide .welcome-text{
-    font-size:16px !important;
-    line-height:1.55 !important;
+    font-size:13.5px !important;
+    line-height:1.5 !important;
   }
 }
 

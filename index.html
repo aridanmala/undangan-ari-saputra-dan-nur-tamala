@@ -1046,6 +1046,16 @@ body *{
   width:auto !important;
   min-width:150px !important;
   pointer-events:auto !important;
+  cursor:pointer !important;
+}
+.scroll-hint.back-top{
+  opacity:.9 !important;
+}
+@media(max-width:650px){
+  .scroll-hint{
+    bottom:14px !important;
+    min-width:145px !important;
+  }
 }
 .scroll-hint span{
   white-space:nowrap !important;
@@ -1974,7 +1984,7 @@ async function copyCrypto(){
 }
 
 
-// === INDIKATOR BAWAH: GESER/KLIK -> BALIK KE ATAS DI UJUNG ===
+// === INDIKATOR DEPAN: GESER/KLIK -> SLIDE BERIKUTNYA -> BALIK KE ATAS ===
 let atPageBottom = false;
 
 function updateScrollHint(){
@@ -1985,25 +1995,42 @@ function updateScrollHint(){
 
   const bottomGap = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
   const shouldGoTop = bottomGap <= 80;
+  atPageBottom = shouldGoTop;
 
-  if(shouldGoTop !== atPageBottom){
-    atPageBottom = shouldGoTop;
-    const lang = document.documentElement.lang || "id";
-    const dict = translations[lang] || translations.id;
-    text.textContent = shouldGoTop ? (dict.backTop || "BALIK KE ATAS") : (dict.scrollClick || "GESER / KLIK");
-    arrow.textContent = shouldGoTop ? "↑" : "↓";
-    hint.classList.toggle("back-top", shouldGoTop);
-  }
+  const lang = document.documentElement.lang || "id";
+  const dict = translations[lang] || translations.id;
+  text.textContent = shouldGoTop
+    ? (dict.backTop || "BALIK KE ATAS")
+    : (dict.scrollClick || "GESER / KLIK");
+  arrow.textContent = shouldGoTop ? "↑" : "↓";
+  hint.classList.toggle("back-top", shouldGoTop);
 }
 
 function handleScrollHint(){
   if(atPageBottom){
     window.scrollTo({top:0, behavior:"smooth"});
-  }else{
-    const welcome = document.getElementById("welcome");
-    if(welcome && welcome.nextElementSibling){
-      welcome.nextElementSibling.scrollIntoView({behavior:"smooth"});
+    return;
+  }
+
+  const sections = Array.from(document.querySelectorAll("body > section"));
+  if(!sections.length) return;
+
+  const currentY = window.scrollY + (window.innerHeight * 0.45);
+  let currentIndex = 0;
+
+  for(let i = 0; i < sections.length; i++){
+    const top = sections[i].offsetTop;
+    const bottom = top + sections[i].offsetHeight;
+    if(currentY >= top && currentY < bottom){
+      currentIndex = i;
+      break;
     }
+    if(currentY >= top) currentIndex = i;
+  }
+
+  const nextSection = sections[currentIndex + 1];
+  if(nextSection){
+    nextSection.scrollIntoView({behavior:"smooth", block:"start"});
   }
 }
 

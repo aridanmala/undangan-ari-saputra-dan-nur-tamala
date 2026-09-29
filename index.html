@@ -389,7 +389,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="rsvpTitle">Konfirmasi Kehadiran</div><h2 class="title" data-i18n="willAttend">Akankah Anda Hadir?</h2><div class="divider"></div>
 <p class="sub"><span data-i18n="rsvpText">Silakan konfirmasi melalui WhatsApp.</span></p>
-<a class="btn wa" target="_blank" href="https://wa.me/6282271284817?text=Halo%20Ari,%20saya%20akan%20hadir%20di%20acara%20pernikahan."><span data-i18n="confirmWhatsApp">Konfirmasi via WhatsApp</span></a>
+<a class="btn wa" href="#" onclick="confirmAttendance(event)"><span data-i18n="confirmWhatsApp">Konfirmasi via WhatsApp</span></a>
 <button class="btn" onclick="shareInvitation()">🔗 <span data-i18n="shareInvitation">Bagikan Undangan</span></button>
 </div></section>
 
@@ -557,6 +557,17 @@ const guestName = params.get("to");
 if (guestName) {
     document.getElementById("guestName").textContent = guestName;
 }
+  function confirmAttendance(event){
+    event.preventDefault();
+    const guest = new URLSearchParams(window.location.search).get("to");
+    const name = guest ? guest : "";
+    const message =
+      "Assalamu’alaikum Ari & Nur,\n\n" +
+      "Saya" + (name ? " " + name : "") + " insyaAllah akan hadir di acara pernikahan kalian.\n\n" +
+      "Terima kasih atas undangannya. 🙏";
+    window.open("https://wa.me/6282271284817?text=" + encodeURIComponent(message), "_blank");
+  }
+
   function shareInvitation(){
 
     const guest = guestName || "Tamu Undangan";

@@ -223,33 +223,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 /* =========================
    MOBILE
    ========================= */
-
-
-
-
-
-
-/* =========================================================
-   DESKTOP = SAME DESIGN AS MOBILE
-   PC only. MOBILE RULES ABOVE ARE LEFT LOCKED.
-   Tidak memakai frame WebNikah / desktop navbar.
-   ========================================================= */
-@media(min-width:651px){
-  /* DESKTOP PORTRAIT FRAME — mengikuti komposisi HP, mobile tetap locked */
-  html{background:#111}
-  body{
-    width:min(430px,100vw);
-    min-width:0;
-    margin:0 auto;
-    background:transparent;
-    overflow-x:hidden;
-    box-shadow:0 0 45px rgba(0,0,0,.45);
-  }
-  body>*{max-width:100%}
-  .music-control{
-    left:calc(50% - 215px + 10px);
-  }
-
+@media(max-width:650px){
   .hero{min-height:100svh;background:url("ornamen-jawa2.webp") center/cover no-repeat;background-attachment:scroll}
   .hero>div{width:100%;padding:0 14px;margin:0 auto;text-align:center;transform:translateY(28px)}
   .hero .eyebrow{margin:0;font-family:"Cormorant Garamond","Times New Roman",serif;font-size:14px;line-height:1;letter-spacing:4px;position:relative;top:0}
@@ -297,9 +271,16 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   section:nth-of-type(5)>.inner>.btn{font-size:12px;margin-top:20px}
   section:nth-of-type(7){padding-bottom:28px}
   .music-control{left:10px;right:auto;top:8px;min-width:104px;padding:8px 12px;font-size:12px}
-
+  /* GIFT MODAL - MOBILE: SATU LAYAR, TANPA SCROLL */
   .modal{overflow:hidden;align-items:center;padding:10px}
-  .modalbox{width:min(100%,380px);padding:24px 18px 20px;max-height:calc(100svh - 20px);overflow:hidden;margin:0 auto;border-radius:16px}
+  .modalbox{
+    width:min(100%,380px);
+    padding:24px 18px 20px;
+    max-height:calc(100svh - 20px);
+    overflow:hidden;
+    margin:0 auto;
+    border-radius:16px;
+  }
   .modalbox h2{font-size:30px;margin:0 0 14px}
   .modalbox>p{font-size:15px;line-height:1.35;margin:0 0 10px}
   .gift-options{gap:8px;margin:12px 0}
@@ -315,17 +296,17 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   .crypto-qr{width:min(185px,60vw);margin:10px auto}
   .crypto-address{font-size:12px;line-height:1.3;padding:9px;margin-top:8px}
   .close{right:14px!important;top:10px!important;font-size:25px!important}
+
   .footer{padding:24px 18px 58px}
   .footer:before{font-size:15px;margin-bottom:13px}
   .footer h2{font-size:38px}
   .footer h2:after{font-size:11px;letter-spacing:3px;margin:12px 0 11px}
   .footer p{font-size:13px}
 }
+
 </style>
 
 <body class="locked">
-
-
   <audio id="bgMusic" preload="auto" loop>
   <source src="./Melly Goeslaw ft Amee - Ketika Cinta Bertasbih Lirik.mp3" type="audio/mpeg">
 </audio>
@@ -345,7 +326,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 </button>
 
 
-<section class="hero" id="home">
+<section class="hero">
 <div>
 <div class="eyebrow" data-i18n="wedding">Pernikahan</div>
 <div class="names"><span class="name-line">Ari Saputra</span><span class="name-amp">&</span><span class="name-line">Nurtamala, S.Akun</span></div>
@@ -372,19 +353,19 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 
 </section>
 
-<section class="section" id="date"><div class="inner fade">
+<section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="saveDate">Catat Tanggalnya</div><h2 class="title" data-i18n="dateTitle">19 Desember 2026</h2><div class="divider"></div>
 <div class="count"><div><span class="num" id="d">0</span><span class="label" data-i18n="days">Hari</span></div><div><span class="num" id="h">0</span><span class="label" data-i18n="hours">Jam</span></div><div><span class="num" id="m">0</span><span class="label" data-i18n="minutes">Menit</span></div><div><span class="num" id="s">0</span><span class="label" data-i18n="seconds">Detik</span></div></div>
 </div></section>
 
-<section class="section" id="couple"><div class="inner fade">
+<section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="coupleTitle">Kedua Mempelai</div>
 <div class="couple">
 <div class="card"><img decoding="async" class="portrait" src="ari2.webp" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
 <div class="card"><img decoding="async" class="portrait" src="mala2.webp" alt=""><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
 </div></div></section>
 
-<section class="section" id="map"><div class="inner fade">
+<section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="weddingDay">Hari Pernikahan</div>
 <div class="events">
 <div class="event"><div data-i18n="akadDate">18 Desember 2026</div><h3 data-i18n="akad">Akad Nikah</h3><p><span data-i18n="akadTime">14.00 WIB — Selesai</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
@@ -393,19 +374,19 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <a class="btn" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D""><span data-i18n="viewLocation">Lihat Lokasi</span></a>
 </div></section>
 
-<section class="section" id="giftSection"><div class="inner fade">
+<section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="giftTitle">Berikan Tanda Kasih</div>
 <div class="gift"><button class="btn" onclick="openGift()"><span data-i18n="openGift">Kirim Hadiah</span></button></div>
 </div></section>
 
-<section class="section" id="rsvp"><div class="inner fade">
+<section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="rsvpTitle">Konfirmasi Kehadiran</div><h2 class="title" data-i18n="willAttend">Akankah Anda Hadir?</h2><div class="divider"></div>
 <p class="sub"><span data-i18n="rsvpText">Silakan konfirmasi melalui WhatsApp.</span></p>
 <a class="btn wa" href="#" onclick="confirmAttendance(event)"><span data-i18n="confirmWhatsApp">Konfirmasi via WhatsApp</span></a>
 <button class="btn" onclick="shareInvitation()">🔗 <span data-i18n="shareInvitation">Bagikan Undangan</span></button>
 </div></section>
 
-<footer class="footer" id="protocol"><h2>Ari Saputra<br>&<br>Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p></footer>
+<footer class="footer"><h2>Ari Saputra<br>&<br>Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p></footer>
 
 
 <div class="modal" id="gift">
@@ -443,8 +424,6 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 </div>
 
 <script>
-
-
 const target = new Date("2026-12-19T11:00:00+07:00").getTime();
 
 const dayEl = document.getElementById("d");

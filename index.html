@@ -409,16 +409,16 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   }
 
 /* =========================================================
-   PC-3 — DESKTOP WEBNIKAH-STYLE FRAME
+   PC-4 — DESKTOP WEBNIKAH-STYLE FRAME / REFINEMENT
    MOBILE DIKUNCI — hanya aktif >650px
    ========================================================= */
 @media(min-width:651px){
   html:before{
     left:50%;
     right:auto;
-    width:min(570px,100vw);
+    width:min(620px,100vw);
     inset-block:0;
-    transform:translateX(-50%) scale(1.08);
+    transform:translateX(-50%);
   }
 
   body{
@@ -428,97 +428,244 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   body:before{
     left:50%;
     right:auto;
-    width:min(570px,100vw);
+    width:min(620px,100vw);
     transform:translateX(-50%);
-    background:rgba(0,0,0,.50);
+    background:rgba(0,0,0,.48);
   }
 
   body > section,
   body > footer{
-    width:min(570px,100vw);
+    width:min(620px,100vw);
     margin-left:auto;
     margin-right:auto;
   }
 
+  /* ===== HERO ===== */
   .hero{
     min-height:100svh;
-    padding:40px 24px 95px;
+    padding:40px 34px 105px;
     background:url("ornamen-jawa2.webp") center/cover no-repeat;
   }
 
   .hero>div{
     width:100%;
-    max-width:520px;
+    max-width:550px;
+    transform:translateY(5px);
   }
 
-  #welcome{
-    min-height:100svh;
-    padding:70px 24px 100px;
-    background-position:center top;
+  .hero .eyebrow{
+    font-size:16px;
+    letter-spacing:5px;
+    margin-bottom:26px;
   }
 
+  .hero .names{
+    font-size:clamp(72px,7.4vw,104px);
+    line-height:.86;
+    margin:0 auto 25px;
+  }
+
+  .hero .name-line{
+    display:block;
+    white-space:nowrap;
+  }
+
+  .hero .name-amp{
+    font-size:31px;
+    line-height:1;
+    margin:8px 0 6px;
+  }
+
+  .hero .guest{
+    font-size:17px;
+    line-height:1.45;
+  }
+
+  .hero .guest strong{
+    font-size:18px;
+  }
+
+  .hero .date{
+    font-size:14px;
+    letter-spacing:6px;
+    margin-top:28px;
+  }
+
+  .hero .btn-open{
+    margin-top:31px;
+    padding:13px 28px;
+    font-size:13px;
+    letter-spacing:2px;
+  }
+
+  .hero .lang-switcher{
+    gap:9px;
+    margin-top:17px;
+  }
+
+  .hero .lang-btn{
+    min-width:68px;
+    padding:7px 12px;
+    font-size:12px;
+  }
+
+  /* ===== ISI UNDANGAN ===== */
   .section{
     min-height:100svh;
-    padding:80px 24px 105px;
+    padding:88px 34px 112px;
   }
 
   .inner{
     width:100%;
-    max-width:520px;
+    max-width:550px;
+  }
+
+  .section .eyebrow,
+  #welcome .eyebrow{
+    font-size:25px;
+    line-height:1.1;
+    letter-spacing:2px;
+  }
+
+  .section .sub,
+  #welcome .sub{
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  #welcome{
+    min-height:100svh;
+    padding:80px 34px 112px;
+    background-position:center top;
+  }
+
+  #welcome .inner{
+    max-width:500px;
+    transform:translateY(125px);
+  }
+
+  #welcome .eyebrow{
+    font-size:27px;
+    letter-spacing:3px;
+    margin-bottom:13px;
+  }
+
+  #welcome .sub{
+    max-width:490px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:16px;
+    line-height:1.65;
+  }
+
+  section:nth-of-type(3) .title{
+    font-size:36px;
+    line-height:1.15;
+    white-space:nowrap;
+    letter-spacing:.5px;
   }
 
   .count{
-    max-width:520px;
+    max-width:550px;
+    gap:10px;
+    margin:30px auto 12px;
   }
 
+  .count div{
+    padding:20px 8px 18px;
+  }
+
+  .count .num{
+    font-size:36px;
+  }
+
+  .count .label{
+    font-size:11px;
+    letter-spacing:1.8px;
+  }
+
+  /* ===== MEMPELAI ===== */
   .couple{
-    gap:12px;
+    gap:16px;
+    margin-top:34px;
   }
 
   .card{
-    padding:24px 12px 22px;
+    padding:28px 18px 26px;
+    border-radius:14px;
   }
 
   .portrait{
-    width:125px;
-    height:165px;
+    width:145px;
+    height:188px;
   }
 
   .card h3{
-    font-size:25px;
+    font-size:29px;
+    line-height:1.15;
+    margin:18px 0 6px;
   }
 
+  .card .sub{
+    font-size:15px;
+    line-height:1.65;
+  }
+
+  /* ===== ACARA ===== */
   .events{
-    gap:10px;
+    gap:14px;
+    margin-top:30px;
   }
 
   .event{
-    padding:24px 14px;
+    padding:27px 20px;
+    border-radius:14px;
+  }
+
+  .event>div{
+    font-size:13px;
+    letter-spacing:1.5px;
   }
 
   .event h3{
-    font-size:25px;
+    font-size:28px;
+    line-height:1.2;
+    margin:9px 0 11px;
   }
 
+  .event p{
+    font-size:16px;
+    line-height:1.65;
+  }
+
+  /* ===== FOOTER ===== */
   .footer{
-    width:min(570px,100vw);
-    padding:48px 20px 105px;
+    width:min(620px,100vw);
+    padding:58px 30px 112px;
   }
 
-  /* Bottom navigation seperti mode PC WebNikah */
+  .footer h2{
+    font-size:48px;
+  }
+
+  .footer p{
+    font-size:15px;
+  }
+
+  /* ===== BOTTOM NAV ===== */
   .desktop-nav{
     position:fixed;
     left:50%;
     bottom:0;
     transform:translateX(-50%);
-    width:min(570px,100vw);
-    height:58px;
+    width:min(620px,100vw);
+    height:68px;
     z-index:10002;
     display:grid;
     grid-template-columns:repeat(7,1fr);
-    background:rgba(0,0,0,.94);
-    border-top:1px solid rgba(229,197,143,.55);
-    box-shadow:0 -8px 25px rgba(0,0,0,.35);
+    background:rgba(5,5,5,.97);
+    border-top:1px solid rgba(229,197,143,.65);
+    box-shadow:0 -10px 28px rgba(0,0,0,.42);
   }
 
   .desktop-nav button{
@@ -527,11 +674,12 @@ section:nth-of-type(7) .title{margin-bottom:8px}
     border-right:1px solid rgba(229,197,143,.28);
     background:transparent;
     color:#d9b45f;
-    padding:5px 2px 4px;
-    font:500 9px/1.05 "Cormorant Garamond","Times New Roman",serif;
-    letter-spacing:.5px;
+    padding:7px 2px 5px;
+    font:500 11px/1.1 "Cormorant Garamond","Times New Roman",serif;
+    letter-spacing:.4px;
     cursor:pointer;
     text-shadow:0 1px 2px rgba(0,0,0,.9);
+    white-space:nowrap;
   }
 
   .desktop-nav button:last-child{border-right:0}
@@ -539,31 +687,31 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 
   .desktop-nav .nav-icon{
     display:block;
-    font-size:16px;
-    line-height:18px;
-    margin-bottom:2px;
+    font-size:19px;
+    line-height:20px;
+    margin-bottom:4px;
   }
 
   .scroll-hint{
     display:none;
   }
 
-  /* Speaker dibuat seperti tombol kecil di kanan bawah referensi */
+  /* ===== MUSIC ===== */
   .music-control{
     left:auto;
-    right:20px;
+    right:24px;
     top:auto;
-    bottom:76px;
+    bottom:84px;
     min-width:0;
-    width:42px;
-    height:42px;
+    width:44px;
+    height:44px;
     padding:0;
     border-radius:50%;
     gap:0;
     background:rgba(255,255,255,.96);
     color:#2b241d;
     border-color:rgba(255,255,255,.9);
-    box-shadow:0 4px 15px rgba(0,0,0,.28);
+    box-shadow:0 4px 15px rgba(0,0,0,.3);
   }
 
   .music-control #musicLabel{
@@ -571,21 +719,20 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   }
 
   .music-disc{
-    width:16px;
-    height:16px;
-    flex-basis:16px;
+    width:17px;
+    height:17px;
+    flex-basis:17px;
   }
 
   .music-disc:after{
     width:5px;
     height:5px;
-    left:3.5px;
-    top:3.5px;
+    left:4px;
+    top:4px;
   }
-
-  .desktop-nav + *{}
 }
-/* ===================== END PC-3 ===================== */
+/* ===================== END PC-4 ===================== */
+
 
 </style>
 

@@ -25,6 +25,16 @@ body{
   font-weight:500;
   font-size:16px;
 }
+html:before{
+  content:"";
+  position:fixed;
+  inset:-4%;
+  background:url("ornamen-jawa2.png") center center/cover no-repeat;
+  transform:scale(1.08);
+  z-index:-2;
+  pointer-events:none;
+}
+
 body:before{
   content:"";
   position:fixed;
@@ -638,6 +648,14 @@ body *{
 
 
 /* === HP: FOTO HERO DI-ZOOM AGAR PENUH === */
+@media(max-width:650px){
+  .hero{
+    min-height:100svh !important;
+    background:url("ornamen-jawa2.png") center center/cover no-repeat !important;
+    background-attachment:scroll !important;
+  }
+}
+
 
 /* === CAHAYA BERJALAN DI SEPUTAR LAYAR === */
 body:after{
@@ -792,6 +810,22 @@ body *{
 }
 
 
+/* === LOGO NAMA PENGANTIN === */
+.names-logo{
+  display:block;
+  width:min(760px,88vw);
+  height:auto;
+  margin:18px auto 8px;
+  object-fit:contain;
+}
+@media(max-width:650px){
+  .names-logo{
+    width:88vw;
+    max-width:390px;
+    margin:18px auto 8px;
+  }
+}
+
 /* === MOBILE HERO: TURUNKAN ELEMEN SESUAI LANE SCREENSHOT === */
 @media(max-width:650px){
   .hero .eyebrow{
@@ -819,6 +853,191 @@ body *{
     top:62px;
   }
 }
+
+/* === MOBILE HERO: UKURAN HURUF RINGKAS & PROPORSIONAL === */
+@media(max-width:650px){
+  .hero > div{
+    width:100%;
+    padding:0 18px;
+  }
+  .hero .eyebrow{
+    top:18px;
+    font-size:18px !important;
+    line-height:1.25 !important;
+    letter-spacing:3px !important;
+  }
+  .hero .names{
+    position:relative;
+    top:24px;
+    margin:16px 0 8px !important;
+    font-family:"Times New Roman",Times,serif !important;
+    font-size:32px !important;
+    line-height:1.08 !important;
+    font-weight:500 !important;
+    letter-spacing:0 !important;
+  }
+  .hero .name-line{
+    display:block;
+    white-space:nowrap;
+  }
+  .hero .name-amp{
+    display:block;
+    font-size:22px !important;
+    line-height:1 !important;
+    font-style:italic;
+    margin:4px 0;
+  }
+  .hero .guest{
+    top:32px;
+    font-size:18px !important;
+    line-height:1.35 !important;
+  }
+  .hero .guest strong{
+    font-size:18px !important;
+  }
+  .hero .date{
+    top:42px;
+    font-size:18px !important;
+    line-height:1.25 !important;
+    letter-spacing:3px !important;
+  }
+  .hero .btn-open{
+    top:52px;
+    margin-top:24px !important;
+    font-size:14px !important;
+    line-height:1.2 !important;
+    padding:10px 18px !important;
+    letter-spacing:1.2px !important;
+  }
+  .hero .lang-switcher{
+    top:62px;
+    margin-top:8px !important;
+    gap:6px !important;
+  }
+  .hero .lang-btn{
+    min-width:62px !important;
+    padding:6px 9px !important;
+    font-size:13px !important;
+  }
+}
+
+
+/* === HERO MOBILE: KEMBALIKAN TAMPILAN REFERENSI === */
+@media (max-width:650px){
+  .hero{
+    min-height:100svh !important;
+    background:url("ornamen-jawa2.png") center center/cover no-repeat !important;
+    background-attachment:scroll !important;
+  }
+  .hero > div{
+    width:100% !important;
+    max-width:none !important;
+    padding:0 14px !important;
+    margin:0 auto !important;
+    text-align:center !important;
+    transform:translateY(28px);
+  }
+  .hero .eyebrow{
+    position:relative !important;
+    top:0 !important;
+    margin:0 !important;
+    font-family:"Cormorant Garamond","Times New Roman",serif !important;
+    font-size:14px !important;
+    line-height:1 !important;
+    font-weight:500 !important;
+    letter-spacing:4px !important;
+  }
+  .hero .names{
+    position:relative !important;
+    top:0 !important;
+    margin:18px 0 14px !important;
+    font-family:"Great Vibes","Brush Script MT",cursive !important;
+    font-size:36px !important;
+    line-height:1 !important;
+    font-weight:400 !important;
+    letter-spacing:0 !important;
+  }
+  .hero .name-line{
+    display:block !important;
+    white-space:nowrap !important;
+  }
+  .hero .name-amp{
+    display:block !important;
+    margin:3px 0 !important;
+    font-family:"Cormorant Garamond","Times New Roman",serif !important;
+    font-size:22px !important;
+    line-height:1 !important;
+    font-style:italic !important;
+  }
+  .hero .guest{
+    position:relative !important;
+    top:0 !important;
+    margin:10px 0 0 !important;
+    font-family:"Cormorant Garamond","Times New Roman",serif !important;
+    font-size:15px !important;
+    line-height:1.35 !important;
+  }
+  .hero .guest strong{
+    font-size:15px !important;
+    font-weight:500 !important;
+  }
+  .hero .date{
+    position:relative !important;
+    top:0 !important;
+    margin-top:25px !important;
+    font-family:"Cormorant Garamond","Times New Roman",serif !important;
+    font-size:14px !important;
+    line-height:1 !important;
+    letter-spacing:5px !important;
+  }
+  .hero .btn-open{
+    position:relative !important;
+    top:0 !important;
+    display:inline-block !important;
+    margin-top:31px !important;
+    padding:10px 20px !important;
+    min-height:0 !important;
+    width:auto !important;
+    border:1px solid #e7c67e !important;
+    border-radius:999px !important;
+    background:linear-gradient(180deg,#7d261d,#54150f) !important;
+    font-family:"Cormorant Garamond","Times New Roman",serif !important;
+    font-size:13px !important;
+    line-height:1 !important;
+    letter-spacing:1.5px !important;
+  }
+  .hero .lang-switcher{
+    position:relative !important;
+    top:0 !important;
+    display:flex !important;
+    justify-content:center !important;
+    gap:7px !important;
+    margin-top:24px !important;
+  }
+  .hero .lang-btn{
+    min-width:55px !important;
+    padding:6px 9px !important;
+    border:1px solid rgba(239,211,157,.7) !important;
+    border-radius:999px !important;
+    background:rgba(68,37,17,.48) !important;
+    font-family:"Cormorant Garamond","Times New Roman",serif !important;
+    font-size:11px !important;
+    line-height:1 !important;
+    letter-spacing:1px !important;
+  }
+  .hero .lang-btn.active{
+    background:rgba(170,119,42,.72) !important;
+    border-color:#f2d28c !important;
+  }
+  .music-control{
+    right:10px !important;
+    top:8px !important;
+    min-width:104px !important;
+    padding:8px 12px !important;
+    font-size:12px !important;
+  }
+}
+
 </style>
 
 <body class="locked">
@@ -839,7 +1058,7 @@ body *{
 <section class="hero">
 <div>
 <div class="eyebrow" data-i18n="wedding">Pernikahan</div>
-<div class="names">Ari Saputra <span class="amp">&</span> Nurtamala, S.Akun</div>
+<div class="names"><span class="name-line">Ari Saputra</span><span class="name-amp">&</span><span class="name-line">Nurtamala, S.Akun</span></div>
 <div class="guest"><span data-i18n="dear">Kepada Yth.</span><br><strong id="guestName">Tamu Undangan</strong></div>
 <div class="date" data-i18n="heroDate">19 • 12 • 2026</div>
 <a class="btn btn-open" href="#welcome" onclick="playMusic(event)">

@@ -1039,122 +1039,41 @@ body *{
 }
 
 
-/* === SLIDE 2: SELAMAT DATANG === */
-#welcome.welcome-slide{
-  min-height:100svh;
-  padding:0;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(35,8,8,.10) 55%,rgba(35,8,8,.18) 100%),
-    url("selamatdatang.png") center center/cover no-repeat;
-  border-top:0;
+
+/* === SLIDE 2 / SELAMAT DATANG === */
+#welcome{
+  min-height:100svh !important;
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:url("selamatdatang2.png") center center/cover no-repeat !important;
+  background-attachment:scroll !important;
 }
-#welcome.welcome-slide .welcome-content{
-  position:relative;
-  z-index:2;
-  width:min(760px,88%);
-  margin:0 auto;
-  padding:0 0 12vh;
-  text-align:center;
-  text-shadow:0 2px 10px rgba(0,0,0,.55);
+#welcome:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.18);
+  z-index:0;
+  pointer-events:none;
 }
-#welcome.welcome-slide .welcome-title{
-  margin:0 0 18px;
-  color:#fff4df;
-  font:500 clamp(38px,5.5vw,72px)/1.05 "Times New Roman",Times,serif;
-  letter-spacing:.5px;
-}
-#welcome.welcome-slide .welcome-divider{
-  width:110px;
-  height:1px;
-  margin:0 auto 22px;
-  background:#e7c67e;
-  box-shadow:0 0 8px rgba(231,198,126,.35);
-}
-#welcome.welcome-slide .welcome-text{
-  max-width:680px;
-  margin:0 auto;
-  color:#fff8ef;
-  font:500 clamp(16px,1.8vw,22px)/1.7 "Times New Roman",Times,serif;
-}
-#welcome.welcome-slide .scroll-hint{
-  z-index:3;
-  bottom:22px;
+#welcome .inner{
+  position:relative !important;
+  z-index:2 !important;
+  width:min(88vw,620px) !important;
+  margin:0 auto !important;
+  text-align:center !important;
 }
 @media(max-width:650px){
-  /* Slide 2 HP — mengikuti area merah di antara border emas */
-  #welcome.welcome-slide{
-    min-height:100svh;
-    background-position:center center;
-  }
-  #welcome.welcome-slide .welcome-content{
-    width:62% !important;
-    max-width:none !important;
-    padding-bottom:10vh !important;
-    margin:0 auto !important;
-    text-align:center !important;
-  }
-  #welcome.welcome-slide .welcome-title{
-    margin:0 0 9px !important;
-    font-size:27px !important;
-    line-height:1.05 !important;
-    letter-spacing:0 !important;
-    white-space:nowrap;
-  }
-  #welcome.welcome-slide .welcome-divider{
-    width:72px !important;
-    height:1px !important;
-    margin:0 auto 13px !important;
-  }
-  #welcome.welcome-slide .welcome-text{
-    width:100% !important;
-    max-width:none !important;
-    margin:0 auto !important;
-    font-size:12.5px !important;
-    line-height:1.48 !important;
-    letter-spacing:0 !important;
-  }
-}
-
-
-/* === SLIDE 2 PHONE 720px FINAL === */
-@media (max-width:800px){
-  #welcome.welcome-slide{
+  #welcome{
     min-height:100svh !important;
     background-position:center center !important;
   }
-  #welcome.welcome-slide .welcome-content{
-    width:58% !important;
-    max-width:420px !important;
-    padding-bottom:14vh !important;
-    margin:0 auto !important;
-    text-align:center !important;
-  }
-  #welcome.welcome-slide .welcome-title{
-    margin:0 0 12px !important;
-    font-size:26px !important;
-    line-height:1.05 !important;
-    letter-spacing:0 !important;
-    white-space:nowrap !important;
-  }
-  #welcome.welcome-slide .welcome-divider{
-    width:58px !important;
-    margin:0 auto 15px !important;
-  }
-  #welcome.welcome-slide .welcome-text{
-    width:100% !important;
-    max-width:420px !important;
-    margin:0 auto !important;
-    font-size:12px !important;
-    line-height:1.55 !important;
-    letter-spacing:0 !important;
+  #welcome .inner{
+    width:88vw !important;
   }
 }
-
 </style>
 
 <body class="locked">
@@ -1164,11 +1083,11 @@ body *{
 <button type="button"
         id="musicControl"
         class="music-control"
-        aria-label="Music OFF"
+        aria-label="Musik OFF"
         aria-pressed="false"
         onclick="toggleMusic(event)">
   <span class="music-disc"></span>
-  <span id="musicLabel">Music OFF</span>
+  <span id="musicLabel">Musik OFF</span>
 </button>
 
 
@@ -1190,11 +1109,11 @@ body *{
 </div>
 </section>
 
-<section class="section welcome-slide" id="welcome">
-<div class="welcome-content fade">
-  <h2 class="welcome-title" data-i18n="welcome">Selamat Datang</h2>
-  <div class="welcome-divider"></div>
-  <p class="welcome-text" data-i18n="welcomeText">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</p>
+<section class="section" id="welcome">
+<div class="inner fade">
+<div class="eyebrow" data-i18n="welcome">Selamat Datang</div>
+<div class="divider"></div>
+<p class="sub"><span data-i18n="welcomeText">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</span></p>
 </div>
 
 <div class="scroll-hint" onclick="document.getElementById('welcome').nextElementSibling.scrollIntoView({behavior:'smooth'})">
@@ -1348,8 +1267,8 @@ function syncMusicButton(){
   const playing = !music.paused;
   button.classList.toggle("playing", playing);
   button.setAttribute("aria-pressed", playing ? "true" : "false");
-  button.setAttribute("aria-label", playing ? "Music ON" : "Music OFF");
-  if(label) label.textContent = playing ? "Music ON" : "Music OFF";
+  button.setAttribute("aria-label", playing ? "Musik ON" : "Musik OFF");
+  if(label) label.textContent = playing ? "Musik ON" : "Musik OFF";
 }
 
 function playMusic(event){

@@ -544,6 +544,9 @@ body *{
 /* === MUSIC ON / OFF CONTROL === */
 .music-control{
   position:fixed;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
   right:18px;
   top:18px;
   z-index:10001;
@@ -559,7 +562,10 @@ body *{
   color:#fff4df;
   font:500 13px "Times New Roman",Times,serif;
   letter-spacing:1px;
-  cursor:pointer;
+  cursor:grab;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
   box-shadow:0 6px 20px rgba(0,0,0,.28);
@@ -1047,12 +1053,36 @@ body *{
 <button type="button"
         id="musicControl"
         class="music-control"
-        aria-label="Musik OFF"
+        aria-label="Music OFF"
         aria-pressed="false"
         onclick="toggleMusic(event)">
   <span class="music-disc"></span>
-  <span id="musicLabel">Musik OFF</span>
+  <span id="musicLabel">Music OFF</span>
 </button>
+
+<script>
+(function(){
+  const el=document.getElementById("musicControl");
+  if(!el) return;
+  let dragging=false,moved=false,sx=0,sy=0,sl=0,st=0;
+  el.addEventListener("pointerdown",e=>{
+    const r=el.getBoundingClientRect();
+    dragging=true;moved=false;sx=e.clientX;sy=e.clientY;sl=r.left;st=r.top;
+    el.style.left=r.left+"px";el.style.top=r.top+"px";el.style.right="auto";el.style.bottom="auto";
+    el.style.cursor="grabbing";el.setPointerCapture(e.pointerId);
+  });
+  el.addEventListener("pointermove",e=>{
+    if(!dragging)return;
+    const dx=e.clientX-sx,dy=e.clientY-sy;
+    if(Math.abs(dx)>4||Math.abs(dy)>4)moved=true;
+    el.style.left=Math.max(0,Math.min(innerWidth-el.offsetWidth,sl+dx))+"px";
+    el.style.top=Math.max(0,Math.min(innerHeight-el.offsetHeight,st+dy))+"px";
+    if(moved)e.preventDefault();
+  });
+  el.addEventListener("pointerup",e=>{dragging=false;el.style.cursor="grab";if(moved){el.dataset.dragged="1";setTimeout(()=>delete el.dataset.dragged,150);}});
+  el.addEventListener("click",e=>{if(el.dataset.dragged){e.preventDefault();e.stopImmediatePropagation();}},true);
+})();
+</script>
 
 
 <section class="hero">
@@ -1231,8 +1261,8 @@ function syncMusicButton(){
   const playing = !music.paused;
   button.classList.toggle("playing", playing);
   button.setAttribute("aria-pressed", playing ? "true" : "false");
-  button.setAttribute("aria-label", playing ? "Musik ON" : "Musik OFF");
-  if(label) label.textContent = playing ? "Musik ON" : "Musik OFF";
+  button.setAttribute("aria-label", playing ? "Music ON" : "Music OFF");
+  if(label) label.textContent = playing ? "Music ON" : "Music OFF";
 }
 
 function playMusic(event){
@@ -1533,6 +1563,9 @@ async function copyCrypto(){
 
 
 setLanguage('id');
+<script>
+(function(){const btn=document.getElementById("musicControl");if(!btn)return;let drag=false,moved=false,sx=0,sy=0,sl=0,st=0;btn.addEventListener("pointerdown",e=>{drag=true;moved=false;btn.setPointerCapture(e.pointerId);const r=btn.getBoundingClientRect();sx=e.clientX;sy=e.clientY;sl=r.left;st=r.top});btn.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)>4||Math.abs(dy)>4)moved=true;if(moved){btn.style.left=Math.max(4,Math.min(innerWidth-btn.offsetWidth-4,sl+dx))+"px";btn.style.top=Math.max(4,Math.min(innerHeight-btn.offsetHeight-4,st+dy))+"px";btn.style.right="auto"}});btn.addEventListener("pointerup",e=>{drag=false;try{btn.releasePointerCapture(e.pointerId)}catch(_){};});btn.addEventListener("click",e=>{if(moved){e.preventDefault();e.stopImmediatePropagation();moved=false}},true)})();
+</script>
 </script>
 </body>
 </html>

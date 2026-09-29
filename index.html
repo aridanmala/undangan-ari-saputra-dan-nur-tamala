@@ -1187,6 +1187,15 @@ body *{
 .scroll-hint span{
   white-space:nowrap !important;
 }
+
+
+/* === TRANSISI INDIKATOR: PANAH TURUN / NAIK === */
+#scrollHintText, #scrollHintArrow{
+  transition:opacity .2s ease, transform .2s ease;
+}
+#scrollHint.back-top .arrow-down{
+  transform:translateY(0);
+}
 @media(max-width:650px){
   .scroll-hint{
     bottom:14px !important;
@@ -1252,9 +1261,9 @@ section:nth-of-type(3) .title{
 <p class="sub"><span data-i18n="welcomeText">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.</span></p>
 </div>
 
-<div class="scroll-hint" onclick="document.getElementById('welcome').nextElementSibling.scrollIntoView({behavior:'smooth'})">
-<span data-i18n="scrollClick">SCROLL / CLICK</span>
-<div class="arrow-down">↓</div>
+<div class="scroll-hint" id="scrollHint" onclick="handleScrollHint()">
+<span id="scrollHintText" data-i18n="scrollClick">SCROLL / CLICK</span>
+<div class="arrow-down" id="scrollHintArrow">↓</div>
 </div>
 
 </section>
@@ -1501,6 +1510,7 @@ const translations = {
     welcome:"Selamat Datang",
     welcomeText:"Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.",
     scrollClick:"GESER / KLIK",
+    backTop:"BALIK KE ATAS",
     saveDate:"Catat Tanggalnya",
     dateTitle:"19 Desember 2026",
     days:"Hari", hours:"Jam", minutes:"Menit", seconds:"Detik",
@@ -1540,6 +1550,7 @@ const translations = {
     welcome:"Welcome",
     welcomeText:"With the grace and blessings of Allah SWT, we invite you to join us and share your prayers and blessings on our special day.",
     scrollClick:"SCROLL / CLICK",
+    backTop:"BACK TO TOP",
     saveDate:"Save the Date",
     dateTitle:"19 December 2026",
     days:"Days", hours:"Hours", minutes:"Minutes", seconds:"Seconds",
@@ -1579,6 +1590,7 @@ const translations = {
     welcome:"Добро пожаловать",
     welcomeText:"С милостью и благословением Аллаха мы приглашаем вас разделить с нами этот счастливый день и подарить свои молитвы и добрые пожелания.",
     scrollClick:"ПРОКРУТИТЬ / НАЖАТЬ",
+    backTop:"ВВЕРХ",
     saveDate:"Запишите дату",
     dateTitle:"19 декабря 2026",
     days:"Дней", hours:"Часов", minutes:"Минут", seconds:"Секунд",
@@ -1630,6 +1642,7 @@ function setLanguage(lang){
   });
 
   document.documentElement.lang = lang === "ru" ? "ru" : (lang === "en" ? "en" : "id");
+  updateScrollHint();
 }
 
 
@@ -1659,6 +1672,44 @@ async function copyCrypto(){
   const status=document.getElementById("cryptoCopyStatus");
   if(status) status.textContent="Wallet berhasil disalin ✓";
 }
+
+
+// === INDIKATOR BAWAH: GESER/KLIK -> BALIK KE ATAS DI UJUNG ===
+let atPageBottom = false;
+
+function updateScrollHint(){
+  const hint = document.getElementById("scrollHint");
+  const text = document.getElementById("scrollHintText");
+  const arrow = document.getElementById("scrollHintArrow");
+  if(!hint || !text || !arrow) return;
+
+  const bottomGap = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
+  const shouldGoTop = bottomGap <= 80;
+
+  if(shouldGoTop !== atPageBottom){
+    atPageBottom = shouldGoTop;
+    const lang = document.documentElement.lang || "id";
+    const dict = translations[lang] || translations.id;
+    text.textContent = shouldGoTop ? (dict.backTop || "BALIK KE ATAS") : (dict.scrollClick || "GESER / KLIK");
+    arrow.textContent = shouldGoTop ? "↑" : "↓";
+    hint.classList.toggle("back-top", shouldGoTop);
+  }
+}
+
+function handleScrollHint(){
+  if(atPageBottom){
+    window.scrollTo({top:0, behavior:"smooth"});
+  }else{
+    const welcome = document.getElementById("welcome");
+    if(welcome && welcome.nextElementSibling){
+      welcome.nextElementSibling.scrollIntoView({behavior:"smooth"});
+    }
+  }
+}
+
+window.addEventListener("scroll", updateScrollHint, {passive:true});
+window.addEventListener("resize", updateScrollHint);
+window.addEventListener("load", updateScrollHint);
 
 
 setLanguage('id');

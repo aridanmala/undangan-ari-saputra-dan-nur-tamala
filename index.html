@@ -56,7 +56,7 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
   margin:25px 0;color:#f7e5bf !important;
   -webkit-text-stroke:.25px rgba(0,0,0,.55);
 }
-.name-amp,.amp{font-size:.45em;font-style:italic}
+.name-amp{font-size:.45em;font-style:italic}
 .date{letter-spacing:4px;font-size:12px}
 .guest{line-height:1.5}
 .btn{
@@ -66,7 +66,6 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
   background:rgba(0,0,0,.25);cursor:pointer;font-family:"Times New Roman",Times,serif;
   text-shadow:0 1px 2px rgba(0,0,0,.95),0 0 7px rgba(0,0,0,.75) !important;
 }
-.btn-open{position:relative;overflow:hidden;box-shadow:0 0 0 rgba(255,255,255,0)}
 .lang-switcher{display:flex;justify-content:center;gap:8px;margin-top:10px}
 .lang-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:5px;
@@ -138,7 +137,6 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
 .event p{font-family:"Cormorant Garamond","Times New Roman",serif;font-size:15px;line-height:1.65;margin:0;color:#fff3dc !important;text-shadow:0 1px 3px rgba(0,0,0,1),0 0 5px rgba(0,0,0,.9) !important}
 .event > div{font-family:"Cormorant Garamond","Times New Roman",serif;font-size:13px;letter-spacing:2px}
 .event p span:first-child{display:inline-block;padding-bottom:9px;margin-bottom:8px;border-bottom:1px solid rgba(229,197,143,.22)}
-.location,.address,.info,.note{color:#fff1d2 !important;text-shadow:0 1px 3px rgba(0,0,0,1),0 0 5px rgba(0,0,0,.9) !important}
 
 /* =========================
    GIFT / MODAL
@@ -223,7 +221,7 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
 section:nth-of-type(3) .title{font-size:38px;line-height:1.1;white-space:nowrap}
 
 /* RSVP / Gift spacing */
-section:nth-of-type(6) .title,section:nth-of-type(7) .title{margin-bottom:8px}
+section:nth-of-type(7) .title{margin-bottom:8px}
 
 /* =========================
    MOBILE
@@ -245,8 +243,6 @@ section:nth-of-type(6) .title,section:nth-of-type(7) .title{margin-bottom:8px}
 
   .section{padding-left:18px;padding-right:18px}
   .couple,.events{grid-template-columns:1fr}
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  .gallery img{height:180px}
   .card{padding:24px 18px 22px}
   .portrait{width:138px;height:178px}
   section:nth-of-type(4) .card h3{font-size:clamp(24px,7vw,30px);line-height:1.15;letter-spacing:-.2px;margin-top:14px}
@@ -276,17 +272,12 @@ section:nth-of-type(6) .title,section:nth-of-type(7) .title{margin-bottom:8px}
   section:nth-of-type(5) .event p{font-size:15px;line-height:1.65;margin:0}
   section:nth-of-type(5) .event p span:first-child{padding-bottom:7px;margin-bottom:7px}
   section:nth-of-type(5)>.inner>.btn{font-size:12px;margin-top:20px}
-  section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-height:1.2;white-space:nowrap;letter-spacing:3px}
-
-  section:nth-of-type(6) .title,section:nth-of-type(7) .title{margin-bottom:8px}
+  section:nth-of-type(7) .title{margin-bottom:8px}
   section:nth-of-type(7){padding-bottom:28px}
   .gift-options{gap:10px}
   .gift-option{padding:16px 7px;font-size:17px}
 
   .music-control{left:10px;right:auto;top:8px;min-width:104px;padding:8px 12px;font-size:12px}
-  .lang-switcher{gap:7px;margin-top:9px}
-  .lang-btn{min-width:70px;padding:7px 11px;font-size:14px}
-
   /* GIFT MODAL - MOBILE: SATU LAYAR, TANPA SCROLL */
   .modal{overflow:hidden;align-items:center;padding:10px}
   .modalbox{
@@ -500,6 +491,8 @@ function salinRekening(){
     });
 }
 
+let currentLanguage = "id";
+
 function syncMusicButton(){
   const audio = document.getElementById("bgMusic");
   const button = document.getElementById("musicControl");
@@ -507,9 +500,7 @@ function syncMusicButton(){
   if (!audio || !button || !label) return;
 
   const isPlaying = !audio.paused;
-  const dict = (typeof translations !== "undefined" && translations[currentLanguage])
-    ? translations[currentLanguage]
-    : translations.id;
+  const dict = translations[currentLanguage] || translations.id;
 
   label.textContent = dict[isPlaying ? "musicOn" : "musicOff"] || (isPlaying ? "Musik ON" : "Musik OFF");
   button.setAttribute("aria-pressed", String(isPlaying));
@@ -610,7 +601,6 @@ const translations = {
       musicOff: "Musik OFF",
     wedding:"Pernikahan",
     dear:"Kepada Yth.",
-    guest:"Tamu Undangan",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Klik Buka Undangan",
     welcome:"Selamat Datang",
@@ -652,7 +642,6 @@ const translations = {
       musicOff: "Music OFF",
     wedding:"The Wedding of",
     dear:"Dear",
-    guest:"Guest",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Open Invitation",
     welcome:"Welcome",
@@ -694,7 +683,6 @@ const translations = {
       musicOff: "Музыка ВЫКЛ",
     wedding:"Свадьба",
     dear:"Уважаемый(ая)",
-    guest:"Гость",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Открыть приглашение",
     welcome:"Добро пожаловать",

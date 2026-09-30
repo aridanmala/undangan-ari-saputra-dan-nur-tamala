@@ -802,6 +802,14 @@ function updateScrollHint(){
   const arrow = document.getElementById("scrollHintArrow");
   if(!hint || !text || !arrow) return;
 
+  // Jangan tampilkan indikator "GESER / KLIK" saat masih di slide pertama.
+  // Indikator kembali aktif setelah user mulai scroll ke slide berikutnya.
+  if(window.scrollY <= 5){
+    hint.style.display = "none";
+    return;
+  }
+  hint.style.display = "flex";
+
   const bottomGap = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
   const shouldGoTop = bottomGap <= 80;
   atPageBottom = shouldGoTop;

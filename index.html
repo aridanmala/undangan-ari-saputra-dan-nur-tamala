@@ -14,6 +14,10 @@
 <meta name="twitter:image" content="https://aridanmala.github.io/undangan-ari-saputra-dan-nur-tamala/ornamen-jawa2.png">
 <title>Ari Saputra & Nurtamala - Wedding Invitation</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
 /* =========================
    BASE
@@ -66,7 +70,15 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
   background:rgba(0,0,0,.25);cursor:pointer;font-family:"Times New Roman",Times,serif;
   text-shadow:0 1px 2px rgba(0,0,0,.95),0 0 7px rgba(0,0,0,.75) !important;
 }
-.lang-switcher{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.lang-label{
+  margin-top:22px;
+  font-family:"Cormorant Garamond","Times New Roman",serif;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  opacity:.85;
+}
+.lang-switcher{display:flex;justify-content:center;gap:8px;margin-top:6px}
 .lang-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:5px;
   min-width:66px;padding:7px 12px;border:1px solid rgba(255,255,255,.38);
@@ -237,7 +249,8 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   .hero .guest strong{font-size:15px;font-weight:500}
   .hero .date{position:relative;top:0;margin-top:25px;font-family:"Cormorant Garamond","Times New Roman",serif;font-size:14px;line-height:1;letter-spacing:5px}
   .hero .btn-open{position:relative;top:0;display:inline-block;margin-top:31px;padding:10px 20px;min-height:0;width:auto;border:1px solid #e7c67e;border-radius:999px;background:linear-gradient(180deg,#7d261d,#54150f);font-family:"Cormorant Garamond","Times New Roman",serif;font-size:13px;line-height:1;letter-spacing:1.5px}
-  .hero .lang-switcher{position:relative;top:0;gap:7px;margin-top:24px}
+  .hero .lang-label{margin-top:18px;font-size:10px;letter-spacing:1.5px}
+  .hero .lang-switcher{position:relative;top:0;gap:7px;margin-top:6px}
   .hero .lang-btn{min-width:55px;padding:6px 9px;border:1px solid rgba(239,211,157,.7);border-radius:999px;background:rgba(68,37,17,.48);font-family:"Cormorant Garamond","Times New Roman",serif;font-size:11px;line-height:1;letter-spacing:1px}
   .hero .lang-btn.active{background:rgba(170,119,42,.72);border-color:#f2d28c}
 
@@ -323,6 +336,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 }
 
 </style>
+</head>
 
 <body class="locked">
   <audio id="bgMusic" preload="auto" loop>
@@ -353,6 +367,8 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <a class="btn btn-open" href="#welcome" onclick="playMusic(event)">
     <span data-i18n="openInvitation">Klik Buka Undangan</span>
 </a>
+
+<div class="lang-label" data-i18n="translateLang">Translate Bahasa</div>
 
 <div class="lang-switcher" aria-label="Language">
   <button type="button" class="lang-btn active" data-lang="id" onclick="setLanguage('id')">🇮🇩 ID</button>
@@ -389,7 +405,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <div class="event"><div data-i18n="akadDate">18 Desember 2026</div><h3 data-i18n="akad">Akad Nikah</h3><p><span data-i18n="akadTime">14.00 WIB — Selesai</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
 <div class="event"><div data-i18n="receptionDate">19 Desember 2026</div><h3 data-i18n="reception">Resepsi</h3><p><span data-i18n="receptionTime">11.00 — Selesai</span><br><span data-i18n="brideResidence">Kediaman Mempelai Wanita</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
 </div>
-<a class="btn" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D""><span data-i18n="viewLocation">Lihat Lokasi</span></a>
+<a class="btn" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"><span data-i18n="viewLocation">Lihat Lokasi</span></a>
 </div></section>
 
 <section class="section"><div class="inner fade">
@@ -435,7 +451,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
       <div class="crypto-network">USDT — TRC20</div>
       <img class="crypto-qr" src="crypto-trc20-qr-hd.png" alt="QR Wallet USDT TRC20">
       <div class="crypto-address" id="cryptoAddress">TCBwAaQWJjg7xRaUUrWQPjJowxbqVURyJC</div>
-      <button type="button" class="btn copy-btn" onclick="copyCrypto()" data-i18n="copyCrypto">📋 Salin Wallet</button>
+      <button type="button" class="btn copy-btn" onclick="copyCrypto()">📋 <span data-i18n="copyCrypto">Salin Wallet</span></button>
       <div class="copy-status" id="cryptoCopyStatus"></div>
     </div>
   </div>
@@ -481,28 +497,38 @@ if("IntersectionObserver" in window){
   document.querySelectorAll(".fade").forEach(e=>e.classList.add("show"));
 }
 
+let currentLanguage = "id";
+
+// Ambil teks terjemahan sesuai bahasa aktif
+function t(key){
+  const dict = translations[currentLanguage] || translations.id;
+  return dict[key] !== undefined ? dict[key] : (translations.id[key] || "");
+}
+
 function salinRekening(){
     const input = document.getElementById("nomorRekening");
     const status = document.getElementById("copyStatus");
     const button = document.getElementById("copyButton");
 
+    const resetButton = () => {
+        button.innerHTML = '📋 <span data-i18n="copyAccount">' + t("copyAccount") + '</span>';
+    };
+
     navigator.clipboard.writeText(input.value).then(() => {
-        status.textContent = "✓ Nomor rekening berhasil disalin!";
-        button.innerHTML = "✓ Tersalin";
+        status.textContent = t("copiedAccount");
+        button.innerHTML = "✓ " + t("copiedShort");
 
         setTimeout(() => {
             status.textContent = "";
-            button.innerHTML = "📋 Salin Nomor Rekening";
+            resetButton();
         }, 2000);
 
     }).catch(() => {
         input.focus();
         input.select();
-        status.textContent = "Nomor sudah dipilih — tekan Ctrl+C";
+        status.textContent = t("copyManual");
     });
 }
-
-let currentLanguage = "id";
 
 function syncMusicButton(){
   const audio = document.getElementById("bgMusic");
@@ -568,20 +594,16 @@ const guestName = params.get("to");
 if (guestName) {
     document.getElementById("guestName").textContent = guestName;
 }
-  function confirmAttendance(event){
+
+function confirmAttendance(event){
     event.preventDefault();
-    const guest = new URLSearchParams(window.location.search).get("to");
-    const name = guest ? guest : "";
-    const message =
-      "Assalamu’alaikum Ari & Nur,\n\n" +
-      "Saya" + (name ? " " + name : "") + " insyaAllah akan hadir di acara pernikahan kalian.\n\n" +
-      "Terima kasih atas undangannya. 🙏";
+    const name = guestName ? guestName : "";
+    const message = t("waMessage").replace("{name}", name ? " " + name : "");
     window.open("https://wa.me/6282271284817?text=" + encodeURIComponent(message), "_blank");
-  }
+}
 
-  function shareInvitation(){
-
-    const guest = guestName || "Tamu Undangan";
+function shareInvitation(){
+    const guest = guestName || t("guestDefault");
 
     const shareUrl =
         window.location.origin +
@@ -590,41 +612,35 @@ if (guestName) {
         encodeURIComponent(guest);
 
     const shareData = {
-        title: "Undangan Pernikahan Ari Saputra & Nur Tamala",
-        text: "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.",
+        title: t("shareTitle"),
+        text: t("shareText"),
         url: shareUrl
     };
 
     if (navigator.share) {
-
         navigator.share(shareData).catch(() => {});
-
     } else {
-
         const message = encodeURIComponent(
-            "💍 Undangan Pernikahan Ari Saputra & Nur Tamala\n\n" +
-            "Kepada Yth. " + guest + "\n\n" +
-            "Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.\n\n" +
+            "💍 " + t("shareTitle") + "\n\n" +
+            t("dear") + " " + guest + "\n\n" +
+            t("shareText") + "\n\n" +
             shareUrl
         );
-
-        window.open(
-            "https://wa.me/?text=" + message,
-            "_blank"
-        );
+        window.open("https://wa.me/?text=" + message, "_blank");
     }
 }
 document.getElementById("copyButton").addEventListener("click", salinRekening);
 
-/* === TRANSLATE EN / RU === */
+/* === TRANSLATE ID / EN / RU === */
 const translations = {
   id: {
-      musicOn: "Musik ON",
-      musicOff: "Musik OFF",
+    musicOn: "Musik ON",
+    musicOff: "Musik OFF",
     wedding:"Pernikahan",
     dear:"Kepada Yth.",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Klik Buka Undangan",
+    translateLang:"Translate Bahasa",
     welcome:"Selamat Datang",
     welcomeText:"Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu pada hari bahagia kami.",
     scrollClick:"GESER / KLIK",
@@ -657,15 +673,24 @@ const translations = {
     bank:"Bank BCA",
     accountName:"a.n. Ari Saputra",
     copyAccount:"Salin Nomor Rekening", copyCrypto:"Salin Wallet",
-    giftThanks:"Terima kasih atas tanda kasih dan doa restunya. ❤️"
+    giftThanks:"Terima kasih atas tanda kasih dan doa restunya. ❤️",
+    copiedAccount:"✓ Nomor rekening berhasil disalin!",
+    copiedShort:"Tersalin",
+    copyManual:"Nomor sudah dipilih — tekan Ctrl+C",
+    copiedWallet:"✓ Wallet berhasil disalin",
+    guestDefault:"Tamu Undangan",
+    shareTitle:"Undangan Pernikahan Ari Saputra & Nur Tamala",
+    shareText:"Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.",
+    waMessage:"Assalamu’alaikum Ari & Nur,\n\nSaya{name} insyaAllah akan hadir di acara pernikahan kalian.\n\nTerima kasih atas undangannya. 🙏"
   },
   en: {
-      musicOn: "Music ON",
-      musicOff: "Music OFF",
+    musicOn: "Music ON",
+    musicOff: "Music OFF",
     wedding:"The Wedding of",
     dear:"Dear",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Open Invitation",
+    translateLang:"Translate Language",
     welcome:"Welcome",
     welcomeText:"With the grace and blessings of Allah SWT, we invite you to join us and share your prayers and blessings on our special day.",
     scrollClick:"SCROLL / CLICK",
@@ -698,15 +723,24 @@ const translations = {
     bank:"BCA Bank",
     accountName:"a.n. Ari Saputra",
     copyAccount:"Copy Account Number", copyCrypto:"Copy Wallet",
-    giftThanks:"Thank you for your gift and prayers. ❤️"
+    giftThanks:"Thank you for your gift and prayers. ❤️",
+    copiedAccount:"✓ Account number copied!",
+    copiedShort:"Copied",
+    copyManual:"Number selected — press Ctrl+C",
+    copiedWallet:"✓ Wallet address copied",
+    guestDefault:"Dear Guest",
+    shareTitle:"Wedding Invitation of Ari Saputra & Nur Tamala",
+    shareText:"With great joy, we invite you to attend our wedding celebration.",
+    waMessage:"Assalamu’alaikum Ari & Nur,\n\nI{name} will attend your wedding, insyaAllah.\n\nThank you for the invitation. 🙏"
   },
   ru: {
-      musicOn: "Музыка ВКЛ",
-      musicOff: "Музыка ВЫКЛ",
+    musicOn: "Музыка ВКЛ",
+    musicOff: "Музыка ВЫКЛ",
     wedding:"Свадьба",
     dear:"Уважаемый(ая)",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Открыть приглашение",
+    translateLang:"Перевести язык",
     welcome:"Добро пожаловать",
     welcomeText:"С милостью и благословением Аллаха мы приглашаем вас разделить с нами этот счастливый день и подарить свои молитвы и добрые пожелания.",
     scrollClick:"ПРОКРУТИТЬ / НАЖАТЬ",
@@ -739,7 +773,15 @@ const translations = {
     bank:"Банк BCA",
     accountName:"а/с Ари Сапутра",
     copyAccount:"Скопировать номер счёта", copyCrypto:"Скопировать кошелёк",
-    giftThanks:"Спасибо за ваш подарок и молитвы. ❤️"
+    giftThanks:"Спасибо за ваш подарок и молитвы. ❤️",
+    copiedAccount:"✓ Номер счёта скопирован!",
+    copiedShort:"Скопировано",
+    copyManual:"Номер выделен — нажмите Ctrl+C",
+    copiedWallet:"✓ Адрес кошелька скопирован",
+    guestDefault:"Дорогой гость",
+    shareTitle:"Свадебное приглашение Ари Сапутра и Нур Тамала",
+    shareText:"С огромной радостью приглашаем вас на нашу свадьбу.",
+    waMessage:"Ассаламу алейкум, Ари и Нур,\n\nЯ{name}, иншаллах, приду на вашу свадьбу.\n\nСпасибо за приглашение. 🙏"
   }
 };
 
@@ -758,13 +800,25 @@ function setLanguage(lang){
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 
-  // Refresh music label without breaking translation/scroll behavior.
+  // Nama tamu default ikut bahasa (hanya kalau tidak ada ?to=)
+  if(!guestName){
+    const g = document.getElementById("guestName");
+    if(g) g.textContent = dict.guestDefault;
+  }
+
+  // Bersihkan status salin lama supaya tidak beda bahasa
+  const cs = document.getElementById("copyStatus");
+  const cc = document.getElementById("cryptoCopyStatus");
+  if(cs) cs.textContent = "";
+  if(cc) cc.textContent = "";
+
   if (typeof syncMusicButton === "function") {
     syncMusicButton();
   }
+  if (typeof updateScrollHint === "function") {
+    updateScrollHint();
+  }
 }
-
-
 
 function showGiftPanel(panel){
   document.querySelectorAll(".gift-panel").forEach(el=>el.classList.remove("active"));
@@ -789,7 +843,7 @@ async function copyCrypto(){
     ta.remove();
   }
   const status=document.getElementById("cryptoCopyStatus");
-  if(status) status.textContent="Wallet berhasil disalin ✓";
+  if(status) status.textContent=t("copiedWallet");
 }
 
 
@@ -802,8 +856,7 @@ function updateScrollHint(){
   const arrow = document.getElementById("scrollHintArrow");
   if(!hint || !text || !arrow) return;
 
-  // Jangan tampilkan indikator "GESER / KLIK" saat masih di slide pertama.
-  // Indikator kembali aktif setelah user mulai scroll ke slide berikutnya.
+  // Jangan tampilkan indikator saat masih di slide pertama.
   if(window.scrollY <= 5){
     hint.style.display = "none";
     return;

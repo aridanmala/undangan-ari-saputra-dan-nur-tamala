@@ -114,7 +114,6 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
   padding:18px 8px 16px;background:rgba(20,14,10,.28);
   border:1px solid rgba(229,197,143,.28);border-radius:10px;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 6px 18px rgba(0,0,0,.18);
-  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
 }
 .count .num{display:block;line-height:1;font:600 34px "Cormorant Garamond","Times New Roman",serif;color:#f7e5bf !important}
 .count .label{display:block;margin-top:7px;font:600 11px "Cormorant Garamond","Times New Roman",serif;letter-spacing:2px;text-transform:uppercase;color:#fff0d0 !important}
@@ -335,7 +334,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 </head>
 
 <body class="locked">
-  <audio id="bgMusic" preload="auto" loop>
+  <audio id="bgMusic" preload="none" loop>
   <source src="./Melly Goeslaw ft Amee - Ketika Cinta Bertasbih Lirik.mp3" type="audio/mpeg">
 </audio>
 
@@ -391,8 +390,8 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="coupleTitle">Kedua Mempelai</div>
 <div class="couple">
-<div class="card"><img class="portrait" src="ari2.png" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
-<div class="card"><img class="portrait" src="mala2.png" alt=""><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
+<div class="card"><img class="portrait" src="ari2.png" alt="" loading="lazy" decoding="async"><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
+<div class="card"><img class="portrait" src="mala2.png" alt="" loading="lazy" decoding="async"><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
 </div></div></section>
 
 <section class="section"><div class="inner fade">
@@ -445,7 +444,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 
     <div id="giftCrypto" class="gift-panel">
       <div class="crypto-network">USDT — TRC20</div>
-      <img class="crypto-qr" src="crypto-trc20-qr-hd.png" alt="QR Wallet USDT TRC20">
+      <img class="crypto-qr" src="crypto-trc20-qr-hd.png" alt="QR Wallet USDT TRC20" loading="lazy" decoding="async">
       <div class="crypto-address" id="cryptoAddress">TCBwAaQWJjg7xRaUUrWQPjJowxbqVURyJC</div>
       <button type="button" class="btn copy-btn" onclick="copyCrypto()">📋 <span data-i18n="copyCrypto">Salin Wallet</span></button>
       <div class="copy-status" id="cryptoCopyStatus"></div>

@@ -348,19 +348,16 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <div>
 <div class="eyebrow" data-i18n="wedding">Pernikahan</div>
 <div class="names"><span class="name-line">Ari Saputra</span><span class="name-amp">&</span><span class="name-line">Nurtamala, S.Akun</span></div>
-<div class="guest"><span data-i18n="dear">Kepada Yth.</span><br><strong id="guestName" data-i18n="guestName">Tamu Undangan</strong></div>
+<div class="guest"><span data-i18n="dear">Kepada Yth.</span><br><strong id="guestName">Tamu Undangan</strong></div>
 <div class="date" data-i18n="heroDate">19 • 12 • 2026</div>
 <a class="btn btn-open" href="#welcome" onclick="playMusic(event)">
     <span data-i18n="openInvitation">Klik Buka Undangan</span>
 </a>
 
-<div class="language-area">
-  <div class="language-label" data-i18n="languageLabel">translate bahasa</div>
-  <div class="lang-switcher" aria-label="Language">
-    <button type="button" class="lang-btn active" data-lang="id" onclick="setLanguage('id')">🇮🇩 ID</button>
-    <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 EN</button>
-    <button type="button" class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">🇷🇺 RU</button>
-  </div>
+<div class="lang-switcher" aria-label="Language">
+  <button type="button" class="lang-btn active" data-lang="id" onclick="setLanguage('id')">🇮🇩 ID</button>
+  <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 EN</button>
+  <button type="button" class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">🇷🇺 RU</button>
 </div>
 </div>
 </section>
@@ -626,8 +623,6 @@ const translations = {
       musicOff: "Musik OFF",
     wedding:"Pernikahan",
     dear:"Kepada Yth.",
-    guestName:"Tamu Undangan",
-    languageLabel:"translate bahasa",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Klik Buka Undangan",
     welcome:"Selamat Datang",
@@ -669,8 +664,6 @@ const translations = {
       musicOff: "Music OFF",
     wedding:"The Wedding of",
     dear:"Dear",
-    guestName:"Wedding Guest",
-    languageLabel:"translate language",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Open Invitation",
     welcome:"Welcome",
@@ -712,8 +705,6 @@ const translations = {
       musicOff: "Музыка ВЫКЛ",
     wedding:"Свадьба",
     dear:"Уважаемый(ая)",
-    guestName:"Гость",
-    languageLabel:"перевести язык",
     heroDate:"19 • 12 • 2026",
     openInvitation:"Открыть приглашение",
     welcome:"Добро пожаловать",
@@ -810,6 +801,14 @@ function updateScrollHint(){
   const text = document.getElementById("scrollHintText");
   const arrow = document.getElementById("scrollHintArrow");
   if(!hint || !text || !arrow) return;
+
+  // Jangan tampilkan indikator "GESER / KLIK" saat masih di slide pertama.
+  // Indikator kembali aktif setelah user mulai scroll ke slide berikutnya.
+  if(window.scrollY <= 5){
+    hint.style.display = "none";
+    return;
+  }
+  hint.style.display = "block";
 
   const bottomGap = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
   const shouldGoTop = bottomGap <= 80;

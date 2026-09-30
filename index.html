@@ -7,11 +7,11 @@
 <meta property="og:title" content="Undangan Pernikahan Ari & Nur">
 <meta property="og:description" content="Ari Saputra & Nurtamala, S.Akun">
 <meta property="og:url" content="https://aridanmala.github.io/undangan-ari-saputra-dan-nur-tamala/">
-<meta property="og:image" content="https://aridanmala.github.io/undangan-ari-saputra-dan-nur-tamala/ornamen-jawa2.webp">
+<meta property="og:image" content="https://aridanmala.github.io/undangan-ari-saputra-dan-nur-tamala/ornamen-jawa2.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Undangan Pernikahan Ari & Nur">
 <meta name="twitter:description" content="Ari Saputra & Nurtamala, S.Akun">
-<meta name="twitter:image" content="https://aridanmala.github.io/undangan-ari-saputra-dan-nur-tamala/ornamen-jawa2.webp">
+<meta name="twitter:image" content="https://aridanmala.github.io/undangan-ari-saputra-dan-nur-tamala/ornamen-jawa2.png">
 <title>Ari Saputra & Nurtamala - Wedding Invitation</title>
 
 <style>
@@ -26,7 +26,7 @@ body{
 }
 html:before{
   content:"";position:fixed;inset:-4%;
-  background:url("ornamen-jawa2.webp") center/cover no-repeat;
+  background:url("ornamen-jawa2.png") center/cover no-repeat;
   transform:scale(1.08);z-index:-2;pointer-events:none;
 }
 body:before{
@@ -49,6 +49,7 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
   display:flex;align-items:center;justify-content:center;
   min-height:100svh;text-align:center;background:transparent;
 }
+.hero>*{position:relative;z-index:1}
 .eyebrow{letter-spacing:5px;font-size:11px;text-transform:uppercase}
 .names{
   font:500 clamp(58px,11vw,130px)/.8 "Times New Roman",Times,serif;
@@ -104,8 +105,8 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
 .count div{
   padding:18px 8px 16px;background:rgba(20,14,10,.28);
   border:1px solid rgba(229,197,143,.28);border-radius:10px;
-  box-shadow:0 6px 18px rgba(0,0,0,.18);
-  
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 6px 18px rgba(0,0,0,.18);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
 }
 .count .num{display:block;line-height:1;font:600 34px "Cormorant Garamond","Times New Roman",serif;color:#f7e5bf !important}
 .count .label{display:block;margin-top:7px;font:600 11px "Cormorant Garamond","Times New Roman",serif;letter-spacing:2px;text-transform:uppercase;color:#fff0d0 !important}
@@ -141,6 +142,7 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
    GIFT / MODAL
    ========================= */
 .gift{width:auto;max-width:none;margin:10px auto;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.gift .eyebrow{margin-bottom:6px !important}
 .gift .btn{margin-top:4px;font-family:"Cormorant Garamond","Times New Roman",serif;letter-spacing:1.5px}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:99;align-items:center;justify-content:center;padding:20px}
 .modalbox{width:min(560px,100%);background:#f5eee6;color:#352a22;padding:48px 42px;border-radius:20px;text-align:center;position:relative}
@@ -181,7 +183,7 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
   position:fixed;left:10px;top:8px;z-index:10001;display:flex;align-items:center;gap:9px;
   min-width:104px;justify-content:center;padding:10px 14px;border:1px solid rgba(255,255,255,.45);
   border-radius:999px;background:rgba(0,0,0,.48);color:#fff4df;font:500 13px "Times New Roman",Times,serif;
-  letter-spacing:1px;cursor:pointer;
+  letter-spacing:1px;cursor:pointer;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   box-shadow:0 6px 20px rgba(0,0,0,.28);text-shadow:none;
 }
 .music-control:hover{background:rgba(0,0,0,.62)}
@@ -200,6 +202,7 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
 .arrow-down{font-size:26px;line-height:1}
 .scroll-hint.back-top{opacity:.9}
 #scrollHintText,#scrollHintArrow{transition:opacity .2s ease,transform .2s ease}
+#scrollHint.back-top .arrow-down{transform:translateY(0)}
 @keyframes scrollHint{0%,100%{transform:translate(-50%,0);opacity:.45}50%{transform:translate(-50%,8px);opacity:1}}
 
 /* =========================
@@ -207,7 +210,7 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
    ========================= */
 #welcome{
   min-height:100svh;padding:70px 24px 90px;display:flex;align-items:center;justify-content:center;text-align:center;
-  background:url("selamatdatang2.webp") center/cover no-repeat;
+  background:url("selamatdatang2.png") center/cover no-repeat;
 }
 #welcome .inner{width:min(620px,90vw);margin:0 auto;padding:0;transform:translateY(145px)}
 #welcome .eyebrow{font-family:"Cormorant Garamond","Times New Roman",serif;font-size:25px;line-height:1.2;letter-spacing:2.5px;margin:0 0 12px;color:#ffe8b8 !important;text-shadow:0 1px 3px rgba(0,0,0,1),0 0 5px rgba(0,0,0,.9) !important}
@@ -224,7 +227,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
    MOBILE
    ========================= */
 @media(max-width:650px){
-  .hero{min-height:100svh;background:url("ornamen-jawa2.webp") center/cover no-repeat;background-attachment:scroll}
+  .hero{min-height:100svh;background:url("ornamen-jawa2.png") center/cover no-repeat;background-attachment:scroll}
   .hero>div{width:100%;padding:0 14px;margin:0 auto;text-align:center;transform:translateY(28px)}
   .hero .eyebrow{margin:0;font-family:"Cormorant Garamond","Times New Roman",serif;font-size:14px;line-height:1;letter-spacing:4px;position:relative;top:0}
   .hero .names{position:relative;top:0;margin:18px 0 14px;font-family:"Great Vibes","Brush Script MT",cursive !important;font-size:36px;line-height:1;font-weight:400;letter-spacing:0}
@@ -269,7 +272,11 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   section:nth-of-type(5) .event p{font-size:15px;line-height:1.65;margin:0}
   section:nth-of-type(5) .event p span:first-child{padding-bottom:7px;margin-bottom:7px}
   section:nth-of-type(5)>.inner>.btn{font-size:12px;margin-top:20px}
+  section:nth-of-type(7) .title{margin-bottom:8px}
   section:nth-of-type(7){padding-bottom:28px}
+  .gift-options{gap:10px}
+  .gift-option{padding:16px 7px;font-size:17px}
+
   .music-control{left:10px;right:auto;top:8px;min-width:104px;padding:8px 12px;font-size:12px}
   /* GIFT MODAL - MOBILE: SATU LAYAR, TANPA SCROLL */
   .modal{overflow:hidden;align-items:center;padding:10px}
@@ -302,6 +309,17 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   .footer h2{font-size:38px}
   .footer h2:after{font-size:11px;letter-spacing:3px;margin:12px 0 11px}
   .footer p{font-size:13px}
+}
+
+
+/* Final credit */
+.made-by{
+  margin:18px 0 0;
+  font-family:"Cormorant Garamond","Times New Roman",serif;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:lowercase;
+  opacity:.72;
 }
 
 </style>
@@ -361,8 +379,8 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="coupleTitle">Kedua Mempelai</div>
 <div class="couple">
-<div class="card"><img decoding="async" class="portrait" src="ari2.webp" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
-<div class="card"><img decoding="async" class="portrait" src="mala2.webp" alt=""><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
+<div class="card"><img class="portrait" src="ari2.png" alt=""><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
+<div class="card"><img class="portrait" src="mala2.png" alt=""><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
 </div></div></section>
 
 <section class="section"><div class="inner fade">
@@ -386,7 +404,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <button class="btn" onclick="shareInvitation()">🔗 <span data-i18n="shareInvitation">Bagikan Undangan</span></button>
 </div></section>
 
-<footer class="footer"><h2>Ari Saputra<br>&<br>Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p></footer>
+<footer class="footer"><h2>Ari Saputra<br>&<br>Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p><p class="made-by">made by ari saputra</p></footer>
 
 
 <div class="modal" id="gift">
@@ -415,7 +433,7 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 
     <div id="giftCrypto" class="gift-panel">
       <div class="crypto-network">USDT — TRC20</div>
-      <img loading="lazy" decoding="async" class="crypto-qr" src="crypto-trc20-qr-hd.png" alt="QR Wallet USDT TRC20">
+      <img class="crypto-qr" src="crypto-trc20-qr-hd.png" alt="QR Wallet USDT TRC20">
       <div class="crypto-address" id="cryptoAddress">TCBwAaQWJjg7xRaUUrWQPjJowxbqVURyJC</div>
       <button type="button" class="btn copy-btn" onclick="copyCrypto()" data-i18n="copyCrypto">📋 Salin Wallet</button>
       <div class="copy-status" id="cryptoCopyStatus"></div>
@@ -541,6 +559,7 @@ const musicElement = document.getElementById("bgMusic");
 if(musicElement){
   musicElement.addEventListener("play", syncMusicButton);
   musicElement.addEventListener("pause", syncMusicButton);
+  musicElement.addEventListener("ended", syncMusicButton);
 }
 
 const params = new URLSearchParams(window.location.search);
@@ -744,6 +763,7 @@ function setLanguage(lang){
     syncMusicButton();
   }
 }
+
 
 
 function showGiftPanel(panel){

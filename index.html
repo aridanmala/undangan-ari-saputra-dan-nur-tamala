@@ -808,7 +808,7 @@ function updateScrollHint(){
     hint.style.display = "none";
     return;
   }
-  hint.style.display = "flex";
+  hint.style.display = "block";
 
   const bottomGap = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
   const shouldGoTop = bottomGap <= 80;

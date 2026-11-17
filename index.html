@@ -284,6 +284,20 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   section:nth-of-type(7) .sub{font-size:17px;font-weight:600;color:#fff8ea !important}
   .footer p{font-size:16px !important;font-weight:600}
   .count .label{font-size:12px}
+  /* Kartu acara mobile */
+  section:nth-of-type(5) .event{padding:26px 18px 28px}
+  section:nth-of-type(5) .event-day{font-size:22px;letter-spacing:5px}
+  section:nth-of-type(5) .event-date span:last-child{font-size:17px;letter-spacing:2px;color:#fff8ea}
+  section:nth-of-type(5) .event h3{margin:14px 0 14px}
+  section:nth-of-type(5) .event p{font-size:18px;font-weight:600;line-height:1.6}
+  section:nth-of-type(5) .event p span:first-child{display:inline-block;font-size:24px;letter-spacing:1px;padding-bottom:0;margin-bottom:8px}
+  /* Tombol Kirim Hadiah besar */
+  .gift .btn{
+    display:block;width:min(300px,100%);margin:14px auto 0;
+    padding:18px 20px;font-size:19px;font-weight:700;letter-spacing:2px;line-height:1.2;
+    border:1.5px solid #f5d08a;background:linear-gradient(180deg,#7d261d,#54150f);color:#fff8ea !important;
+    box-shadow:0 8px 22px rgba(0,0,0,.4);
+  }
 
   section:nth-of-type(3) .title{font-size:25px;line-height:1.1;white-space:nowrap;letter-spacing:.5px}
   section:nth-of-type(4) .eyebrow{font-size:20px}
@@ -385,6 +399,12 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 }
 
 
+/* Hari & tanggal acara */
+.event-date{display:flex;flex-direction:column;align-items:center;gap:4px}
+.event-day{display:block;font:700 15px "Cormorant Garamond","Times New Roman",serif;letter-spacing:4px;text-transform:uppercase;color:#f5d08a}
+.event h3::after{content:"";display:block;width:46px;height:1px;margin:12px auto 0;background:rgba(245,208,138,.6)}
+.event p span:first-child{border-bottom:0;padding-bottom:0;margin-bottom:6px;font-weight:700;color:#f5d08a}
+
 /* Final credit */
 .made-by{
   margin:18px 0 0;
@@ -462,8 +482,8 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="weddingDay">Hari Pernikahan</div>
 <div class="events">
-<div class="event"><div data-i18n="akadDate">18 Desember 2026</div><h3 data-i18n="akad">Akad Nikah</h3><p><span data-i18n="akadTime">14.00 WIB — Selesai</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
-<div class="event"><div data-i18n="receptionDate">19 Desember 2026</div><h3 data-i18n="reception">Resepsi</h3><p><span data-i18n="receptionTime">11.00 — Selesai</span><br><span data-i18n="brideResidence">Kediaman Mempelai Wanita</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
+<div class="event"><div class="event-date"><span class="event-day" data-i18n="akadDay">Jumat</span><span data-i18n="akadDate">18 Desember 2026</span></div><h3 data-i18n="akad">Akad Nikah</h3><p><span data-i18n="akadTime">14.00 WIB — Selesai</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
+<div class="event"><div class="event-date"><span class="event-day" data-i18n="receptionDay">Sabtu</span><span data-i18n="receptionDate">19 Desember 2026</span></div><h3 data-i18n="reception">Resepsi</h3><p><span data-i18n="receptionTime">11.00 — Selesai</span><br><span data-i18n="brideResidence">Kediaman Mempelai Wanita</span><br>Jl. Kha. Rasyid, Desa Pedekik</p></div>
 </div>
 <a class="btn" target="_blank" href="https://www.google.com/maps/place/Jl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711/@1.5082643,102.093172,3a,75y,225.59h,71.98t/data=!3m7!1e1!3m5!1s0yjSI-8V1CYGTxDrUBP59w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D18.015253509591346%26panoid%3D0yjSI-8V1CYGTxDrUBP59w%26yaw%3D225.58639767247223!7i16384!8i8192!4m15!1m8!3m7!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!2sJl.+Kha+Rasyid,+Pedekik,+Kec.+Bengkalis,+Kabupaten+Bengkalis,+Riau+28711!3b1!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!3m5!1s0x31d1600ce5908d63:0x47498e96cdd6ccc8!8m2!3d1.5015264!4d102.0930662!16s%2Fg%2F11bzs281w8!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"><span data-i18n="viewLocation">Lihat Lokasi</span></a>
 </div></section>
@@ -712,6 +732,7 @@ const translations = {
     ariParents:"Putra dari Bapak<br>Alm. Safril & Ibu Artini",
     nurParents:"Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah",
     weddingDay:"Hari Pernikahan",
+    akadDay:"Jumat", receptionDay:"Sabtu",
     akadDate:"18 Desember 2026",
     akad:"Akad Nikah",
     akadTime:"14.00 WIB — Selesai",
@@ -762,6 +783,7 @@ const translations = {
     ariParents:"Son of the late Safril & Artini",
     nurParents:"Daughter of the late Hamidi & Rohimah",
     weddingDay:"Wedding Day",
+    akadDay:"Friday", receptionDay:"Saturday",
     akadDate:"18 December 2026",
     akad:"Marriage Ceremony",
     akadTime:"14:00 WIB — Until Finished",
@@ -812,6 +834,7 @@ const translations = {
     ariParents:"Сын покойного Сафрила и Артини",
     nurParents:"Дочь покойного Хамиди и Рохимы",
     weddingDay:"День свадьбы",
+    akadDay:"Пятница", receptionDay:"Суббота",
     akadDate:"18 декабря 2026",
     akad:"Церемония бракосочетания",
     akadTime:"14:00 WIB — До окончания",

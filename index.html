@@ -15,7 +15,7 @@
 <title>Ari Saputra & Nurtamala - Wedding Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Great+Vibes&family=Lato:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* =========================
@@ -175,6 +175,39 @@ section:nth-of-type(6) .eyebrow[data-i18n="giftTitle"]{font-size:20px;line-heigh
 .crypto-network{font-size:18px;font-weight:700;letter-spacing:2px;margin-top:10px}
 .crypto-address{word-break:break-all;font-size:15px;line-height:1.5;padding:14px;margin-top:12px;background:rgba(0,0,0,.12);border-radius:8px}
 .close{position:absolute!important;right:18px!important;top:12px!important;z-index:9999!important;font-size:28px!important;line-height:1!important;cursor:pointer!important}
+
+/* MODAL HADIAH: teks tajam, bersih, dan mudah dibaca */
+.modalbox,
+.modalbox *{
+  font-family:"Lato",Arial,sans-serif;
+  text-shadow:none !important;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.modalbox{color:#352a22}
+.modalbox h2{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:38px;
+  font-weight:700;
+  letter-spacing:.2px;
+  color:#352a22;
+}
+.modalbox>p{font-size:15px;line-height:1.5;font-weight:600;color:#4a3b30}
+.modalbox .gift-option{font-family:"Lato",Arial,sans-serif;font-weight:700;font-size:15px}
+.modalbox .bank-name{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:17px}
+.modalbox .account-number{
+  font-family:"Lato",Arial,sans-serif;
+  font-weight:700;
+  font-size:32px;
+  letter-spacing:1px;
+  font-variant-numeric:tabular-nums;
+  color:#30251e;
+}
+.modalbox .account-name{font-size:14px;font-weight:700;color:#514236}
+.modalbox .copy-btn{font-family:"Lato",Arial,sans-serif;font-weight:700;letter-spacing:.5px}
+.modalbox .gift-note{font-family:"Lato",Arial,sans-serif;font-size:13px;font-weight:500;color:#756457}
+.modalbox .close{font-family:Arial,sans-serif;color:#514236}
+
 .wa{background:#527b55}
 
 /* =========================
@@ -311,6 +344,9 @@ section:nth-of-type(7) .title{margin-bottom:8px}
   section:nth-of-type(5) .event h3{font-size:26px;line-height:1.25;margin:8px 0 10px}
   section:nth-of-type(5) .event p{font-size:17px;line-height:1.6;margin:0}
   section:nth-of-type(5) .event p span:first-child{padding-bottom:7px;margin-bottom:7px}
+section:nth-of-type(5) .event .event-time{font-size:24px !important}
+section:nth-of-type(5) .event .event-zone{font-size:12px !important}
+
   section:nth-of-type(5)>.inner>.btn{font-size:12px;margin-top:20px}
   section:nth-of-type(7) .title{margin-bottom:8px}
   section:nth-of-type(7){padding-bottom:28px}
@@ -404,6 +440,17 @@ section:nth-of-type(7) .title{margin-bottom:8px}
 .event-day{display:block;font:700 15px "Cormorant Garamond","Times New Roman",serif;letter-spacing:4px;text-transform:uppercase;color:#f5d08a}
 .event h3::after{content:"";display:block;width:46px;height:1px;margin:12px auto 0;background:rgba(245,208,138,.6)}
 .event p span:first-child{border-bottom:0;padding-bottom:0;margin-bottom:6px;font-weight:700;color:#f5d08a}
+.event .event-time{font-size:1.18em;font-weight:700;letter-spacing:.3px}
+.event .event-zone{
+  display:inline-block;
+  margin-left:2px;
+  font-size:.62em !important;
+  font-weight:600;
+  letter-spacing:1px;
+  vertical-align:baseline;
+  opacity:.9;
+}
+
 
 /* Final credit */
 .made-by{
@@ -735,10 +782,10 @@ const translations = {
     akadDay:"Jumat", receptionDay:"Sabtu",
     akadDate:"18 Desember 2026",
     akad:"Akad Nikah",
-    akadTime:"14.00 WIB — Selesai",
+    akadTime:"<span class=\"event-time\">14.00</span> <span class=\"event-zone\">WIB</span> — Selesai",
     receptionDate:"19 Desember 2026",
     reception:"Resepsi",
-    receptionTime:"11.00 — Selesai",
+    receptionTime:"<span class=\"event-time\">11.00</span> <span class=\"event-zone\">WIB</span> — Selesai",
     brideResidence:"Kediaman Mempelai Wanita",
     viewLocation:"Lihat Lokasi",
     giftTitle:"Berikan Tanda Kasih",
@@ -786,10 +833,10 @@ const translations = {
     akadDay:"Friday", receptionDay:"Saturday",
     akadDate:"18 December 2026",
     akad:"Marriage Ceremony",
-    akadTime:"14:00 WIB — Until Finished",
+    akadTime:"<span class=\"event-time\">14:00</span> <span class=\"event-zone\">WIB</span> — Until Finished",
     receptionDate:"19 December 2026",
     reception:"Reception",
-    receptionTime:"11:00 — Until Finished",
+    receptionTime:"<span class=\"event-time\">11:00</span> <span class=\"event-zone\">WIB</span> — Until Finished",
     brideResidence:"Bride's Residence",
     viewLocation:"View Location",
     giftTitle:"Send a Gift",
@@ -837,10 +884,10 @@ const translations = {
     akadDay:"Пятница", receptionDay:"Суббота",
     akadDate:"18 декабря 2026",
     akad:"Церемония бракосочетания",
-    akadTime:"14:00 WIB — До окончания",
+    akadTime:"<span class=\"event-time\">14:00</span> <span class=\"event-zone\">WIB</span> — До окончания",
     receptionDate:"19 декабря 2026",
     reception:"Приём",
-    receptionTime:"11:00 — До окончания",
+    receptionTime:"<span class=\"event-time\">11:00</span> <span class=\"event-zone\">WIB</span> — До окончания",
     brideResidence:"Дом невесты",
     viewLocation:"Посмотреть место",
     giftTitle:"Подарок",

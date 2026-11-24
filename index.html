@@ -500,6 +500,26 @@ section:nth-of-type(5) .event .event-zone{font-size:12px !important}
 .modalbox .account-name{color:#514236 !important}
 .modalbox .copy-btn{color:#fffaf4 !important}
 
+/* ===== MENU CRYPTO ===== */
+.coin-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 14px}
+.modalbox .coin-tab{
+  border:1px solid #d8c5b3;background:#eee3d7;color:#514236 !important;
+  border-radius:10px;padding:11px 4px;cursor:pointer;
+  font-family:"Lato",Arial,sans-serif;font-weight:700;font-size:14px;
+}
+.modalbox .coin-tab.active{background:#795333;color:#fffaf4 !important;border-color:#795333}
+.coin-panel{display:none}
+.coin-panel.active{display:block}
+.net-card{background:#eee3d7;border-radius:12px;padding:14px 12px;margin-bottom:12px;text-align:center}
+.modalbox .net-name{font-weight:700;letter-spacing:2px;font-size:13px;color:#5a4030 !important}
+.modalbox .net-address{
+  word-break:break-all;font-size:13px;line-height:1.5;font-weight:600;
+  color:#30251e !important;margin:8px 0 10px;
+}
+.modalbox .uid-number{font-size:30px;font-weight:700;letter-spacing:2px;color:#30251e !important;margin:8px 0 10px}
+.modalbox .net-card .copy-btn{padding:10px 18px;min-height:42px;font-size:14px;border-radius:40px;margin-top:0}
+.modalbox #cryptoCopyStatus{color:#6b4c32 !important;font-weight:600}
+
 </style>
 </head>
 
@@ -613,10 +633,50 @@ section:nth-of-type(5) .event .event-zone{font-size:12px !important}
     </div>
 
     <div id="giftCrypto" class="gift-panel">
-      <div class="crypto-network">USDT — TRC20</div>
-      <img class="crypto-qr" src="crypto-trc20-qr-hd.png" alt="QR Wallet USDT TRC20" loading="lazy" decoding="async">
-      <div class="crypto-address" id="cryptoAddress">TCBwAaQWJjg7xRaUUrWQPjJowxbqVURyJC</div>
-      <button type="button" class="btn copy-btn" onclick="copyCrypto()">📋 <span data-i18n="copyCrypto">Salin Wallet</span></button>
+
+      <div class="coin-tabs">
+        <button type="button" class="coin-tab active" data-coin="usdt" onclick="showCoin('usdt')">USDT</button>
+        <button type="button" class="coin-tab" data-coin="usdc" onclick="showCoin('usdc')">USDC</button>
+        <button type="button" class="coin-tab" data-coin="bybit" onclick="showCoin('bybit')">Bybit UID</button>
+      </div>
+
+      <!-- USDT -->
+      <div id="coin-usdt" class="coin-panel active">
+        <div class="net-card">
+          <div class="net-name">USDT — BEP20</div>
+          <div class="net-address" id="addr-usdt-bep20">0x1d87d5c91e89cc4dfa9b94e3241794b7fff8c65a</div>
+          <button type="button" class="btn copy-btn" onclick="copyText('addr-usdt-bep20','wallet')">📋 <span data-i18n="copyCrypto">Salin Wallet</span></button>
+        </div>
+        <div class="net-card">
+          <div class="net-name">USDT — TRC20</div>
+          <div class="net-address" id="addr-usdt-trc20">TSNNVyP8NoaM6YuF8R73RV52UGtXD1wHAG</div>
+          <button type="button" class="btn copy-btn" onclick="copyText('addr-usdt-trc20','wallet')">📋 <span data-i18n="copyCrypto">Salin Wallet</span></button>
+        </div>
+      </div>
+
+      <!-- USDC -->
+      <div id="coin-usdc" class="coin-panel">
+        <div class="net-card">
+          <div class="net-name">USDC — ERC20</div>
+          <div class="net-address" id="addr-usdc-erc20">0x1d87d5c91e89cc4dfa9b94e3241794b7fff8c65a</div>
+          <button type="button" class="btn copy-btn" onclick="copyText('addr-usdc-erc20','wallet')">📋 <span data-i18n="copyCrypto">Salin Wallet</span></button>
+        </div>
+        <div class="net-card">
+          <div class="net-name">USDC — BEP20</div>
+          <div class="net-address" id="addr-usdc-bep20">0x1d87d5c91e89cc4dfa9b94e3241794b7fff8c65a</div>
+          <button type="button" class="btn copy-btn" onclick="copyText('addr-usdc-bep20','wallet')">📋 <span data-i18n="copyCrypto">Salin Wallet</span></button>
+        </div>
+      </div>
+
+      <!-- BYBIT UID -->
+      <div id="coin-bybit" class="coin-panel">
+        <div class="net-card">
+          <div class="net-name">BYBIT UID</div>
+          <div class="uid-number" id="addr-bybit-uid">478127375</div>
+          <button type="button" class="btn copy-btn" onclick="copyText('addr-bybit-uid','uid')">📋 <span data-i18n="copyUid">Salin UID</span></button>
+        </div>
+      </div>
+
       <div class="copy-status" id="cryptoCopyStatus"></div>
     </div>
   </div>
@@ -844,6 +904,8 @@ const translations = {
     copiedShort:"Tersalin",
     copyManual:"Nomor sudah dipilih — tekan Ctrl+C",
     copiedWallet:"✓ Wallet berhasil disalin",
+    copyUid:"Salin UID",
+    copiedUid:"✓ UID berhasil disalin",
     guestDefault:"Tamu Undangan",
     shareTitle:"Undangan Pernikahan Ari Saputra & Nur Tamala",
     shareText:"Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di acara pernikahan kami.",
@@ -895,6 +957,8 @@ const translations = {
     copiedShort:"Copied",
     copyManual:"Number selected — press Ctrl+C",
     copiedWallet:"✓ Wallet address copied",
+    copyUid:"Copy UID",
+    copiedUid:"✓ UID copied",
     guestDefault:"Dear Guest",
     shareTitle:"Wedding Invitation of Ari Saputra & Nur Tamala",
     shareText:"With great joy, we invite you to attend our wedding celebration.",
@@ -946,6 +1010,8 @@ const translations = {
     copiedShort:"Скопировано",
     copyManual:"Номер выделен — нажмите Ctrl+C",
     copiedWallet:"✓ Адрес кошелька скопирован",
+    copyUid:"Скопировать UID",
+    copiedUid:"✓ UID скопирован",
     guestDefault:"Дорогой гость",
     shareTitle:"Свадебное приглашение Ари Сапутра и Нур Тамала",
     shareText:"С огромной радостью приглашаем вас на нашу свадьбу.",
@@ -998,20 +1064,31 @@ function showGiftPanel(panel){
   if(buttons.length) buttons[isCrypto ? 1 : 0].classList.add("active");
 }
 
-async function copyCrypto(){
-  const address = "TCBwAaQWJjg7xRaUUrWQPjJowxbqVURyJC";
+function showCoin(coin){
+  document.querySelectorAll(".coin-panel").forEach(el=>el.classList.remove("active"));
+  document.querySelectorAll(".coin-tab").forEach(el=>el.classList.toggle("active", el.dataset.coin === coin));
+  const p = document.getElementById("coin-" + coin);
+  if(p) p.classList.add("active");
+  const s = document.getElementById("cryptoCopyStatus");
+  if(s) s.textContent = "";
+}
+
+async function copyText(id, type){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const text = el.textContent.trim();
   try{
-    await navigator.clipboard.writeText(address);
+    await navigator.clipboard.writeText(text);
   }catch(e){
-    const ta=document.createElement("textarea");
-    ta.value=address;
+    const ta = document.createElement("textarea");
+    ta.value = text;
     document.body.appendChild(ta);
     ta.select();
     document.execCommand("copy");
     ta.remove();
   }
-  const status=document.getElementById("cryptoCopyStatus");
-  if(status) status.textContent=t("copiedWallet");
+  const status = document.getElementById("cryptoCopyStatus");
+  if(status) status.textContent = t(type === "uid" ? "copiedUid" : "copiedWallet");
 }
 
 

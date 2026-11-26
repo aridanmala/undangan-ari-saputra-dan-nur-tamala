@@ -702,9 +702,10 @@ section:nth-of-type(3) .divider{margin:14px auto 0}
   display:flex;justify-content:center;
   color:#e5c58f;font:400 14px/1 "Cormorant Garamond",serif;letter-spacing:2px;
   text-shadow:0 0 8px rgba(245,208,138,.45) !important}
-.hero::after{content:"";bottom:0;height:140px;background:linear-gradient(to bottom,rgba(11,8,6,0),var(--seam))}
-#welcome::before{content:"───────  ❈  ───────";top:0;height:150px;align-items:flex-start;
-  background:linear-gradient(to top,rgba(11,8,6,0),var(--seam) 70%);padding-top:6px}
+.hero::after{content:"───────  ❈  ───────";bottom:0;height:150px;align-items:flex-end;padding-bottom:14px;
+  background:linear-gradient(to bottom,rgba(11,8,6,0),var(--seam) 75%)}
+/* atas slide Selamat Datang: pudar tipis saja supaya foto (kepala) tidak tertutup */
+#welcome::before{content:"";top:0;height:36px;background:linear-gradient(to top,rgba(11,8,6,0),var(--seam))}
 #welcome::after{content:"";bottom:0;height:140px;background:linear-gradient(to bottom,rgba(11,8,6,0),var(--seam))}
 section:nth-of-type(3)::before{content:"───────  ❈  ───────";top:0;height:150px;align-items:flex-start;
   background:linear-gradient(to top,rgba(11,8,6,0),var(--seam) 70%);padding-top:6px}

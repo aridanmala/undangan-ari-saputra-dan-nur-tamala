@@ -520,13 +520,9 @@ section:nth-of-type(5) .event .event-zone{font-size:12px !important}
 .modalbox .net-card .copy-btn{padding:10px 18px;min-height:42px;font-size:14px;border-radius:40px;margin-top:0}
 .modalbox #cryptoCopyStatus{color:#6b4c32 !important;font-weight:600}
 
-/* teks salin (tanpa tombol) */
-.modalbox .salin-link{
-  display:inline-block;margin-top:8px;padding:2px 4px;cursor:pointer;
-  font-size:14px;font-weight:700;letter-spacing:1px;
-  color:#795333 !important;text-decoration:underline;text-underline-offset:3px;
-}
-.modalbox .salin-link:hover{color:#4a3220 !important}
+/* tombol salin rekening */
+.modalbox .net-card .copy-btn{margin-top:12px;padding:10px 26px;box-shadow:0 3px 10px rgba(70,45,25,.18)}
+.modalbox .net-card .copy-btn:active{transform:scale(.97)}
 
 </style>
 </head>
@@ -632,14 +628,14 @@ section:nth-of-type(5) .event .event-zone{font-size:12px !important}
         <div class="net-name" data-i18n="bank">Bank BCA</div>
         <div class="uid-number" id="addr-bca">8325198334</div>
         <div class="account-name"><span data-i18n="accountName">a.n. Ari Saputra</span></div>
-        <span class="salin-link" role="button" tabindex="0" onclick="copyText('addr-bca','rek')" data-i18n="copyShort">Salin</span>
+        <button type="button" class="btn copy-btn" onclick="copyText('addr-bca','rek',this)">📋 <span data-i18n="copyShort">Salin</span></button>
       </div>
 
       <div class="net-card">
         <div class="net-name" data-i18n="bankBsi">Bank BSI</div>
         <div class="uid-number" id="addr-bsi">7366301447</div>
         <div class="account-name"><span data-i18n="accountNameBsi">a.n. Nurtamala</span></div>
-        <span class="salin-link" role="button" tabindex="0" onclick="copyText('addr-bsi','rek')" data-i18n="copyShort">Salin</span>
+        <button type="button" class="btn copy-btn" onclick="copyText('addr-bsi','rek',this)">📋 <span data-i18n="copyShort">Salin</span></button>
       </div>
 
       <div class="copy-status" id="bankCopyStatus"></div>
@@ -1069,7 +1065,7 @@ function showCoin(coin){
   if(s) s.textContent = "";
 }
 
-async function copyText(id, type){
+async function copyText(id, type, btn){
   const el = document.getElementById(id);
   if(!el) return;
   const text = el.textContent.trim();
@@ -1086,6 +1082,11 @@ async function copyText(id, type){
   const status = document.getElementById(type === "rek" ? "bankCopyStatus" : "cryptoCopyStatus");
   const msgKey = type === "rek" ? "copiedAccount" : (type === "uid" ? "copiedUid" : "copiedWallet");
   if(status) status.textContent = t(msgKey);
+  if(btn){
+    const old = btn.innerHTML;
+    btn.innerHTML = "✓ " + t("copiedShort");
+    setTimeout(()=>{ btn.innerHTML = '📋 <span data-i18n="copyShort">' + t("copyShort") + '</span>'; }, 2000);
+  }
 }
 
 

@@ -695,6 +695,20 @@ section:nth-of-type(3) .divider{margin:14px auto 0}
   font:600 15px/1.5 "Cormorant Garamond",serif;color:#f5d08a;letter-spacing:.5px}
 @keyframes msgIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes goldShine{to{background-position:-250% 0}}
+/* ===== SAMBUNGAN ANTAR SLIDE: pudar + ornamen emas ===== */
+:root{--seam:#0b0806}
+.hero::after,#welcome::before,#welcome::after,section:nth-of-type(3)::before{
+  position:absolute;left:0;right:0;z-index:1;pointer-events:none;
+  display:flex;justify-content:center;
+  color:#e5c58f;font:400 14px/1 "Cormorant Garamond",serif;letter-spacing:2px;
+  text-shadow:0 0 8px rgba(245,208,138,.45) !important}
+.hero::after{content:"";bottom:0;height:140px;background:linear-gradient(to bottom,rgba(11,8,6,0),var(--seam))}
+#welcome::before{content:"───────  ❈  ───────";top:0;height:150px;align-items:flex-start;
+  background:linear-gradient(to top,rgba(11,8,6,0),var(--seam) 70%);padding-top:6px}
+#welcome::after{content:"";bottom:0;height:140px;background:linear-gradient(to bottom,rgba(11,8,6,0),var(--seam))}
+section:nth-of-type(3)::before{content:"───────  ❈  ───────";top:0;height:150px;align-items:flex-start;
+  background:linear-gradient(to top,rgba(11,8,6,0),var(--seam) 70%);padding-top:6px}
+.hero>*,#welcome>.inner,section:nth-of-type(3)>.inner{position:relative;z-index:2}
 </style>
 </head>
 

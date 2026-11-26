@@ -654,7 +654,8 @@ section:nth-of-type(5) .event::before{content:none !important}
 .count>*,.event>*,.card>*,.wish-form>*,.wish-list-wrap>*{position:relative;z-index:3}
 
 /* Countdown */
-.count{width:calc(100% - 64px);margin:60px auto 56px !important;padding:22px 20px !important;gap:10px !important}
+.count{width:calc(100% - 64px);margin:52px auto 46px !important;padding:22px 20px !important;gap:10px !important}
+section:nth-of-type(3) .divider{margin:14px auto 0}
 .count div{background:linear-gradient(160deg,rgba(36,24,15,.95),rgba(16,10,7,.97)) !important;
   border:1px solid rgba(229,197,143,.5) !important;box-shadow:0 4px 12px rgba(0,0,0,.45) !important}
 .count div::after{content:none !important}
@@ -673,6 +674,27 @@ section:nth-of-type(5) .event::before{content:none !important}
 .wish-list-wrap{margin:50px 30px 60px;padding:30px 16px 36px}
 .wish-list{max-height:420px}
 .wish-card{background:rgba(245,208,138,.05) !important;box-shadow:none !important}
+/* ===== PESAN HARI H (ganti countdown) ===== */
+.count,.event,section:nth-of-type(5) .event,.card,.wish-form,.wish-list-wrap,.count-msg{position:relative}
+.count-msg{width:calc(100% - 64px);margin:52px auto 46px;padding:34px 22px 40px;border-radius:4px;
+  background:linear-gradient(160deg,rgba(24,16,10,.9),rgba(10,7,5,.93));box-shadow:0 10px 28px rgba(0,0,0,.35);
+  animation:msgIn 1.2s ease both}
+.count-msg[hidden]{display:none}
+.count-msg::after{content:"";position:absolute;z-index:2;pointer-events:none;
+  inset:-46px -45px -49px -46px;border-style:solid;border-color:transparent;
+  border-width:98px 100px 117px 101px;
+  border-image:url("bingkai-batik.png") 265 272 319 276 / 98px 100px 117px 101px round}
+.count-msg>*{position:relative;z-index:3}
+.msg-icon{font-size:38px;line-height:1;margin-bottom:12px}
+.msg-title{font:700 27px/1.25 "Cormorant Garamond","Times New Roman",serif;
+  background:linear-gradient(90deg,#c9a45c,#fff1c9,#e5c58f,#fff1c9,#c9a45c);background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent !important;text-shadow:none !important;
+  animation:goldShine 5s linear infinite}
+.msg-text{margin-top:12px;font:600 17px/1.6 "Cormorant Garamond","Times New Roman",serif;color:#fff8ea}
+.msg-extra{margin-top:16px;padding-top:12px;border-top:1px solid rgba(229,197,143,.3);
+  font:600 15px/1.5 "Cormorant Garamond",serif;color:#f5d08a;letter-spacing:.5px}
+@keyframes msgIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes goldShine{to{background-position:-250% 0}}
 </style>
 </head>
 
@@ -726,8 +748,9 @@ section:nth-of-type(5) .event::before{content:none !important}
 </section>
 
 <section class="section"><div class="inner fade">
-<div class="eyebrow" data-i18n="saveDate">Catat Tanggalnya</div><h2 class="title" data-i18n="dateTitle">19 Desember 2026</h2><div class="divider"></div>
+<div class="eyebrow" id="saveDateHead" data-i18n="saveDate">Catat Tanggalnya</div><h2 class="title" id="saveDateTitle" data-i18n="dateTitle">19 Desember 2026</h2><div class="divider"></div>
 <div class="count"><div><span class="num" id="d">0</span><span class="label" data-i18n="days">Hari</span></div><div><span class="num" id="h">0</span><span class="label" data-i18n="hours">Jam</span></div><div><span class="num" id="m">0</span><span class="label" data-i18n="minutes">Menit</span></div><div><span class="num" id="s">0</span><span class="label" data-i18n="seconds">Detik</span></div></div>
+<div class="count-msg" id="countMsg" hidden></div>
 </div></section>
 
 <section class="section"><div class="inner fade">
@@ -863,12 +886,61 @@ const hourEl = document.getElementById("h");
 const minuteEl = document.getElementById("m");
 const secondEl = document.getElementById("s");
 
+// Tahapan acara (WIB)
+const T_AKAD = new Date("2026-12-18T14:00:00+07:00").getTime();
+const T_SAH  = new Date("2026-12-18T18:00:00+07:00").getTime();
+const T_RESEPSI = target; // 19 Des 10:30
+const T_SELESAI = new Date("2026-12-20T00:00:00+07:00").getTime();
+let lastPhase = null;
+
+function getPhase(now){
+  if(now < T_AKAD) return "count";
+  if(now < T_SAH) return "akad";
+  if(now < T_RESEPSI) return "sah";
+  if(now < T_SELESAI) return "rec";
+  return "thx";
+}
+
+function renderPhase(force){
+  try{ translations; }catch(e){ return; }
+  const now = Date.now();
+  const phase = getPhase(now);
+  const count = document.querySelector(".count");
+  const msg = document.getElementById("countMsg");
+  const head = document.getElementById("saveDateHead");
+  const title = document.getElementById("saveDateTitle");
+  const divider = title ? title.nextElementSibling : null;
+  if(!msg || !count) return;
+
+  const isCount = phase === "count";
+  count.style.display = isCount ? "" : "none";
+  [head,title,divider].forEach(el=>{ if(el) el.style.display = isCount ? "" : "none"; });
+  msg.hidden = isCount;
+  if(isCount){ lastPhase = phase; return; }
+
+  const P = {akad:"phAkad", sah:"phSah", rec:"phRec", thx:"phThx"}[phase];
+  let extra = "";
+  if(phase === "thx"){
+    const n = Math.floor((now - T_AKAD) / 86400000) + 1;
+    extra = '<div class="msg-extra">' + t("phMarried") + '<br>' + t("phDayTogether").replace("{n}", n) + '</div>';
+  }
+  const html = '<div class="msg-icon">' + t(P+"Icon") + '</div>' +
+    '<div class="msg-title">' + t(P+"Title") + '</div>' +
+    '<div class="msg-text">' + t(P+"Text") + '</div>' + extra;
+  if(force || phase !== lastPhase || msg.innerHTML !== html){
+    if(phase !== lastPhase){ msg.style.animation = "none"; msg.offsetHeight; msg.style.animation = ""; }
+    msg.innerHTML = html;
+  }
+  lastPhase = phase;
+}
+
 function updateCountdown(){
-  const x = Math.max(0, target - Date.now());
+  const x = Math.max(0, T_AKAD - Date.now());
   if(dayEl) dayEl.textContent = Math.floor(x / 86400000);
   if(hourEl) hourEl.textContent = Math.floor((x % 86400000) / 3600000);
   if(minuteEl) minuteEl.textContent = Math.floor((x % 3600000) / 60000);
   if(secondEl) secondEl.textContent = Math.floor((x % 60000) / 1000);
+  renderPhase(false);
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
@@ -1006,6 +1078,11 @@ function shareInvitation(){
 /* === TRANSLATE ID / EN / RU === */
 const translations = {
   id: {
+    phAkadIcon:"🤲", phAkadTitle:"Akad Nikah Sedang Berlangsung", phAkadText:"Mohon doa restunya untuk kelancaran acara kami.",
+    phSahIcon:"💍", phSahTitle:"Alhamdulillah, Kami Telah Sah", phSahText:"Sampai jumpa di resepsi besok, Sabtu 19 Desember pukul 10:30 WIB.",
+    phRecIcon:"🎉", phRecTitle:"Hari Bahagia Telah Tiba!", phRecText:"Resepsi sedang berlangsung. Kami tunggu kehadiran Anda.",
+    phThxIcon:"❤️", phThxTitle:"Terima Kasih", phThxText:"Atas doa dan kehadiran Anda di hari bahagia kami.",
+    phMarried:"Telah menikah sejak 18 Desember 2026", phDayTogether:"Hari ke-{n} bersama 💕",
     wishTitle:"Ucapan & Doa", wishText:"Kirimkan doa dan ucapan terbaik Anda untuk kami.",
     wishNamePh:"Nama Anda", wishMsgPh:"Tuliskan ucapan & doa Anda", wishSend:"Kirim Ucapan",
     wishSending:"Mengirim...", wishSent:"✓ Terima kasih atas ucapan & doanya!", wishFail:"Gagal mengirim, coba lagi.",
@@ -1066,6 +1143,11 @@ const translations = {
     waMessage:"Assalamu’alaikum Ari & Nur,\n\nSaya{name} insyaAllah akan hadir di acara pernikahan kalian.\n\nTerima kasih atas undangannya. 🙏"
   },
   en: {
+    phAkadIcon:"🤲", phAkadTitle:"The Marriage Ceremony Is Taking Place", phAkadText:"Please pray for the smooth running of our ceremony.",
+    phSahIcon:"💍", phSahTitle:"Alhamdulillah, We Are Officially Married", phSahText:"See you at the reception tomorrow, Saturday 19 December at 10:30 WIB.",
+    phRecIcon:"🎉", phRecTitle:"Our Happy Day Has Arrived!", phRecText:"The reception is underway. We look forward to seeing you.",
+    phThxIcon:"❤️", phThxTitle:"Thank You", phThxText:"For your prayers and presence on our happy day.",
+    phMarried:"Married since 18 December 2026", phDayTogether:"Day {n} together 💕",
     wishTitle:"Wishes & Prayers", wishText:"Send us your best wishes and prayers.",
     wishNamePh:"Your name", wishMsgPh:"Write your wishes & prayers", wishSend:"Send Wishes",
     wishSending:"Sending...", wishSent:"✓ Thank you for your wishes!", wishFail:"Failed to send, please try again.",
@@ -1126,6 +1208,11 @@ const translations = {
     waMessage:"Assalamu’alaikum Ari & Nur,\n\nI{name} will attend your wedding, insyaAllah.\n\nThank you for the invitation. 🙏"
   },
   ru: {
+    phAkadIcon:"🤲", phAkadTitle:"Идёт церемония бракосочетания", phAkadText:"Просим ваших молитв за благополучие нашей церемонии.",
+    phSahIcon:"💍", phSahTitle:"Альхамдулиллях, мы поженились", phSahText:"До встречи на приёме завтра, в субботу 19 декабря в 10:30 WIB.",
+    phRecIcon:"🎉", phRecTitle:"Наш счастливый день настал!", phRecText:"Приём уже идёт. Ждём вас с нетерпением.",
+    phThxIcon:"❤️", phThxTitle:"Спасибо", phThxText:"За ваши молитвы и присутствие в наш счастливый день.",
+    phMarried:"Женаты с 18 декабря 2026", phDayTogether:"{n}-й день вместе 💕",
     wishTitle:"Пожелания", wishText:"Оставьте нам свои лучшие пожелания и молитвы.",
     wishNamePh:"Ваше имя", wishMsgPh:"Напишите ваши пожелания", wishSend:"Отправить",
     wishSending:"Отправка...", wishSent:"✓ Спасибо за ваши пожелания!", wishFail:"Ошибка отправки, попробуйте ещё раз.",
@@ -1201,6 +1288,7 @@ function setLanguage(lang){
     if (dict[key] !== undefined) el.placeholder = dict[key];
   });
   if (typeof renderWishes === "function") renderWishes();
+  if (typeof renderPhase === "function") renderPhase(true);
 
   document.documentElement.lang = lang;
 

@@ -572,6 +572,17 @@ textarea.wish-input{min-height:96px;resize:vertical;font-family:"Cormorant Garam
 .wish-text{font:600 16px/1.55 "Cormorant Garamond",serif;color:#fff8ea;white-space:pre-line;overflow-wrap:anywhere}
 .wish-time{position:absolute;right:14px;bottom:8px;font:500 12px "Cormorant Garamond",serif;color:rgba(255,240,210,.7)}
 .wish-empty{font:italic 500 15px "Cormorant Garamond",serif;color:rgba(255,240,210,.75);padding:10px}
+/* ===== BINGKAI ORNAMEN FOTO MEMPELAI ===== */
+.portrait-frame{position:relative;width:200px;aspect-ratio:507/688;margin:0 auto;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.45))}
+.portrait-frame::after{content:"";position:absolute;inset:0;
+  background:url("border-foto.png") center/100% 100% no-repeat;pointer-events:none;z-index:2}
+.portrait-frame .portrait{position:absolute;z-index:1;
+  top:10%;bottom:10%;left:12%;right:12%;width:76%;height:80%;
+  margin:0;object-fit:cover;object-position:center 20%;
+  border-radius:6px;border:0;box-shadow:inset 0 0 0 1px rgba(229,197,143,.4)}
+.portrait-frame + h3{margin-top:12px !important}
+@media(max-width:360px){.portrait-frame{width:176px}}
 </style>
 </head>
 
@@ -632,8 +643,8 @@ textarea.wish-input{min-height:96px;resize:vertical;font-family:"Cormorant Garam
 <section class="section"><div class="inner fade">
 <div class="eyebrow" data-i18n="coupleTitle">Kedua Mempelai</div>
 <div class="couple">
-<div class="card"><img class="portrait" src="ari2.jpeg" alt="" loading="lazy" decoding="async"><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
-<div class="card"><img class="portrait" src="mala2.jpeg" alt="" loading="lazy" decoding="async"><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
+<div class="card"><div class="portrait-frame"><img class="portrait" src="ari2.jpeg" alt="" loading="lazy" decoding="async"></div><h3>Ari Saputra</h3><p class="sub"><span data-i18n="ariParents">Putra dari Bapak<br>Alm. Safril & Ibu Artini</span></p></div>
+<div class="card"><div class="portrait-frame"><img class="portrait" src="mala2.jpeg" alt="" loading="lazy" decoding="async"></div><h3>Nurtamala, S.Akun</h3><p class="sub"><span data-i18n="nurParents">Putri dari Bapak<br>Alm. Hamidi & Ibu Rohimah</span></p></div>
 </div></div></section>
 
 <section class="section"><div class="inner fade">

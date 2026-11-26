@@ -548,6 +548,30 @@ section:nth-of-type(5) .event .event-zone{font-size:12px !important}
   .names{font-size:44px}
   .modalbox{width:373px}
 }
+/* ===== UCAPAN & DOA ===== */
+.wish-form{display:flex;flex-direction:column;gap:12px;margin:26px auto 0;max-width:420px}
+.wish-input{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(229,197,143,.45);
+  background:rgba(20,12,8,.62);color:#fff8ea;font:600 16px "Cormorant Garamond","Times New Roman",serif;
+  outline:none;text-shadow:none !important}
+.wish-input::placeholder{color:rgba(255,240,210,.6)}
+.wish-input:focus{border-color:#f5d08a;box-shadow:0 0 0 2px rgba(245,208,138,.18)}
+textarea.wish-input{min-height:96px;resize:vertical;font-family:"Cormorant Garamond","Times New Roman",serif}
+.wish-send{margin:4px 0 0 !important;width:100%;font-size:15px !important;letter-spacing:2px;
+  background:linear-gradient(180deg,#7d261d,#54150f) !important;border-color:#f5d08a !important}
+.wish-send:disabled{opacity:.6;cursor:wait}
+.wish-status{min-height:20px;font:600 14px "Cormorant Garamond",serif;color:#f5d08a}
+.wish-ornament{color:#e5c58f;margin:18px 0 6px;letter-spacing:4px}
+.wish-list{max-height:460px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;
+  max-width:420px;margin:0 auto;padding:2px 4px 2px 0;overscroll-behavior:contain}
+.wish-list::-webkit-scrollbar{width:5px}
+.wish-list::-webkit-scrollbar-thumb{background:rgba(229,197,143,.4);border-radius:5px}
+.wish-card{position:relative;padding:16px 16px 26px;border-radius:14px;text-align:center;
+  background:linear-gradient(145deg,rgba(20,14,10,.78),rgba(40,27,17,.62));
+  border:1px solid rgba(229,197,143,.3);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.wish-name{font:700 19px "Cormorant Garamond",serif;color:#f5d08a;margin-bottom:6px}
+.wish-text{font:600 16px/1.55 "Cormorant Garamond",serif;color:#fff8ea;white-space:pre-line;overflow-wrap:anywhere}
+.wish-time{position:absolute;right:14px;bottom:8px;font:500 12px "Cormorant Garamond",serif;color:rgba(255,240,210,.7)}
+.wish-empty{font:italic 500 15px "Cormorant Garamond",serif;color:rgba(255,240,210,.75);padding:10px}
 </style>
 </head>
 
@@ -631,6 +655,20 @@ section:nth-of-type(5) .event .event-zone{font-size:12px !important}
 <p class="sub"><span data-i18n="rsvpText">Silakan konfirmasi melalui WhatsApp.</span></p>
 <a class="btn wa" href="#" onclick="confirmAttendance(event)"><span data-i18n="confirmWhatsApp">Konfirmasi via WhatsApp</span></a>
 <button class="btn" onclick="shareInvitation()">🔗 <span data-i18n="shareInvitation">Bagikan Undangan</span></button>
+</div></section>
+
+<section class="section" id="ucapan"><div class="inner fade">
+<div class="eyebrow" data-i18n="wishTitle">Ucapan &amp; Doa</div>
+<div class="divider"></div>
+<p class="sub"><span data-i18n="wishText">Kirimkan doa dan ucapan terbaik Anda untuk kami.</span></p>
+<form class="wish-form" id="wishForm" onsubmit="sendWish(event)">
+  <input class="wish-input" id="wishName" maxlength="60" required data-i18n-ph="wishNamePh" placeholder="Nama Anda">
+  <textarea class="wish-input" id="wishMsg" maxlength="500" required data-i18n-ph="wishMsgPh" placeholder="Tuliskan ucapan &amp; doa Anda"></textarea>
+  <button class="btn wish-send" id="wishSend" type="submit"><span data-i18n="wishSend">Kirim Ucapan</span></button>
+  <div class="wish-status" id="wishStatus"></div>
+</form>
+<div class="wish-ornament">───── ❈ ─────</div>
+<div class="wish-list" id="wishList"></div>
 </div></section>
 
 <footer class="footer"><h2>Ari Saputra<br>&<br>Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p></footer>
@@ -867,6 +905,11 @@ function shareInvitation(){
 /* === TRANSLATE ID / EN / RU === */
 const translations = {
   id: {
+    wishTitle:"Ucapan & Doa", wishText:"Kirimkan doa dan ucapan terbaik Anda untuk kami.",
+    wishNamePh:"Nama Anda", wishMsgPh:"Tuliskan ucapan & doa Anda", wishSend:"Kirim Ucapan",
+    wishSending:"Mengirim...", wishSent:"✓ Terima kasih atas ucapan & doanya!", wishFail:"Gagal mengirim, coba lagi.",
+    wishEmpty:"Belum ada ucapan. Jadilah yang pertama! 💌", wishLoading:"Memuat ucapan...",
+    tNow:"baru saja", tMin:"menit lalu", tHour:"jam lalu", tDay:"hari lalu",
     musicOn: "Musik ON",
     musicOff: "Musik OFF",
     wedding:"Pernikahan",
@@ -922,6 +965,11 @@ const translations = {
     waMessage:"Assalamu’alaikum Ari & Nur,\n\nSaya{name} insyaAllah akan hadir di acara pernikahan kalian.\n\nTerima kasih atas undangannya. 🙏"
   },
   en: {
+    wishTitle:"Wishes & Prayers", wishText:"Send us your best wishes and prayers.",
+    wishNamePh:"Your name", wishMsgPh:"Write your wishes & prayers", wishSend:"Send Wishes",
+    wishSending:"Sending...", wishSent:"✓ Thank you for your wishes!", wishFail:"Failed to send, please try again.",
+    wishEmpty:"No wishes yet. Be the first! 💌", wishLoading:"Loading wishes...",
+    tNow:"just now", tMin:"min ago", tHour:"hours ago", tDay:"days ago",
     musicOn: "Music ON",
     musicOff: "Music OFF",
     wedding:"The Wedding of",
@@ -977,6 +1025,11 @@ const translations = {
     waMessage:"Assalamu’alaikum Ari & Nur,\n\nI{name} will attend your wedding, insyaAllah.\n\nThank you for the invitation. 🙏"
   },
   ru: {
+    wishTitle:"Пожелания", wishText:"Оставьте нам свои лучшие пожелания и молитвы.",
+    wishNamePh:"Ваше имя", wishMsgPh:"Напишите ваши пожелания", wishSend:"Отправить",
+    wishSending:"Отправка...", wishSent:"✓ Спасибо за ваши пожелания!", wishFail:"Ошибка отправки, попробуйте ещё раз.",
+    wishEmpty:"Пока нет пожеланий. Будьте первым! 💌", wishLoading:"Загрузка...",
+    tNow:"только что", tMin:"мин. назад", tHour:"ч. назад", tDay:"дн. назад",
     musicOn: "Музыка ВКЛ",
     musicOff: "Музыка ВЫКЛ",
     wedding:"Свадьба",
@@ -1041,6 +1094,12 @@ function setLanguage(lang){
     const key = el.getAttribute("data-i18n");
     if (dict[key] !== undefined) el.innerHTML = dict[key];
   });
+
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+    const key = el.getAttribute("data-i18n-ph");
+    if (dict[key] !== undefined) el.placeholder = dict[key];
+  });
+  if (typeof renderWishes === "function") renderWishes();
 
   document.documentElement.lang = lang;
 
@@ -1175,6 +1234,76 @@ window.addEventListener("scroll", updateScrollHint, {passive:true});
 window.addEventListener("resize", updateScrollHint);
 window.addEventListener("load", updateScrollHint);
 
+
+// === UCAPAN & DOA (Google Sheets) ===
+// Tempel URL Web App dari Apps Script di sini:
+const WISH_API = "https://script.google.com/macros/s/AKfycbxnW0XsnY2WrFVX6qRXL_at_mh8RNfwn9X7JooghGeRVyPDc9kkJ64ql4Qh13dADkuY/exec";
+let wishes = null;
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function timeAgo(ts){
+  const diff = Math.max(0, Date.now() - new Date(ts).getTime());
+  const m = Math.floor(diff/60000), h = Math.floor(m/60), d = Math.floor(h/24);
+  if(m < 1) return t("tNow");
+  if(m < 60) return m + " " + t("tMin");
+  if(h < 24) return h + " " + t("tHour");
+  return d + " " + t("tDay");
+}
+function renderWishes(){
+  const list = document.getElementById("wishList");
+  if(!list) return;
+  if(wishes === null){ list.innerHTML = '<div class="wish-empty">' + t("wishLoading") + '</div>'; return; }
+  if(!wishes.length){ list.innerHTML = '<div class="wish-empty">' + t("wishEmpty") + '</div>'; return; }
+  list.innerHTML = wishes.map(w =>
+    '<div class="wish-card"><div class="wish-name">' + escapeHtml(w.name) +
+    '</div><div class="wish-text">' + escapeHtml(w.message) +
+    '</div><div class="wish-time">' + timeAgo(w.time) + '</div></div>'
+  ).join("");
+}
+async function loadWishes(){
+  if(!WISH_API.startsWith("http")){ wishes = []; renderWishes(); return; }
+  try{
+    const res = await fetch(WISH_API + "?t=" + Date.now());
+    const data = await res.json();
+    wishes = Array.isArray(data) ? data : [];
+  }catch(e){ wishes = wishes || []; }
+  renderWishes();
+}
+async function sendWish(event){
+  event.preventDefault();
+  const nameEl = document.getElementById("wishName");
+  const msgEl = document.getElementById("wishMsg");
+  const btn = document.getElementById("wishSend");
+  const status = document.getElementById("wishStatus");
+  const name = nameEl.value.trim(), message = msgEl.value.trim();
+  if(!name || !message) return;
+  btn.disabled = true; status.textContent = t("wishSending");
+  try{
+    if(!WISH_API.startsWith("http")) throw new Error("no api");
+    await fetch(WISH_API, {
+      method:"POST",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify({name, message})
+    });
+    wishes = [{name, message, time:new Date().toISOString()}].concat(wishes || []);
+    renderWishes();
+    msgEl.value = "";
+    status.textContent = t("wishSent");
+    setTimeout(loadWishes, 1500);
+  }catch(e){
+    status.textContent = t("wishFail");
+  }
+  btn.disabled = false;
+}
+(function initWish(){
+  const nameEl = document.getElementById("wishName");
+  if(nameEl && guestName) nameEl.value = guestName;
+  renderWishes();
+  loadWishes();
+  setInterval(renderWishes, 60000);
+})();
 
 setLanguage('id');
 </script>

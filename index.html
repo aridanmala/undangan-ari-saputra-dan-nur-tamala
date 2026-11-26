@@ -583,6 +583,75 @@ textarea.wish-input{min-height:96px;resize:vertical;font-family:"Cormorant Garam
   border-radius:6px;border:0;box-shadow:inset 0 0 0 1px rgba(229,197,143,.4)}
 .portrait-frame + h3{margin-top:12px !important}
 @media(max-width:360px){.portrait-frame{width:176px}}
+/* ===== HIASAN TEPI KOTAK (siku emas, garis dalam, kilau) ===== */
+:root{
+  --gold:rgba(245,208,138,.85);
+  --cL:22px; --cT:1.5px; --cO:7px;
+  --corners:
+    linear-gradient(var(--gold),var(--gold)) left var(--cO) top var(--cO)/var(--cL) var(--cT) no-repeat,
+    linear-gradient(var(--gold),var(--gold)) left var(--cO) top var(--cO)/var(--cT) var(--cL) no-repeat,
+    linear-gradient(var(--gold),var(--gold)) right var(--cO) top var(--cO)/var(--cL) var(--cT) no-repeat,
+    linear-gradient(var(--gold),var(--gold)) right var(--cO) top var(--cO)/var(--cT) var(--cL) no-repeat,
+    linear-gradient(var(--gold),var(--gold)) left var(--cO) bottom var(--cO)/var(--cL) var(--cT) no-repeat,
+    linear-gradient(var(--gold),var(--gold)) left var(--cO) bottom var(--cO)/var(--cT) var(--cL) no-repeat,
+    linear-gradient(var(--gold),var(--gold)) right var(--cO) bottom var(--cO)/var(--cL) var(--cT) no-repeat,
+    linear-gradient(var(--gold),var(--gold)) right var(--cO) bottom var(--cO)/var(--cT) var(--cL) no-repeat;
+}
+
+/* Countdown */
+.count div{position:relative;--cL:10px;--cO:5px;
+  background:var(--corners),rgba(20,14,10,.28);
+  box-shadow:inset 0 1px 0 rgba(245,208,138,.22),0 6px 18px rgba(0,0,0,.18)}
+
+/* Kartu acara: siku + garis dalam + ❈ atas & bawah */
+.event,section:nth-of-type(5) .event{position:relative;--cL:28px;--cO:8px;
+  padding-top:34px !important;padding-bottom:36px !important;
+  background:var(--corners),linear-gradient(145deg,rgba(10,7,5,.72),rgba(28,20,14,.60),rgba(8,6,5,.72));
+  border:1px solid rgba(229,197,143,.4);
+  box-shadow:inset 0 0 0 5px rgba(0,0,0,0),inset 0 0 0 6px rgba(229,197,143,.14),
+             inset 0 1px 0 rgba(245,208,138,.3),0 12px 35px rgba(0,0,0,.25)}
+.event::after,.event p::after{
+  content:"❈";position:absolute;left:50%;transform:translateX(-50%);z-index:2;
+  font-size:14px;line-height:1;color:#f5d08a;letter-spacing:0;
+  padding:0 8px;text-shadow:0 0 6px rgba(245,208,138,.4)}
+.event::after{top:9px}
+.event p::after{bottom:-27px}
+
+/* Kartu mempelai */
+.card{--cL:24px;--cO:8px;
+  background:var(--corners),linear-gradient(145deg,rgba(20,14,10,.72),rgba(40,27,17,.52),rgba(10,9,8,.72));
+  box-shadow:inset 0 0 0 6px rgba(0,0,0,0),inset 0 0 0 7px rgba(229,197,143,.12),
+             inset 0 1px 0 rgba(245,208,138,.28),0 12px 35px rgba(0,0,0,.28)}
+
+/* Form ucapan: siku muncul saat diklik */
+.wish-input{--cL:16px;--cO:5px;--gold:rgba(245,208,138,0);transition:box-shadow .25s,border-color .25s}
+.wish-input:focus{--gold:rgba(245,208,138,.9);
+  background:var(--corners),rgba(20,12,8,.62)}
+
+/* Kartu ucapan tamu */
+.wish-card{--cL:14px;--cO:6px;
+  background:var(--corners),linear-gradient(145deg,rgba(20,14,10,.78),rgba(40,27,17,.62));
+  box-shadow:inset 0 1px 0 rgba(245,208,138,.22),0 6px 18px rgba(0,0,0,.25)}
+
+/* Kotak rekening / crypto di popup hadiah */
+.net-card{--cL:16px;--cO:6px;--gold:rgba(121,83,51,.7);
+  background:var(--corners),#eee3d7 !important;border:1px solid #d8c5b3}
+/* ===== BINGKAI BATIK BUNGA (kotak-kotak utama) ===== */
+/* slice 207 dari 627px; tepi batik ada di ~58% lebar slice */
+.event,section:nth-of-type(5) .event,.count div{
+  overflow:visible !important;background:linear-gradient(145deg,rgba(10,7,5,.78),rgba(28,20,14,.66),rgba(8,6,5,.78)) !important;
+  border-color:transparent !important;box-shadow:0 12px 30px rgba(0,0,0,.3) !important}
+.event::after,.count div::after{
+  content:"" !important;position:absolute;z-index:3;pointer-events:none;
+  inset:calc(var(--bw) * -.58);transform:none;padding:0;
+  border:var(--bw) solid transparent;
+  border-image:url("bingkai-batik.png") 207 / var(--bw) stretch}
+.event p::after{content:none !important}
+.event,section:nth-of-type(5) .event{--bw:62px;padding:42px 28px 42px !important;margin:18px 0}
+.events{padding:0 24px}
+.count div{--bw:40px;position:relative;padding:22px 8px 20px !important}
+.events{gap:34px !important}
+.count{gap:22px !important;padding:0 10px}
 </style>
 </head>
 

@@ -636,16 +636,43 @@ textarea.wish-input{min-height:96px;resize:vertical;font-family:"Cormorant Garam
 /* Kotak rekening / crypto di popup hadiah */
 .net-card{--cL:16px;--cO:6px;--gold:rgba(121,83,51,.7);
   background:var(--corners),#eee3d7 !important;border:1px solid #d8c5b3}
-/* ===== BINGKAI BATIK BUNGA: bingkai mengikuti ukuran kotak (pola batik diulang, bukan ditarik) ===== */
-.count{position:relative;width:calc(100% - 64px);margin:60px auto 56px !important;
-  padding:22px 20px !important;gap:10px !important;border-radius:4px;
-  background:linear-gradient(160deg,rgba(24,16,10,.9),rgba(10,7,5,.92))}
-.count::after{content:"";position:absolute;inset:-46px -45px -49px -46px;z-index:2;pointer-events:none;
+/* ===== BINGKAI BATIK BUNGA: dipakai semua kotak utama =====
+   Pojok bunga utuh, garis batik di tepi diulang (round), jadi ikut ukuran kotak secara alami */
+.count,.event,section:nth-of-type(5) .event,.card,.wish-form,.wish-list-wrap{
+  position:relative;overflow:visible !important;border:0 !important;border-radius:4px !important;
+  background:linear-gradient(160deg,rgba(24,16,10,.9),rgba(10,7,5,.93)) !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.35) !important}
+.count::after,.event::after,.card::after,.wish-form::after,.wish-list-wrap::after{
+  content:"" !important;position:absolute;z-index:2;pointer-events:none;
+  inset:-46px -45px -49px -46px;transform:none;padding:0;text-shadow:none;
   border-style:solid;border-color:transparent;border-width:98px 100px 117px 101px;
   border-image:url("bingkai-batik.png") 265 272 319 276 / 98px 100px 117px 101px round}
-.count div{position:relative;z-index:3;
-  background:linear-gradient(160deg,rgba(36,24,15,.95),rgba(16,10,7,.97)) !important;
+.event p::after{content:none !important}
+section:nth-of-type(5) .event::before{content:none !important}
+
+/* isi di atas bingkai */
+.count>*,.event>*,.card>*,.wish-form>*,.wish-list-wrap>*{position:relative;z-index:3}
+
+/* Countdown */
+.count{width:calc(100% - 64px);margin:60px auto 56px !important;padding:22px 20px !important;gap:10px !important}
+.count div{background:linear-gradient(160deg,rgba(36,24,15,.95),rgba(16,10,7,.97)) !important;
   border:1px solid rgba(229,197,143,.5) !important;box-shadow:0 4px 12px rgba(0,0,0,.45) !important}
+.count div::after{content:none !important}
+
+/* Kartu acara */
+.events{gap:96px !important;margin:66px 30px 60px !important}
+.event,section:nth-of-type(5) .event{padding:44px 26px 48px !important}
+
+/* Kartu mempelai */
+.couple{gap:96px !important;margin:70px 30px 50px !important}
+.card{padding:40px 22px 46px !important}
+
+/* Ucapan */
+.wish-form{margin:62px 30px 0 !important;padding:30px 22px 34px !important;max-width:none}
+.wish-ornament{margin-top:62px}
+.wish-list-wrap{margin:50px 30px 60px;padding:30px 16px 36px}
+.wish-list{max-height:420px}
+.wish-card{background:rgba(245,208,138,.05) !important;box-shadow:none !important}
 </style>
 </head>
 
@@ -742,7 +769,7 @@ textarea.wish-input{min-height:96px;resize:vertical;font-family:"Cormorant Garam
   <div class="wish-status" id="wishStatus"></div>
 </form>
 <div class="wish-ornament">───── ❈ ─────</div>
-<div class="wish-list" id="wishList"></div>
+<div class="wish-list-wrap"><div class="wish-list" id="wishList"></div></div>
 </div></section>
 
 <footer class="footer"><h2>Ari Saputra<br>&<br>Nurtamala, S.Akun</h2><p><span data-i18n="footerThanks">Terima kasih telah menjadi bagian dari cerita kami.</span></p></footer>
